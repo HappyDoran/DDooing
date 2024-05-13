@@ -32,6 +32,6 @@ ex) <img src="https://img.shields.io/badge/Swift-FA7343?style=flat&logo=Swift&lo
 
 ## :people_hugging: Authors
 
-|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|
-|:-:|
-|[김지희](https://github.com/jihee-daily)|
+|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|![image](https://avatars.githubusercontent.com/u/140409015?v=4)|
+|:-:|:-:|
+|[김지희](https://github.com/jihee-daily)|[조우현](https://github.com/WooFeather)|
