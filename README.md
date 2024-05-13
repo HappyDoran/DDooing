@@ -32,6 +32,7 @@ ex) <img src="https://img.shields.io/badge/Swift-FA7343?style=flat&logo=Swift&lo
 
 ## :people_hugging: Authors
 
-|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|![untitled](https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/166782425/a82f558f-06a1-419b-b5af-958fd04896c6)|
+|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|![하래_박하연_001123_미모지](https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/166782425/ec3eb07d-f0f7-4352-81e5-e551da2ab6f8)
+|
 |:-:|:-:|
 |[김지희](https://github.com/jihee-daily)|[박하연](https://github.com/HaraePark)|
