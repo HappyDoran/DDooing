@@ -32,6 +32,8 @@ ex) <img src="https://img.shields.io/badge/Swift-FA7343?style=flat&logo=Swift&lo
 
 ## :people_hugging: Authors
 
-|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|<img width="308" alt="스크린샷 2024-05-13 오후 4 45 43" src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/166782425/cfee305b-1ec7-4e8f-b38e-6977233f5558">|
-|:-:|:-:|
-|[김지희](https://github.com/jihee-daily)|[박하연](https://github.com/HaraePark)|
+
+|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|![image](https://avatars.githubusercontent.com/u/108652767?v=4)|![image](https://avatars.githubusercontent.com/u/140409015?v=4)|![image](https://avatars.githubusercontent.com/u/108533017?v=4)|<img width="308" alt="스크린샷 2024-05-13 오후 4 45 43" src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/166782425/cfee305b-1ec7-4e8f-b38e-6977233f5558">|
+|:-:|:-:|:-:|:-:|:-:|
+|[김지희](https://github.com/jihee-daily)|[문재윤](https://github.com/tenedict)|[조우현](https://github.com/WooFeather)|[Nada](https://github.com/yajikim)|[박하연](https://github.com/HaraePark)|
+
