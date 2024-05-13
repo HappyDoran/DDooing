@@ -32,6 +32,6 @@ ex) <img src="https://img.shields.io/badge/Swift-FA7343?style=flat&logo=Swift&lo
 
 ## :people_hugging: Authors
 
-|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|
+|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|[김지희](https://github.com/jihee-daily)|
+|[김지희](https://github.com/jihee-daily)|[김지희](https://github.com/jihee-daily)|[김지희](https://github.com/jihee-daily)|[김지희](https://github.com/jihee-daily)|[김지희](https://github.com/jihee-daily)|[김지희](https://github.com/jihee-daily)|
