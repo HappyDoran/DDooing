@@ -8,7 +8,7 @@ This app allows user to easily send his love message to lover.
 Only pressing a simple button.
 
 ## :fireworks: Screenshots
-<img width="1052" alt="스크린샷 2024-05-13 16 07 34" src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/66589666/5e047ff2-47db-4068-9244-ebd795b3f3fe">
+<img width="1052" alt="스크린샷 2024-05-13 16 07 34" src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/66589666/5e047ff2-47db-4068-9244-ebd795b3f3fe">
 
 ## :framed_picture: Demo (optional)
 
@@ -32,6 +32,6 @@ ex) <img src="https://img.shields.io/badge/Swift-FA7343?style=flat&logo=Swift&lo
 
 ## :people_hugging: Authors
 
-|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|
-|:-:|
-|[김지희](https://github.com/jihee-daily)|
+|![image](https://avatars.githubusercontent.com/u/66589666?v=4)|![untitled](https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/166782425/a82f558f-06a1-419b-b5af-958fd04896c6)|
+|:-:|:-:|
+|[김지희](https://github.com/jihee-daily)|[박하연](https://github.com/HaraePark)|
