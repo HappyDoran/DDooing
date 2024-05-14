@@ -1,6 +1,6 @@
 # MC2-Team18-DDooing
 
-# :iphone: DDooing
+# :iphone: DDooing (뚜잉)
 <img width="338" alt="Group 18" src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/66589666/fba50550-b498-418f-a18b-3e0e2ecc797d">
 
 This app allows user to easily send his love message to lover.
