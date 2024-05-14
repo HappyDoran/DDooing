@@ -17,9 +17,9 @@ Attach videos if you are available
 
 ## :pushpin: Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+- 상대방과 연결하기
+- 랜덤 문구 혹은 특정 문구 보내기
+- 위젯 혹은 애플워치로 문구 보내고 받기
 
 
 ## :sparkles: Skills & Tech Stack
