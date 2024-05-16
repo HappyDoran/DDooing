@@ -21,6 +21,7 @@
 		4FF515942BF33F810056531C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515932BF33F810056531C /* HomeView.swift */; };
 		4FF515962BF33FB40056531C /* TextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515952BF33FB40056531C /* TextEditView.swift */; };
 		4FF515982BF33FD70056531C /* ShowMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515972BF33FD70056531C /* ShowMessageView.swift */; };
+		9D79E9372BF5FAD700A05D95 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79E9362BF5FAD700A05D95 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		4FF515932BF33F810056531C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4FF515952BF33FB40056531C /* TextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditView.swift; sourceTree = "<group>"; };
 		4FF515972BF33FD70056531C /* ShowMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMessageView.swift; sourceTree = "<group>"; };
+		9D79E9362BF5FAD700A05D95 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				4FAD25AF2BF3339A00EBD37A /* DDooingApp.swift */,
 				4FAD25B12BF3339A00EBD37A /* ContentView.swift */,
 				4FAD25B32BF3339B00EBD37A /* Assets.xcassets */,
+				9D79E9362BF5FAD700A05D95 /* Model.swift */,
 				4FAD25B52BF3339B00EBD37A /* Preview Content */,
 				4FF5158B2BF33EAB0056531C /* LoginView.swift */,
 				4FF5158D2BF33F030056531C /* CertificateUserView.swift */,
@@ -283,6 +286,7 @@
 				4FF5158E2BF33F030056531C /* CertificateUserView.swift in Sources */,
 				4FF515962BF33FB40056531C /* TextEditView.swift in Sources */,
 				4FF515922BF33F680056531C /* PartnerNameView.swift in Sources */,
+				9D79E9372BF5FAD700A05D95 /* Model.swift in Sources */,
 				4FAD25B22BF3339A00EBD37A /* ContentView.swift in Sources */,
 				4FF515902BF33F430056531C /* CodeView.swift in Sources */,
 				4FAD25B02BF3339A00EBD37A /* DDooingApp.swift in Sources */,
