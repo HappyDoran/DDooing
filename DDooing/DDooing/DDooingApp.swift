@@ -13,5 +13,6 @@ struct DDooingApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [Message.self])
     }
 }
