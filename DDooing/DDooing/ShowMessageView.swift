@@ -18,7 +18,7 @@ struct RecivedMessage: Identifiable {
 struct ShowMessageView: View {
     
     @State private var recivedMessages = [
-        RecivedMessage(name: "현집", text: "많이 보고싶어", time: Date()),
+        RecivedMessage(name: "현집", text: "많이 보고싶어요", time: Date()),
         RecivedMessage(name: "현집", text: "오늘도 화이팅", time: Date()),
         RecivedMessage(name: "현집", text: "럭키비키 걸~", time: Date()),
         RecivedMessage(name: "현집", text: "메롱", time: Date()),
