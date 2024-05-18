@@ -10,6 +10,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 struct RandomCodeView: View {
+    @StateObject private var viewModel = UserStatusViewModel()
     @State private var isConnectionMode = true
     @State private var code = ""
     @State private var randomCode = ""
@@ -17,62 +18,67 @@ struct RandomCodeView: View {
     
     var body: some View {
         VStack{
-            VStack(spacing:0){
-                Text("DDooing").font(.pretendardBold40)
-                    .padding(.bottom, 30)
-                
-                Picker(selection: $isConnectionMode, label: Text("Picker here")){
-                    Text("나의 코드 공유").tag(true)
-                    Text("파트너 코드 입력").tag(false)
-                }
-                .pickerStyle(.segmented)
-                .padding(.bottom, 70)
-                
-                
-                if isConnectionMode {
-                    Text(randomCode)
-                        .font(.pretendardBold32)
-                        .padding(.bottom, 73)
-                    
-                    Button(action: {
-                        print("공유하기 모션")
-                    }, label: {
-                        Text("공유하기")
-                            .font(.pretendardBold18)
-    //                        .foregroundStyle(.white)
-                    })
-                    .padding(.bottom,100)
-                }
-                else{
-                    TextField("Code", text: $code)
-                        .keyboardType(.namePhonePad).autocapitalization(.none)
-                        .font(.pretendardBold32)
-                        .padding(.leading, 32)
-                        .padding(.trailing, 32)
-                    Rectangle()
-                        .frame(height: 1)
-    //                    .foregroundColor(.white)
-                        .padding(.leading, 32)
-                    .padding(.trailing, 32)
-                    .padding(.bottom, 73)
-                    
-                    Button(action: {
-                        if let user = Auth.auth().currentUser {
-                            connectUsers(with: code, userAUID: user.uid)
-                        }
-                    }, label: {
-                        Text("연결하기")
-                            .font(.pretendardBold18)
-    //                        .foregroundStyle(.white)
-                    })
-                    .padding(.bottom,100)
-                }
-                
-                Text("파트너 연결이 완료되면 홈으로 이동됩니다.")
+            if viewModel.isConnected {
+                HomeView().transition(.scale.animation(.easeIn))
             }
-            .padding(.horizontal, 16)
-            .padding(.top, 165)
-            Spacer()
+            else {
+                VStack(spacing:0){
+                    Text("DDooing").font(.pretendardBold40)
+                        .padding(.bottom, 30)
+                    
+                    Picker(selection: $isConnectionMode, label: Text("Picker here")){
+                        Text("나의 코드 공유").tag(true)
+                        Text("파트너 코드 입력").tag(false)
+                    }
+                    .pickerStyle(.segmented)
+                    .padding(.bottom, 70)
+                    
+                    
+                    if isConnectionMode {
+                        Text(randomCode)
+                            .font(.pretendardBold32)
+                            .padding(.bottom, 73)
+                        
+                        Button(action: {
+                            print("공유하기 모션")
+                        }, label: {
+                            Text("공유하기")
+                                .font(.pretendardBold18)
+                            //                        .foregroundStyle(.white)
+                        })
+                        .padding(.bottom,100)
+                    }
+                    else{
+                        TextField("Code", text: $code)
+                            .keyboardType(.namePhonePad).autocapitalization(.none)
+                            .font(.pretendardBold32)
+                            .padding(.leading, 32)
+                            .padding(.trailing, 32)
+                        Rectangle()
+                            .frame(height: 1)
+                        //                    .foregroundColor(.white)
+                            .padding(.leading, 32)
+                            .padding(.trailing, 32)
+                            .padding(.bottom, 73)
+                        
+                        Button(action: {
+                            if let user = Auth.auth().currentUser {
+                                connectUsers(with: code, userAUID: user.uid)
+                            }
+                        }, label: {
+                            Text("연결하기")
+                                .font(.pretendardBold18)
+                            //                        .foregroundStyle(.white)
+                        })
+                        .padding(.bottom,100)
+                    }
+                    
+                    Text("파트너 연결이 완료되면 홈으로 이동됩니다.")
+                }
+                .padding(.horizontal, 16)
+                .padding(.top, 165)
+                Spacer()
+            }
         }
         .padding(.horizontal,16)
         .onAppear {
@@ -80,6 +86,7 @@ struct RandomCodeView: View {
             randomCode = generateRandomCode(length: 6).uppercased()
             if let user = Auth.auth().currentUser {
                 sendRandomCodeToFirebase(for: user, with: randomCode)
+                viewModel.observeUserConnectionStatus(userId: user.uid)
             }
         }
         .navigationBarBackButtonHidden(true)
