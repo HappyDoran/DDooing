@@ -13,6 +13,8 @@ struct PartnerNameView: View {
     }
 }
 
-#Preview {
-    PartnerNameView()
+struct PartnerNameView_Previews: PreviewProvider {
+    static var previews: some View {
+        PartnerNameView().preferredColorScheme(.dark)
+    }
 }
