@@ -14,6 +14,7 @@
 		4FAD25C12BF3339B00EBD37A /* DDooingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25C02BF3339B00EBD37A /* DDooingTests.swift */; };
 		4FAD25CB2BF3339B00EBD37A /* DDooingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25CA2BF3339B00EBD37A /* DDooingUITests.swift */; };
 		4FAD25CD2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25CC2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift */; };
+		4FD812C92BF879A300F16ED0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD812C82BF879A200F16ED0 /* GoogleService-Info.plist */; };
 		4FF5158C2BF33EAB0056531C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5158B2BF33EAB0056531C /* LoginView.swift */; };
 		4FF5158E2BF33F030056531C /* CertificateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5158D2BF33F030056531C /* CertificateUserView.swift */; };
 		4FF515902BF33F430056531C /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5158F2BF33F430056531C /* CodeView.swift */; };
@@ -52,6 +53,7 @@
 		4FAD25C62BF3339B00EBD37A /* DDooingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDooingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAD25CA2BF3339B00EBD37A /* DDooingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingUITests.swift; sourceTree = "<group>"; };
 		4FAD25CC2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4FD812C82BF879A200F16ED0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FF5158B2BF33EAB0056531C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4FF5158D2BF33F030056531C /* CertificateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateUserView.swift; sourceTree = "<group>"; };
 		4FF5158F2BF33F430056531C /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		4FAD25A32BF3339A00EBD37A = {
 			isa = PBXGroup;
 			children = (
+				4FD812C82BF879A200F16ED0 /* GoogleService-Info.plist */,
 				4FAD25AE2BF3339A00EBD37A /* DDooing */,
 				4FAD25BF2BF3339B00EBD37A /* DDooingTests */,
 				4FAD25C92BF3339B00EBD37A /* DDooingUITests */,
@@ -239,6 +242,9 @@
 				Base,
 			);
 			mainGroup = 4FAD25A32BF3339A00EBD37A;
+			packageReferences = (
+				4FD812C72BF8798A00F16ED0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 4FAD25AD2BF3339A00EBD37A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,6 +263,7 @@
 			files = (
 				4FAD25B72BF3339B00EBD37A /* Preview Assets.xcassets in Resources */,
 				4FAD25B42BF3339B00EBD37A /* Assets.xcassets in Resources */,
+				4FD812C92BF879A300F16ED0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +627,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4FD812C72BF8798A00F16ED0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 4FAD25A42BF3339A00EBD37A /* Project object */;
 }
