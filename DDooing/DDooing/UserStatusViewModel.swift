@@ -15,7 +15,7 @@ class UserStatusViewModel: ObservableObject {
     private var listenerRegistration: ListenerRegistration?
 
     func observeUserConnectionStatus(userId: String) {
-        // Firestore에서 사용자의 isConnected 상태를 관찰
+       
         let docRef = db.collection("Users").document(userId)
 
         listenerRegistration = docRef.addSnapshotListener { documentSnapshot, error in

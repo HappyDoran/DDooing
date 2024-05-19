@@ -14,71 +14,73 @@ struct RandomCodeView: View {
     @State private var isConnectionMode = true
     @State private var code = ""
     @State private var randomCode = ""
-    @State private var isConnected = false
     
     var body: some View {
-        VStack{
-            if viewModel.isConnected {
-                HomeView().transition(.scale.animation(.easeIn))
-            }
-            else {
-                VStack(spacing:0){
-                    Text("DDooing").font(.pretendardBold40)
-                        .padding(.bottom, 30)
-                    
-                    Picker(selection: $isConnectionMode, label: Text("Picker here")){
-                        Text("나의 코드 공유").tag(true)
-                        Text("파트너 코드 입력").tag(false)
-                    }
-                    .pickerStyle(.segmented)
-                    .padding(.bottom, 70)
-                    
-                    
-                    if isConnectionMode {
-                        Text(randomCode)
-                            .font(.pretendardBold32)
-                            .padding(.bottom, 73)
-                        
-                        Button(action: {
-                            print("공유하기 모션")
-                        }, label: {
-                            Text("공유하기")
-                                .font(.pretendardBold18)
-                            //                        .foregroundStyle(.white)
-                        })
-                        .padding(.bottom,100)
-                    }
-                    else{
-                        TextField("Code", text: $code)
-                            .keyboardType(.namePhonePad).autocapitalization(.none)
-                            .font(.pretendardBold32)
-                            .padding(.leading, 32)
-                            .padding(.trailing, 32)
-                        Rectangle()
-                            .frame(height: 1)
-                        //                    .foregroundColor(.white)
-                            .padding(.leading, 32)
-                            .padding(.trailing, 32)
-                            .padding(.bottom, 73)
-                        
-                        Button(action: {
-                            if let user = Auth.auth().currentUser {
-                                connectUsers(with: code, userAUID: user.uid)
-                            }
-                        }, label: {
-                            Text("연결하기")
-                                .font(.pretendardBold18)
-                            //                        .foregroundStyle(.white)
-                        })
-                        .padding(.bottom,100)
-                    }
-                    
-                    Text("파트너 연결이 완료되면 홈으로 이동됩니다.")
+        
+        NavigationStack{
+            VStack(spacing:0){
+                Text("DDooing").font(.pretendardBold40)
+                    .padding(.bottom, 30)
+                
+                Picker(selection: $isConnectionMode, label: Text("Picker here")){
+                    Text("나의 코드 공유").tag(true)
+                    Text("파트너 코드 입력").tag(false)
                 }
-                .padding(.horizontal, 16)
-                .padding(.top, 165)
-                Spacer()
+                .pickerStyle(.segmented)
+                .padding(.bottom, 70)
+                
+                
+                if isConnectionMode {
+                    Text(randomCode)
+                        .font(.pretendardBold32)
+                        .padding(.bottom, 73)
+                    
+                    Button(action: {
+                        print("공유하기 모션")
+                    }, label: {
+                        Text("공유하기")
+                            .font(.pretendardBold18)
+                        //                        .foregroundStyle(.white)
+                    })
+                    .padding(.bottom,100)
+                }
+                else{
+                    TextField("Code", text: $code)
+                        .keyboardType(.namePhonePad).autocapitalization(.none)
+                        .font(.pretendardBold32)
+                        .padding(.leading, 32)
+                        .padding(.trailing, 32)
+                    Rectangle()
+                        .frame(height: 1)
+                    //                    .foregroundColor(.white)
+                        .padding(.leading, 32)
+                        .padding(.trailing, 32)
+                        .padding(.bottom, 73)
+                    
+                    Button(action: {
+                        if let user = Auth.auth().currentUser {
+                            connectUsers(with: code, userAUID: user.uid)
+                        }
+                    }, label: {
+                        Text("연결하기")
+                            .font(.pretendardBold18)
+                        //                        .foregroundStyle(.white)
+                    })
+                    .padding(.bottom,100)
+                }
+                
+                Text("파트너 연결이 완료되면 홈으로 이동됩니다.")
             }
+            .padding(.horizontal, 16)
+            .padding(.top, 165)
+            Spacer()
+            
+            NavigationLink(
+                destination: PartnerNameView(),
+                isActive: $viewModel.isConnected,
+                label: {
+                    EmptyView()
+                })
         }
         .padding(.horizontal,16)
         .onAppear {
