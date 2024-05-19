@@ -53,7 +53,8 @@
 		4FD812D72BF87AB900F16ED0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD812D62BF87AB900F16ED0 /* FirebaseFirestoreSwift */; };
 		4FD812D92BF87BA800F16ED0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD812D82BF87BA800F16ED0 /* LoginViewModel.swift */; };
 		4FF293E92BF8EF33004BDDB3 /* UserStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF293E82BF8EF33004BDDB3 /* UserStatusViewModel.swift */; };
-		4FF293EB2BF91A01004BDDB3 /* AnimationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF293EA2BF91A01004BDDB3 /* AnimationExtension.swift */; };
+		4FF293F32BFA2779004BDDB3 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF293F22BFA2779004BDDB3 /* FirstView.swift */; };
+		4FF293F52BFA27AF004BDDB3 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF293F42BFA27AF004BDDB3 /* AppViewModel.swift */; };
 		4FF5158C2BF33EAB0056531C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5158B2BF33EAB0056531C /* LoginView.swift */; };
 		4FF5158E2BF33F030056531C /* CertificateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5158D2BF33F030056531C /* CertificateUserView.swift */; };
 		4FF515902BF33F430056531C /* RandomCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5158F2BF33F430056531C /* RandomCodeView.swift */; };
@@ -107,7 +108,8 @@
 		4FD812CA2BF87A8200F16ED0 /* DDooing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDooing.entitlements; sourceTree = "<group>"; };
 		4FD812D82BF87BA800F16ED0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4FF293E82BF8EF33004BDDB3 /* UserStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusViewModel.swift; sourceTree = "<group>"; };
-		4FF293EA2BF91A01004BDDB3 /* AnimationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExtension.swift; sourceTree = "<group>"; };
+		4FF293F22BFA2779004BDDB3 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		4FF293F42BFA27AF004BDDB3 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		4FF5158B2BF33EAB0056531C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4FF5158D2BF33F030056531C /* CertificateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateUserView.swift; sourceTree = "<group>"; };
 		4FF5158F2BF33F430056531C /* RandomCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCodeView.swift; sourceTree = "<group>"; };
@@ -204,8 +206,8 @@
 				4FAD25AF2BF3339A00EBD37A /* DDooingApp.swift */,
 				4FAD25B12BF3339A00EBD37A /* ContentView.swift */,
 				4FAD25B32BF3339B00EBD37A /* Assets.xcassets */,
-				9D79E9362BF5FAD700A05D95 /* Model.swift */,
 				4FAD25B52BF3339B00EBD37A /* Preview Content */,
+				9D79E9362BF5FAD700A05D95 /* Model.swift */,
 				4FF5158B2BF33EAB0056531C /* LoginView.swift */,
 				4FD812D82BF87BA800F16ED0 /* LoginViewModel.swift */,
 				4FF5158D2BF33F030056531C /* CertificateUserView.swift */,
@@ -213,10 +215,11 @@
 				4FF293E82BF8EF33004BDDB3 /* UserStatusViewModel.swift */,
 				4FF515912BF33F680056531C /* PartnerNameView.swift */,
 				4FF515932BF33F810056531C /* HomeView.swift */,
-				4FF293EA2BF91A01004BDDB3 /* AnimationExtension.swift */,
 				4FF515952BF33FB40056531C /* TextEditView.swift */,
 				4FF515972BF33FD70056531C /* ShowMessageView.swift */,
 				4F1A59582BF8894600C3EF2C /* FontManager.swift */,
+				4FF293F22BFA2779004BDDB3 /* FirstView.swift */,
+				4FF293F42BFA27AF004BDDB3 /* AppViewModel.swift */,
 			);
 			path = DDooing;
 			sourceTree = "<group>";
@@ -427,14 +430,15 @@
 				4FD812D92BF87BA800F16ED0 /* LoginViewModel.swift in Sources */,
 				4FF5158E2BF33F030056531C /* CertificateUserView.swift in Sources */,
 				4FF515962BF33FB40056531C /* TextEditView.swift in Sources */,
+				4FF293F52BFA27AF004BDDB3 /* AppViewModel.swift in Sources */,
 				4FF515922BF33F680056531C /* PartnerNameView.swift in Sources */,
 				9D79E9372BF5FAD700A05D95 /* Model.swift in Sources */,
+				4FF293F32BFA2779004BDDB3 /* FirstView.swift in Sources */,
 				4FF293E92BF8EF33004BDDB3 /* UserStatusViewModel.swift in Sources */,
 				4FAD25B22BF3339A00EBD37A /* ContentView.swift in Sources */,
 				4FF515902BF33F430056531C /* RandomCodeView.swift in Sources */,
 				4FAD25B02BF3339A00EBD37A /* DDooingApp.swift in Sources */,
 				4F1A59592BF8894600C3EF2C /* FontManager.swift in Sources */,
-				4FF293EB2BF91A01004BDDB3 /* AnimationExtension.swift in Sources */,
 				4FF515982BF33FD70056531C /* ShowMessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

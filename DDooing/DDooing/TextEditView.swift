@@ -14,74 +14,79 @@
 import SwiftUI
 import SwiftData
 
-//struct Message: Identifiable {
-//    let id = UUID()
-//    let text: String
-//    var isStarred: Bool = false
-//}
 
 struct TextEditView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var messages: [Message]
     @State private var newMessage = ""
-//    @State private var messages = [
-//        Message(text: "많이 보고싶어😘"),
-//        Message(text: "주말에 놀러갈까?"),
-//        Message(text: "오늘도 화이팅💪"),
-//        Message(text: "메롱"),
-//        Message(text: "오늘 네 생각이 더 많이 나더라 특히"),
-//        Message(text: "오늘도 럭키비키 걸🍀"),
-//        Message(text: "상아 생각나서 버튼 뚜잉 뚜잉 중~")
-//    ]
     
     var body: some View {
         
         NavigationStack {
                 List {
-                    Section{
+                    Text("메세지 문구")
+                        .font(.largeTitle)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .listRowSeparator(.hidden)
+                    // 편지 사진
+                    HStack{
+                        Spacer()
                         Image("Letter")
                             .resizable()
                             .frame(width: 85, height: 100)
-                            .padding()
-                            
-                    }
-                    Button(action: {addItem()}, label: {
-                        /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
-                    })
-                    ForEach(messages) { mess in
-                        HStack {
-                            TextField("", text: Binding(
-                                get: { mess.message },
-                                set: { mess.message = $0 }
-                            ))
+                        
+                        Spacer()
+                    }.listRowSeparator(.hidden)
+                    
+                    Section(header:  Button(action: {addItem()}, label: {
+                        HStack{
                             Spacer()
-                            if mess.isStarred {
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(.orange)
+                            Image(systemName: "plus")
+                                .listRowSeparator(.hidden)
+                                .foregroundColor(.blue)
+                            }
+                        .background()
+                    })) {
+                        ForEach(messages) { mess in
+                            HStack {
+                                TextField("문구를 입력해주세요", text: Binding(
+                                    get: { mess.message },
+                                    set: { mess.message = $0 }
+                                )).onChange(of: mess.message,  initial: true) {
+                                    saveContext()
+                                }
+                                Spacer()
+                                if mess.isStarred {
+                                    Image(systemName: "star.fill")
+                                        .foregroundColor(.orange)
+                                }
+                            }.swipeActions {
+                                
+                                Button(role: .destructive) {
+                                    deleteItem(item: mess)
+                                  } label: {
+                                   Label("Delete", systemImage: "trash")
+                                  }
+                                
+                                
+                                Button {
+                                    mess.isStarred.toggle()
+                                } label: {
+                                    Label("Star", systemImage: "star.fill")
+                                }
+                                .tint(.orange)
                             }
                         }
-//                        .swipeActions {
-//                            Button(role: .destructive) {
-//                                if let index = messages.firstIndex(where: { $0.id == mess.id }) {
-//                                    messages.remove(at: index)
-//                                }
-//                            } label: {
-//                                Label("Delete", systemImage: "trash")
-//                            }
-//                            Button {
-//                                mess.isStarred.toggle()
-//                                sortMessages()
-//                            } label: {
-//                                Label("Star", systemImage: "star.fill")
-//                            }
-//                            .tint(.orange)
-//                        }
+                        
                     }
+                        
+                        
+                    
                 }
-                .listStyle(.inset)
+                .listStyle(.plain)
 
         }
-//        .navigationTitle("메세지 문구")
+        .navigationTitle("메세지 문구")
     }
     
 //    func sortMessages() {
@@ -92,6 +97,21 @@ struct TextEditView: View {
                 let newItem = Message(message: newMessage, isStarred: false )
                 modelContext.insert(newItem)
         }
+    func saveContext() {
+            // SwiftData 모델 컨텍스트 저장
+            do {
+                try modelContext.save()
+            } catch {
+                print("Error saving context: \(error)")
+            }
+        }
+    func deleteItem(item: Message) {
+        // modelContext에서 아이템 삭제
+        modelContext.delete(item)
+        saveContext()
+    }
+
+    
 }
 
 

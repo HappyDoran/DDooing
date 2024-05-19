@@ -10,7 +10,7 @@ import Firebase
 
 class UserStatusViewModel: ObservableObject {
     @Published var isConnected: Bool = false
-    
+
     private var db = Firestore.firestore()
     private var listenerRegistration: ListenerRegistration?
 

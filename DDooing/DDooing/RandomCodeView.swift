@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-import FirebaseFirestore
-import FirebaseAuth
+import Firebase
 
 struct RandomCodeView: View {
     @StateObject private var viewModel = UserStatusViewModel()
@@ -16,7 +15,6 @@ struct RandomCodeView: View {
     @State private var randomCode = ""
     
     var body: some View {
-        
         NavigationStack{
             VStack(spacing:0){
                 Text("DDooing").font(.pretendardBold40)
@@ -28,7 +26,6 @@ struct RandomCodeView: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.bottom, 70)
-                
                 
                 if isConnectionMode {
                     Text(randomCode)
@@ -82,17 +79,16 @@ struct RandomCodeView: View {
                     EmptyView()
                 })
         }
-        .padding(.horizontal,16)
-        .onAppear {
-            // 뷰가 나타날 때 난수 코드를 생성
-            randomCode = generateRandomCode(length: 6).uppercased()
-            if let user = Auth.auth().currentUser {
-                sendRandomCodeToFirebase(for: user, with: randomCode)
-                viewModel.observeUserConnectionStatus(userId: user.uid)
-            }
+    .padding(.horizontal,16)
+    .onAppear{
+        randomCode = generateRandomCode(length: 6).uppercased()
+        if let user = Auth.auth().currentUser {
+            sendRandomCodeToFirebase(for: user, with: randomCode)
+            viewModel.observeUserConnectionStatus(userId: user.uid)
         }
-        .navigationBarBackButtonHidden(true)
     }
+    .navigationBarBackButtonHidden(true)
+}
     private func generateRandomCode(length: Int) -> String {
         let lettersAndDigits = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         return String((0..<length).compactMap { _ in lettersAndDigits.randomElement() })
@@ -103,11 +99,10 @@ struct RandomCodeView: View {
 func sendRandomCodeToFirebase(for user: User, with code: String) {
     let db = Firestore.firestore()
     let docRef = db.collection("Users").document(user.uid)
-
     docRef.setData([
         "uid": user.uid,
         "code": code,
-        "isConnected" : false
+        "isConnected" : false,
     ], merge: true) { error in
         if let error = error {
             print("Error writing document: \(error)")
@@ -138,7 +133,7 @@ func connectUsersInDB(userAUID: String, uidB: String, newCode: String) {
     let db = Firestore.firestore()
     db.collection("Users").document(userAUID).updateData([
         "code": newCode,
-        "isConnected": true
+        "isConnected": true,
     ]) { err in
         if let err = err {
             print("Error updating document: \(err)")
@@ -148,7 +143,7 @@ func connectUsersInDB(userAUID: String, uidB: String, newCode: String) {
     }
     
     db.collection("Users").document(uidB).updateData([
-        "isConnected": true
+        "isConnected": true,
     ]) { err in
         if let err = err {
             print("Error updating document: \(err)")
@@ -158,6 +153,11 @@ func connectUsersInDB(userAUID: String, uidB: String, newCode: String) {
     }
 }
 
+struct LoadingView: View {
+    var body: some View {
+        Text("로딩중인 화면입니다.")
+    }
+}
 
 
 struct RandomCodeView_Previews: PreviewProvider {
