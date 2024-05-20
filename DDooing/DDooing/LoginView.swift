@@ -10,7 +10,6 @@ import Firebase
 import AuthenticationServices
 
 struct LoginView: View {
-    
     @StateObject private var loginData = LoginViewModel()
     @State var isLoginMode = false
     @State var isAuthenticated = false

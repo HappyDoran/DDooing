@@ -18,7 +18,7 @@ class AppViewModel: ObservableObject {
     
     //사용자인지 아닌지 체크
     func checkAuthStatus() {
-        Auth.auth().addStateDidChangeListener { auth, user in
+        Auth.auth().addStateDidChangeListener { auth, user in //사용자의 상태가 로그인이 된 상태인지 아닌지 체크
             if let user = user {
                 self.checkUserConnectionStatus(uid: user.uid)
             } else {

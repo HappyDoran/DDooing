@@ -10,13 +10,10 @@ import FirebaseFirestore
 import FirebaseAuth
 
 struct PartnerNameView: View {
-    @StateObject private var viewModel = UserStatusViewModel()
-    @State private var isConnectionMode = true
     @State private var nickname = ""
-    @State private var randomCode = ""
+    @State var isNicknamed : Bool = false
     
     var body: some View {
-        
         NavigationStack{
             VStack(spacing:0){
                 Text("DDooing").font(.pretendardBold40)
@@ -32,7 +29,6 @@ struct PartnerNameView: View {
                     .padding(.trailing, 32)
                 Rectangle()
                     .frame(height: 1)
-                //                    .foregroundColor(.white)
                     .padding(.leading, 32)
                     .padding(.trailing, 32)
                     .padding(.bottom, 73)
@@ -44,12 +40,17 @@ struct PartnerNameView: View {
                 }, label: {
                     Text("완료")
                         .font(.pretendardBold18)
-                    //                        .foregroundStyle(.white)
                 })
                 .padding(.bottom,100)
             
+                Text("추후 별명을 수정할 수 없습니다.? 나중에 하기?")
                 
-                Text("추후 별명을 수정할 수 없습니다.")
+                NavigationLink(
+                    destination: ContentView(),
+                    isActive: $isNicknamed,
+                    label: {
+                        EmptyView()
+                    })
             }
             .padding(.horizontal, 16)
             .padding(.top, 165)
@@ -59,22 +60,24 @@ struct PartnerNameView: View {
 
         .navigationBarBackButtonHidden(true)
     }
-}
+    
+    private func setUsersNickname(nick nickname : String, userAUID: String) {
+        let db = Firestore.firestore()
+        let docRef = db.collection("Users").document(userAUID)
 
-func setUsersNickname(nick nickname : String, userAUID: String) {
-    let db = Firestore.firestore()
-    let docRef = db.collection("Users").document(userAUID)
-
-    db.collection("Users").document(userAUID).updateData([
-        "ConnectedNickname": nickname
-    ]) { err in
-        if let err = err {
-            print("Error updating document: \(err)")
-        } else {
-            print("상대방의 닉네임이 \(nickname)으로 정해졌습니다.")
+        db.collection("Users").document(userAUID).updateData([
+            "ConnectedNickname": nickname
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("상대방의 닉네임이 \(nickname)으로 정해졌습니다.")
+                isNicknamed = true
+            }
         }
     }
 }
+
 
 struct PartnerNameView_Previews: PreviewProvider {
     static var previews: some View {
