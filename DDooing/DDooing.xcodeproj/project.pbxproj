@@ -60,14 +60,7 @@
 		4FF515942BF33F810056531C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515932BF33F810056531C /* HomeView.swift */; };
 		4FF515962BF33FB40056531C /* TextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515952BF33FB40056531C /* TextEditView.swift */; };
 		4FF515982BF33FD70056531C /* ShowMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515972BF33FD70056531C /* ShowMessageView.swift */; };
-<<<<<<< HEAD
-		7965ACFF2BFAEDDF008D59B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7965ACFE2BFAEDDE008D59B8 /* GoogleService-Info.plist */; };
-		7965AD002BFAEDDF008D59B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7965ACFE2BFAEDDE008D59B8 /* GoogleService-Info.plist */; };
-		7965AD012BFAEDDF008D59B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7965ACFE2BFAEDDE008D59B8 /* GoogleService-Info.plist */; };
-		9D79E9372BF5FAD700A05D95 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79E9362BF5FAD700A05D95 /* Model.swift */; };
-=======
 		9D79E9372BF5FAD700A05D95 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79E9362BF5FAD700A05D95 /* MessageModel.swift */; };
->>>>>>> develop
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,12 +113,7 @@
 		4FF515932BF33F810056531C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4FF515952BF33FB40056531C /* TextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditView.swift; sourceTree = "<group>"; };
 		4FF515972BF33FD70056531C /* ShowMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMessageView.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		7965ACFE2BFAEDDE008D59B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9D79E9362BF5FAD700A05D95 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-=======
 		9D79E9362BF5FAD700A05D95 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
->>>>>>> develop
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
