@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/xcode,swift,cocoapods,macos
-# Edit at https://www.toptal.com/developers/gitignore?templates=xcode,swift,cocoapods,macos
+# Created by https://www.toptal.com/developers/gitignore/api/xcode,swift,swiftpackagemanager,macos,cocoapods
+# Edit at https://www.toptal.com/developers/gitignore?templates=xcode,swift,swiftpackagemanager,macos,cocoapods
 
 ### CocoaPods ###
 ## CocoaPods GitIgnore Template
@@ -126,6 +126,12 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+### SwiftPackageManager ###
+Packages
+xcuserdata
+*.xcodeproj
+
+
 ### Xcode ###
 
 ## Xcode 8 and earlier
@@ -139,4 +145,7 @@ iOSInjectionProject/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-# End of https://www.toptal.com/developers/gitignore/api/xcode,swift,cocoapods,macos
+# Firebase configuration file
+GoogleService-Info.plist
+
+# End of https://www.toptal.com/developers/gitignore/api/xcode,swift,swiftpackagemanager,macos,cocoapods

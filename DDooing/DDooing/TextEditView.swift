@@ -23,7 +23,6 @@ struct TextEditView: View {
     var body: some View {
         
         NavigationStack {
-           
                 List {
                     Text("메세지 문구")
                         .font(.largeTitle)
@@ -37,9 +36,7 @@ struct TextEditView: View {
                             .frame(width: 85, height: 100)
                         
                         Spacer()
-                            
                     }.listRowSeparator(.hidden)
-                    
                     
                     Section(header:  Button(action: {addItem()}, label: {
                         HStack{
@@ -50,7 +47,6 @@ struct TextEditView: View {
                             }
                         .background()
                     })) {
-                       
                         ForEach(messages) { mess in
                             HStack {
                                 TextField("문구를 입력해주세요", text: Binding(
@@ -65,7 +61,6 @@ struct TextEditView: View {
                                         .foregroundColor(.orange)
                                 }
                             }.swipeActions {
-                                
                                 
                                 Button(role: .destructive) {
                                     deleteItem(item: mess)
