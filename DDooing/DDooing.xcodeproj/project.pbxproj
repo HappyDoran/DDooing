@@ -37,6 +37,7 @@
 		4F1A59592BF8894600C3EF2C /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A59582BF8894600C3EF2C /* FontManager.swift */; };
 		4F1A595A2BF8894600C3EF2C /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A59582BF8894600C3EF2C /* FontManager.swift */; };
 		4F1A595B2BF8894600C3EF2C /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A59582BF8894600C3EF2C /* FontManager.swift */; };
+		4F9492052BFB5170005CC907 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F9492042BFB5170005CC907 /* GoogleService-Info.plist */; };
 		4FAD25B02BF3339A00EBD37A /* DDooingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25AF2BF3339A00EBD37A /* DDooingApp.swift */; };
 		4FAD25B22BF3339A00EBD37A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25B12BF3339A00EBD37A /* MainView.swift */; };
 		4FAD25B42BF3339B00EBD37A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD25B32BF3339B00EBD37A /* Assets.xcassets */; };
@@ -44,7 +45,6 @@
 		4FAD25C12BF3339B00EBD37A /* DDooingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25C02BF3339B00EBD37A /* DDooingTests.swift */; };
 		4FAD25CB2BF3339B00EBD37A /* DDooingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25CA2BF3339B00EBD37A /* DDooingUITests.swift */; };
 		4FAD25CD2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25CC2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift */; };
-		4FD812C92BF879A300F16ED0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD812C82BF879A200F16ED0 /* GoogleService-Info.plist */; };
 		4FD812CD2BF87AB900F16ED0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD812CC2BF87AB900F16ED0 /* FirebaseAnalytics */; };
 		4FD812CF2BF87AB900F16ED0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD812CE2BF87AB900F16ED0 /* FirebaseAuth */; };
 		4FD812D12BF87AB900F16ED0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD812D02BF87AB900F16ED0 /* FirebaseDatabase */; };
@@ -93,6 +93,7 @@
 		4F1A593C2BF8892000C3EF2C /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		4F1A59582BF8894600C3EF2C /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		4F1A595C2BF8896A00C3EF2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4F9492042BFB5170005CC907 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FAD25AC2BF3339A00EBD37A /* DDooing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDooing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAD25AF2BF3339A00EBD37A /* DDooingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingApp.swift; sourceTree = "<group>"; };
 		4FAD25B12BF3339A00EBD37A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		4FAD25C62BF3339B00EBD37A /* DDooingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDooingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAD25CA2BF3339B00EBD37A /* DDooingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingUITests.swift; sourceTree = "<group>"; };
 		4FAD25CC2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		4FD812C82BF879A200F16ED0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FD812CA2BF87A8200F16ED0 /* DDooing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDooing.entitlements; sourceTree = "<group>"; };
 		4FD812D82BF87BA800F16ED0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4FF293E82BF8EF33004BDDB3 /* UserStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusViewModel.swift; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 		4FAD25A32BF3339A00EBD37A = {
 			isa = PBXGroup;
 			children = (
-				4FD812C82BF879A200F16ED0 /* GoogleService-Info.plist */,
+				4F9492042BFB5170005CC907 /* GoogleService-Info.plist */,
 				4FAD25AE2BF3339A00EBD37A /* DDooing */,
 				4FAD25BF2BF3339B00EBD37A /* DDooingTests */,
 				4FAD25C92BF3339B00EBD37A /* DDooingUITests */,
@@ -437,12 +437,12 @@
 				4F1A59432BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59552BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
 				4F1A594C2BF8892000C3EF2C /* Pretendard-Thin.otf in Resources */,
+				4F9492052BFB5170005CC907 /* GoogleService-Info.plist in Resources */,
 				4F1A594F2BF8892000C3EF2C /* Pretendard-Black.otf in Resources */,
 				4FAD25B42BF3339B00EBD37A /* Assets.xcassets in Resources */,
 				4F1A59402BF8892000C3EF2C /* Pretendard-ExtraLight.otf in Resources */,
 				4F1A59462BF8892000C3EF2C /* Pretendard-Light.otf in Resources */,
 				4F1A593D2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */,
-				4FD812C92BF879A300F16ED0 /* GoogleService-Info.plist in Resources */,
 				4F1A59522BF8892000C3EF2C /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
