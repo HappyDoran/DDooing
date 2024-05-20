@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-struct FirstView: View {
+struct ContentView: View {
     @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
         Group {
-            
             //체크하는 중에는 로딩 뷰를 띄움
             if let currentView = viewModel.currentView {
                 currentView
@@ -24,5 +23,5 @@ struct FirstView: View {
 }
 
 #Preview {
-    FirstView()
+    ContentView()
 }

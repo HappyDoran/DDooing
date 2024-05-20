@@ -17,7 +17,7 @@ import SwiftData
 
 struct TextEditView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var messages: [Message]
+    @Query private var messages: [MessageModel]
     @State private var newMessage = ""
     
     var body: some View {
@@ -94,7 +94,7 @@ struct TextEditView: View {
 //    }
     func addItem() {
                 // 새로운 Item을 생성하고 modelContext에 추가합니다.
-                let newItem = Message(message: newMessage, isStarred: false )
+                let newItem = MessageModel(message: newMessage, isStarred: false )
                 modelContext.insert(newItem)
         }
     func saveContext() {
@@ -105,7 +105,7 @@ struct TextEditView: View {
                 print("Error saving context: \(error)")
             }
         }
-    func deleteItem(item: Message) {
+    func deleteItem(item: MessageModel) {
         // modelContext에서 아이템 삭제
         modelContext.delete(item)
         saveContext()
@@ -119,5 +119,5 @@ struct TextEditView: View {
 
 #Preview {
     TextEditView()
-        .modelContainer(for: Message.self,  inMemory: true)
+        .modelContainer(for: MessageModel.self,  inMemory: true)
 }
