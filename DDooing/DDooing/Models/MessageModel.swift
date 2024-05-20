@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 @Model
-class Message {
+class MessageModel {
     var message: String
     var isStarred: Bool
     

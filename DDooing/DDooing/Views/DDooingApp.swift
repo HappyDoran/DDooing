@@ -16,9 +16,9 @@ struct DDooingApp: App {
     
     var body: some Scene {
         WindowGroup {
-            FirstView().environmentObject(viewModel)
+            ContentView().environmentObject(viewModel)
         }
-        .modelContainer(for: [Message.self])
+        .modelContainer(for: [MessageModel.self])
     }
 }
 
