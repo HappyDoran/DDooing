@@ -24,10 +24,10 @@ struct TextEditView: View {
         
         NavigationStack {
                 List {
-                    Text("메세지 문구")
-                        .font(.largeTitle)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        .listRowSeparator(.hidden)
+//                    Text("메세지 문구")
+//                        .font(.largeTitle)
+//                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+//                        .listRowSeparator(.hidden)
                     // 편지 사진
                     HStack{
                         Spacer()
@@ -79,14 +79,14 @@ struct TextEditView: View {
                         }
                         
                     }
-                        
+                    
                         
                     
                 }
+                
                 .listStyle(.plain)
-
+                .navigationTitle("메세지 문구")
         }
-        .navigationTitle("메세지 문구")
     }
     
 //    func sortMessages() {

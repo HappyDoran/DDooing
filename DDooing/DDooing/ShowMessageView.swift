@@ -31,20 +31,24 @@ struct ShowMessageView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                Image("Mailbox")
+                // 메세지 개수에 따른 이미지 변경
+                // 새로운 우체통 이미지로 변경 예정
+                Image(imageName(for: recivedMessages.count))
                     .resizable()
                     .frame(width: 140, height: 110)
-                    .padding()
+                
+                Spacer()
                 
                 ForEach(recivedMessages) { message in
                     HStack {
                         HStack {
                             if message.isStarredMessage {
+                                // 새로운 별+하트 이미지로 변경 예정
                                 Image("StarredHeart")
                                     .resizable()
                                     .frame(width: 35, height: 30)
                             } else {
-                                Image("SmallHeart")
+                                Image("Heart button")
                                     .resizable()
                                     .frame(width: 35, height: 30)
                             }
@@ -73,34 +77,53 @@ struct ShowMessageView: View {
                                         .frame(width: 10, height: 10)
                                         .foregroundColor(.red)
                                 }
+                            } else {
+                                Spacer()
                             }
-                            Spacer()
                             Text(formattedTime(from: message.time))
                                 .foregroundStyle(.secondary)
                                 .font(.footnote)
                         }
-                        .padding(.trailing)
                     }
                     .padding(.top, 20)
-                    .padding(.leading, 5)
-                    .padding(.trailing, 5)
                 }
+//                .padding(.trailing)
             }
             .toolbar {
-                // 새로운 메세지가 왔을 때 어떻게 보이는지 테스트용 버튼
-                Button {
-                    toggleNewMessages()
-                } label: {
-                    Text("NewMessage test")
-                }
-                // 즐겨찾기 한 메세지가 왔을 때 어떻게 보이는지 테스트용 버튼
-                Button {
-                    toggleStarredMessages()
-                } label: {
-                    Text("StarredMessage test")
+                ToolbarItem {
+                    Menu {
+                        // 새로운 메세지가 왔을 때 어떻게 보이는지 테스트용 버튼
+                        Button {
+                            toggleNewMessages()
+                        } label: {
+                            Text("NewMessage test")
+                        }
+                        // 즐겨찾기 한 메세지가 왔을 때 어떻게 보이는지 테스트용 버튼
+                        Button {
+                            toggleStarredMessages()
+                        } label: {
+                            Text("StarredMessage test")
+                        }
+                    } label: {
+                        Label("test", systemImage: "ellipsis.circle")
+                    }
                 }
             }
             .navigationTitle("오늘의 메시지")
+        }
+    }
+    
+    // 메세지 개수에 따른 이미지 변경 함수
+    func imageName(for messageCount: Int) -> String {
+        switch messageCount {
+        case 1...10:
+            return "Mailbox"
+        case 11...20:
+            return "Mailbox2"
+        case 21...30:
+            return "Mailbox3"
+        default:
+            return "MailboxEmpty"
         }
     }
     
