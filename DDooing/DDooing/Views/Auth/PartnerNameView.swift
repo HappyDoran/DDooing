@@ -46,7 +46,7 @@ struct PartnerNameView: View {
                 Text("추후 별명을 수정할 수 없습니다.? 나중에 하기?")
                 
                 NavigationLink(
-                    destination: ContentView(),
+                    destination: MainView(),
                     isActive: $isNicknamed,
                     label: {
                         EmptyView()

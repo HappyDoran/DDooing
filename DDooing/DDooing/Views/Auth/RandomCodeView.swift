@@ -32,13 +32,15 @@ struct RandomCodeView: View {
                         .font(.pretendardBold32)
                         .padding(.bottom, 73)
                     
-                    Button(action: {
-                        print("공유하기 모션")
-                    }, label: {
-                        Text("공유하기")
-                            .font(.pretendardBold18)
-                        //                        .foregroundStyle(.white)
-                    })
+                    ShareLink(
+                        item: randomCode,
+                        subject: Text("DDooing"),
+                        message: Text("DDooing Code")) {
+                            HStack{
+                                Image(systemName: "square.and.arrow.up")
+                                Text("공유하기")
+                            } .font(.pretendardBold18)
+                        }
                     .padding(.bottom,100)
                 }
                 else{
