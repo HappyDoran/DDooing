@@ -48,6 +48,7 @@ struct HomeView: View {
             Text("[test] \(randomMessages)") // 나중에 없앨거에요. 확인용!
         }
         .padding()
+        .navigationBarBackButtonHidden(true)
     }
 }
 
