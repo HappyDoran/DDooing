@@ -37,9 +37,30 @@ class AppViewModel: ObservableObject {
                 let isConnected = document.get("isConnected") as? Bool ?? false
                 DispatchQueue.main.async {
                     if isConnected {
-                        self.currentView = AnyView(PartnerNameView())
+                        self.checkUserNicknameOKStatus(uid: uid)
                     } else {
                         self.currentView = AnyView(RandomCodeView())
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.currentView = AnyView(LoginView())
+                }
+            }
+        }
+    }
+    
+    func checkUserNicknameOKStatus(uid: String){
+        let docRef = Firestore.firestore().collection("Users").document(uid)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                if let nickname = document.get("ConnectedNickname") as? String, !nickname.isEmpty {
+                    DispatchQueue.main.async {
+                        self.currentView = AnyView(MainView())
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.currentView = AnyView(PartnerNameView())
                     }
                 }
             } else {

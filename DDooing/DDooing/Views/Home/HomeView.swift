@@ -35,6 +35,7 @@ struct HomeView: View {
                         randomMessages = randomMessage.message
                     }
                     saveRandomMessage()
+                    print("메시지 입력")
                 }, label: {
                     Image("Heart button")
                         .resizable()
@@ -55,8 +56,8 @@ struct HomeView: View {
                 Text("[test] \(randomMessages)") // 나중에 없앨거에요. 확인용!
             }
             .padding()
+            .navigationTitle("DDooing")
         }
-        .navigationBarTitle("DDooing", displayMode: .inline)
     }
     
     func saveRandomMessage() {
