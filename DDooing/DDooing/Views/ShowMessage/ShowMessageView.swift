@@ -5,6 +5,8 @@
 //  Created by 조우현 on 5/16/24.
 //
 
+import Firebase
+import Foundation
 import SwiftUI
 
 struct RecivedMessage: Identifiable {
@@ -12,21 +14,18 @@ struct RecivedMessage: Identifiable {
     var name: String
     let text: String
     var time: Date
-    var isNewMessage: Bool = false
-    // Message 구조체의 isStarred와는 다른거라서 따로 만듦
-    var isStarredMessage: Bool = false
+    var isNew: Bool = false
+    var isStarred: Bool = false
 }
 
 struct ShowMessageView: View {
+    let partnerUID: String!
     
-    @State private var recivedMessages = [
-        RecivedMessage(name: "현집", text: "많이 보고싶어🥲", time: Date()),
-        RecivedMessage(name: "현집", text: "오늘도 화이팅", time: Date()),
-        RecivedMessage(name: "현집", text: "럭키비키 걸~", time: Date()),
-        RecivedMessage(name: "현집", text: "메롱", time: Date()),
-        RecivedMessage(name: "현집", text: "많이 보고싶어", time: Date()),
-        RecivedMessage(name: "현집", text: "많이 보고싶어", time: Date())
-    ]
+    init(partnerUID: String?) {
+        self.partnerUID = partnerUID
+    }
+    
+    @State private var recivedMessages = [RecivedMessage]()
     
     var body: some View {
         NavigationStack {
@@ -39,10 +38,10 @@ struct ShowMessageView: View {
                 
                 Spacer()
                 
-                ForEach(recivedMessages) { message in
+                ForEach(recivedMessages.reversed()) { message in
                     HStack {
                         HStack {
-                            if message.isStarredMessage {
+                            if message.isStarred {
                                 // 새로운 별+하트 이미지로 변경 예정
                                 Image("StarredHeart")
                                     .resizable()
@@ -69,7 +68,7 @@ struct ShowMessageView: View {
                         Spacer()
                         
                         LazyVStack(alignment: .trailing) {
-                            if message.isNewMessage {
+                            if message.isNew {
                                 HStack {
                                     Spacer()
                                     Image(systemName: "moonphase.new.moon")
@@ -110,6 +109,9 @@ struct ShowMessageView: View {
                 }
             }
             .navigationTitle("오늘의 메시지")
+            .onAppear {
+                addObserveMessages()
+            }
         }
     }
     
@@ -130,14 +132,14 @@ struct ShowMessageView: View {
     // 새로운 메세지가 왔을 때 어떻게 보이는지 테스트용 함수
     func toggleNewMessages() {
         for index in recivedMessages.indices {
-            recivedMessages[index].isNewMessage.toggle()
+            recivedMessages[index].isNew.toggle()
         }
     }
     
     // 즐겨찾기 한 메세지가 왔을 때 어떻게 보이는지 테스트용 함수
     func toggleStarredMessages() {
         for index in recivedMessages.indices {
-            recivedMessages[index].isStarredMessage.toggle()
+            recivedMessages[index].isStarred.toggle()
         }
     }
     
@@ -146,9 +148,62 @@ struct ShowMessageView: View {
         formatter.dateFormat = "hh:mm a"
         return formatter.string(from: date)
     }
+    
+//    private func addObserveMessages() {
+//        observeMessages() { messages in
+//            self.messages.append(contentsOf: messages)
+//        }
+//    }
+    private func addObserveMessages() {
+        observeMessages { messageData in
+            if let text = messageData["messageText"] as? String,
+                let timestamp = messageData["timeStamp"] as? Timestamp,
+                let isStarred = messageData["isStarred"] as? Bool {
+                self.fetchPartnerNickname { nickname in
+                    let message = RecivedMessage(name: nickname, text: text, time: timestamp.dateValue(), isStarred: isStarred)
+                    self.recivedMessages.append(message)
+                }
+            }
+        }
+    }
+    
+    
+    func observeMessages(completion: @escaping ([String: Any]) -> Void) {
+        let db = Firestore.firestore()
+        
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        
+        let query = db.collection("Received-Messages")
+            .document(currentUid)
+            .collection(partnerUID)
+            .order(by: "timeStamp", descending: false)
+        
+        query.addSnapshotListener { snapshot, _ in
+            guard let changes = snapshot?.documentChanges.filter({ $0.type == .added
+            }) else { return }
+            
+            let messages = changes.map { $0.document.data() }
+            
+            for message in messages {
+                completion(message)
+            }
+        }
+    }
+    
+    private func fetchPartnerNickname(completion: @escaping (String) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("Users").document(partnerUID).getDocument { document, error in
+            if let document = document, document.exists {
+                let nickname = document.data()?["ConnectedNickname"] as? String ?? "Unknown"
+                completion(nickname)
+            } else {
+                completion("Unknown")
+            }
+        }
+    }
 }
 
 
 #Preview {
-    ShowMessageView()
+    ShowMessageView(partnerUID: nil)
 }

@@ -5,6 +5,8 @@
 //  Created by 박하연 on 5/15/24.
 //
 
+import Firebase
+import Foundation
 import SwiftUI
 
 struct HomeView: View {
@@ -14,8 +16,10 @@ struct HomeView: View {
     @State private var randomMessages : String
     @State private var showingAlert = false
     @State private var showContextMenu = false
+    let partnerUID: String!
     
-    init() {
+    init(partnerUID: String?) {
+        self.partnerUID = partnerUID
         _randomMessages = State(initialValue: tem_messages.randomElement()!)
     }
     
@@ -23,7 +27,8 @@ struct HomeView: View {
         VStack {
             Button(action: {
                 randomMessages = tem_messages.randomElement()!
-                    showingAlert = true
+                saveRandomMessage()
+                showingAlert = true
             }, label: {
                 Image("Heart button")
                     .resizable()
@@ -36,6 +41,7 @@ struct HomeView: View {
                 Button("ㅎㅎ") {}
                 Button("메롱") {}
                 Button("테스트지롱") {}
+                
             })
             .alert("랜덤메시지가 전송되었습니다.", isPresented: $showingAlert) {
                 Button("확인") {
@@ -49,6 +55,46 @@ struct HomeView: View {
         }
         .padding()
         .navigationBarBackButtonHidden(true)
+    }
+    
+    func saveRandomMessage() {
+        guard let partnerUID = partnerUID else { return }
+        sendMessage(messageText: randomMessages, isStarred: false)
+    }
+    
+    func sendMessage(messageText: String, isStarred: Bool) {
+        let db = Firestore.firestore()
+        
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        
+        let currenrUserRef = db.collection("Received-Messages")
+            .document(currentUid).collection(partnerUID).document()
+        
+        let PartnerRef = db.collection("Received-Messages")
+            .document(partnerUID).collection(currentUid)
+        
+        let recentCurrentUserRef = db.collection("Received-Messages")
+            .document(currentUid).collection("recent-messages")
+            .document(partnerUID)
+        
+        let recentPartnerRef = db.collection("Received-Messages")
+            .document(partnerUID).collection("recent-messages")
+            .document(currentUid)
+        
+        let messageId = currenrUserRef.documentID
+        
+        let messageData: [String: Any] = [
+            "fromId": currentUid,
+            "toId": partnerUID!,
+            "messageText": messageText,
+            "timeStamp": Timestamp(date: Date()),
+            "isStarred": isStarred
+        ]
+        
+        currenrUserRef.setData(messageData)
+        PartnerRef.document(messageId).setData(messageData)
+        recentCurrentUserRef.setData(messageData)
+        recentPartnerRef.setData(messageData)
     }
 }
 
@@ -74,5 +120,5 @@ func postPositionText(_ name: String) -> String {
 
 // Preview
 #Preview {
-    HomeView()
+    HomeView(partnerUID: nil)
 }
