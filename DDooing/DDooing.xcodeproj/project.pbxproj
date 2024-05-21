@@ -44,7 +44,6 @@
 		4FAD25C12BF3339B00EBD37A /* DDooingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25C02BF3339B00EBD37A /* DDooingTests.swift */; };
 		4FAD25CB2BF3339B00EBD37A /* DDooingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25CA2BF3339B00EBD37A /* DDooingUITests.swift */; };
 		4FAD25CD2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25CC2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift */; };
-		4FD812C92BF879A300F16ED0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD812C82BF879A200F16ED0 /* GoogleService-Info.plist */; };
 		4FD812CD2BF87AB900F16ED0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD812CC2BF87AB900F16ED0 /* FirebaseAnalytics */; };
 		4FD812CF2BF87AB900F16ED0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD812CE2BF87AB900F16ED0 /* FirebaseAuth */; };
 		4FD812D12BF87AB900F16ED0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD812D02BF87AB900F16ED0 /* FirebaseDatabase */; };
@@ -62,6 +61,9 @@
 		4FF515962BF33FB40056531C /* TextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515952BF33FB40056531C /* TextEditView.swift */; };
 		4FF515982BF33FD70056531C /* ShowMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515972BF33FD70056531C /* ShowMessageView.swift */; };
 		9D79E9372BF5FAD700A05D95 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79E9362BF5FAD700A05D95 /* Model.swift */; };
+		9F69834F2BFAF1BA009F9034 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F69834E2BFAF1BA009F9034 /* GoogleService-Info.plist */; };
+		9F6983502BFAF1BA009F9034 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F69834E2BFAF1BA009F9034 /* GoogleService-Info.plist */; };
+		9F6983512BFAF1BA009F9034 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F69834E2BFAF1BA009F9034 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +105,6 @@
 		4FAD25C62BF3339B00EBD37A /* DDooingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDooingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAD25CA2BF3339B00EBD37A /* DDooingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingUITests.swift; sourceTree = "<group>"; };
 		4FAD25CC2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		4FD812C82BF879A200F16ED0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FD812CA2BF87A8200F16ED0 /* DDooing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDooing.entitlements; sourceTree = "<group>"; };
 		4FD812D82BF87BA800F16ED0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4FF293E82BF8EF33004BDDB3 /* UserStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusViewModel.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		4FF515952BF33FB40056531C /* TextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditView.swift; sourceTree = "<group>"; };
 		4FF515972BF33FD70056531C /* ShowMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMessageView.swift; sourceTree = "<group>"; };
 		9D79E9362BF5FAD700A05D95 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		9F69834E2BFAF1BA009F9034 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +178,7 @@
 		4FAD25A32BF3339A00EBD37A = {
 			isa = PBXGroup;
 			children = (
-				4FD812C82BF879A200F16ED0 /* GoogleService-Info.plist */,
+				9F69834E2BFAF1BA009F9034 /* GoogleService-Info.plist */,
 				4FAD25AE2BF3339A00EBD37A /* DDooing */,
 				4FAD25BF2BF3339B00EBD37A /* DDooingTests */,
 				4FAD25C92BF3339B00EBD37A /* DDooingUITests */,
@@ -373,12 +375,12 @@
 				4F1A59432BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59552BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
 				4F1A594C2BF8892000C3EF2C /* Pretendard-Thin.otf in Resources */,
+				9F69834F2BFAF1BA009F9034 /* GoogleService-Info.plist in Resources */,
 				4F1A594F2BF8892000C3EF2C /* Pretendard-Black.otf in Resources */,
 				4FAD25B42BF3339B00EBD37A /* Assets.xcassets in Resources */,
 				4F1A59402BF8892000C3EF2C /* Pretendard-ExtraLight.otf in Resources */,
 				4F1A59462BF8892000C3EF2C /* Pretendard-Light.otf in Resources */,
 				4F1A593D2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */,
-				4FD812C92BF879A300F16ED0 /* GoogleService-Info.plist in Resources */,
 				4F1A59522BF8892000C3EF2C /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +396,7 @@
 				4F1A594D2BF8892000C3EF2C /* Pretendard-Thin.otf in Resources */,
 				4F1A59442BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59562BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
+				9F6983502BFAF1BA009F9034 /* GoogleService-Info.plist in Resources */,
 				4F1A59502BF8892000C3EF2C /* Pretendard-Black.otf in Resources */,
 				4F1A593E2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */,
 			);
@@ -410,6 +413,7 @@
 				4F1A594E2BF8892000C3EF2C /* Pretendard-Thin.otf in Resources */,
 				4F1A59452BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59572BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
+				9F6983512BFAF1BA009F9034 /* GoogleService-Info.plist in Resources */,
 				4F1A59512BF8892000C3EF2C /* Pretendard-Black.otf in Resources */,
 				4F1A593F2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */,
 			);
@@ -599,10 +603,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DDooing/DDooing.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DDooing/Preview Content\"";
-				DEVELOPMENT_TEAM = U6CCD5BT22;
+				DEVELOPMENT_TEAM = UV9ZJ88D54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooing/Info.plist;
@@ -616,8 +621,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Parkhayeon.DDooing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -630,10 +636,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DDooing/DDooing.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DDooing/Preview Content\"";
-				DEVELOPMENT_TEAM = U6CCD5BT22;
+				DEVELOPMENT_TEAM = UV9ZJ88D54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooing/Info.plist;
@@ -647,8 +654,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Parkhayeon.DDooing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
