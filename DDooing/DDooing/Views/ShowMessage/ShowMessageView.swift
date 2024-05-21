@@ -120,14 +120,14 @@ struct ShowMessageView: View {
     // 메세지 개수에 따른 이미지 변경 함수
     func imageName(for messageCount: Int) -> String {
         switch messageCount {
-        case 0...10:
-            return "Mailbox"
-        case 11...20:
-            return "Mailbox2"
-        case 21...30:
-            return "Mailbox3"
-        default:
+        case 0:
             return "MailboxEmpty"
+        case 1...20:
+            return "Mailbox"
+        case 21...40:
+            return "Mailbox2"
+        default:
+            return "Mailbox3"
         }
     }
     
