@@ -88,29 +88,30 @@ struct ShowMessageView: View {
                 }
 //                .padding(.trailing)
             }
-            .toolbar {
-                ToolbarItem {
-                    Menu {
-                        // 새로운 메세지가 왔을 때 어떻게 보이는지 테스트용 버튼
-                        Button {
-                            toggleNewMessages()
-                        } label: {
-                            Text("NewMessage test")
-                        }
-                        // 즐겨찾기 한 메세지가 왔을 때 어떻게 보이는지 테스트용 버튼
-                        Button {
-                            toggleStarredMessages()
-                        } label: {
-                            Text("StarredMessage test")
-                        }
-                    } label: {
-                        Label("test", systemImage: "ellipsis.circle")
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItem {
+//                    Menu {
+//                        // 새로운 메세지가 왔을 때 어떻게 보이는지 테스트용 버튼
+//                        Button {
+//                            toggleNewMessages()
+//                        } label: {
+//                            Text("NewMessage test")
+//                        }
+//                        // 즐겨찾기 한 메세지가 왔을 때 어떻게 보이는지 테스트용 버튼
+//                        Button {
+//                            toggleStarredMessages()
+//                        } label: {
+//                            Text("StarredMessage test")
+//                        }
+//                    } label: {
+//                        Label("test", systemImage: "ellipsis.circle")
+//                    }
+//                }
+//            }
             .navigationTitle("오늘의 메시지")
             .onAppear {
                 addObserveMessages()
+                checkAndDeleteIfMidnight(userAUID: Auth.auth().currentUser?.uid ?? "")
             }
         }
     }
@@ -129,19 +130,19 @@ struct ShowMessageView: View {
         }
     }
     
-    // 새로운 메세지가 왔을 때 어떻게 보이는지 테스트용 함수
-    func toggleNewMessages() {
-        for index in recivedMessages.indices {
-            recivedMessages[index].isNew.toggle()
-        }
-    }
-    
-    // 즐겨찾기 한 메세지가 왔을 때 어떻게 보이는지 테스트용 함수
-    func toggleStarredMessages() {
-        for index in recivedMessages.indices {
-            recivedMessages[index].isStarred.toggle()
-        }
-    }
+//    // 새로운 메세지가 왔을 때 어떻게 보이는지 테스트용 함수
+//    func toggleNewMessages() {
+//        for index in recivedMessages.indices {
+//            recivedMessages[index].isNew.toggle()
+//        }
+//    }
+//
+//    // 즐겨찾기 한 메세지가 왔을 때 어떻게 보이는지 테스트용 함수
+//    func toggleStarredMessages() {
+//        for index in recivedMessages.indices {
+//            recivedMessages[index].isStarred.toggle()
+//        }
+//    }
     
     func formattedTime(from date: Date) -> String {
         let formatter = DateFormatter()
@@ -201,9 +202,41 @@ struct ShowMessageView: View {
             }
         }
     }
+    
+    // 24시간이 지나면 받은 메세지가 삭제되는 메서드
+    private func checkAndDeleteIfMidnight(userAUID: String) {
+        let db = Firestore.firestore()
+        let docRef = db.collection("Received-Messages").document(userAUID).collection(userAUID)
+
+        dump(docRef.document())
+//        docRef.getDocument { (document, error) in
+//            if let document = document, document.exists {
+//                if let timestamp = document.get("timeStamp") as? Timestamp {
+//                    let date = timestamp.dateValue()
+//                    let calendar = Calendar.current
+//                    let hour = calendar.component(.hour, from: date)
+//                    let minute = calendar.component(.minute, from: date)
+//                    
+//                    if hour == 0 && minute == 0 {
+//                        docRef.delete { err in
+//                            if let err = err {
+//                                print("Error deleting document: \(err)")
+//                            } else {
+//                                print("Document successfully deleted")
+//                            }
+//                        }
+//                    }
+//                } else {
+//                    print("Timestamp field does not exist")
+//                }
+//            } else {
+//                print("Document does not exist")
+//            }
+//        }
+    }
 }
 
 
-#Preview {
-    ShowMessageView(partnerUID: nil)
-}
+//#Preview {
+//    ShowMessageView(partnerUID: nil)
+//}
