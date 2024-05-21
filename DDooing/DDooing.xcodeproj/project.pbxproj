@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1009401F2BFC293E00C18188 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1009401E2BFC293E00C18188 /* GoogleService-Info.plist */; };
+		100940202BFC293E00C18188 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1009401E2BFC293E00C18188 /* GoogleService-Info.plist */; };
+		100940212BFC293E00C18188 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1009401E2BFC293E00C18188 /* GoogleService-Info.plist */; };
 		4F1A593D2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
 		4F1A593E2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
 		4F1A593F2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
@@ -37,7 +40,6 @@
 		4F1A59592BF8894600C3EF2C /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A59582BF8894600C3EF2C /* FontManager.swift */; };
 		4F1A595A2BF8894600C3EF2C /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A59582BF8894600C3EF2C /* FontManager.swift */; };
 		4F1A595B2BF8894600C3EF2C /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A59582BF8894600C3EF2C /* FontManager.swift */; };
-		4F9492052BFB5170005CC907 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F9492042BFB5170005CC907 /* GoogleService-Info.plist */; };
 		4FAD25B02BF3339A00EBD37A /* DDooingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25AF2BF3339A00EBD37A /* DDooingApp.swift */; };
 		4FAD25B22BF3339A00EBD37A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25B12BF3339A00EBD37A /* MainView.swift */; };
 		4FAD25B42BF3339B00EBD37A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD25B32BF3339B00EBD37A /* Assets.xcassets */; };
@@ -82,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1009401E2BFC293E00C18188 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4F1A59352BF8892000C3EF2C /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		4F1A59362BF8892000C3EF2C /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -93,7 +96,6 @@
 		4F1A593C2BF8892000C3EF2C /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		4F1A59582BF8894600C3EF2C /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		4F1A595C2BF8896A00C3EF2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		4F9492042BFB5170005CC907 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FAD25AC2BF3339A00EBD37A /* DDooing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDooing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAD25AF2BF3339A00EBD37A /* DDooingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingApp.swift; sourceTree = "<group>"; };
 		4FAD25B12BF3339A00EBD37A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -252,7 +254,6 @@
 		4FAD25A32BF3339A00EBD37A = {
 			isa = PBXGroup;
 			children = (
-				4F9492042BFB5170005CC907 /* GoogleService-Info.plist */,
 				4FAD25AE2BF3339A00EBD37A /* DDooing */,
 				4FAD25BF2BF3339B00EBD37A /* DDooingTests */,
 				4FAD25C92BF3339B00EBD37A /* DDooingUITests */,
@@ -274,6 +275,7 @@
 		4FAD25AE2BF3339A00EBD37A /* DDooing */ = {
 			isa = PBXGroup;
 			children = (
+				1009401E2BFC293E00C18188 /* GoogleService-Info.plist */,
 				4F1A595C2BF8896A00C3EF2C /* Info.plist */,
 				4FAD25B52BF3339B00EBD37A /* Preview Content */,
 				4F3E652B2BFB14CE00996806 /* Views */,
@@ -437,13 +439,13 @@
 				4F1A59432BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59552BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
 				4F1A594C2BF8892000C3EF2C /* Pretendard-Thin.otf in Resources */,
-				4F9492052BFB5170005CC907 /* GoogleService-Info.plist in Resources */,
 				4F1A594F2BF8892000C3EF2C /* Pretendard-Black.otf in Resources */,
 				4FAD25B42BF3339B00EBD37A /* Assets.xcassets in Resources */,
 				4F1A59402BF8892000C3EF2C /* Pretendard-ExtraLight.otf in Resources */,
 				4F1A59462BF8892000C3EF2C /* Pretendard-Light.otf in Resources */,
 				4F1A593D2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */,
 				4F1A59522BF8892000C3EF2C /* Pretendard-Medium.otf in Resources */,
+				1009401F2BFC293E00C18188 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +461,7 @@
 				4F1A59442BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59562BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
 				4F1A59502BF8892000C3EF2C /* Pretendard-Black.otf in Resources */,
+				100940202BFC293E00C18188 /* GoogleService-Info.plist in Resources */,
 				4F1A593E2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +478,7 @@
 				4F1A59452BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59572BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
 				4F1A59512BF8892000C3EF2C /* Pretendard-Black.otf in Resources */,
+				100940212BFC293E00C18188 /* GoogleService-Info.plist in Resources */,
 				4F1A593F2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -666,7 +670,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DDooing/Preview Content\"";
-				DEVELOPMENT_TEAM = U6CCD5BT22;
+				DEVELOPMENT_TEAM = 3GB5WJ43G4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooing/Info.plist;
@@ -680,7 +684,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KkaKka.DDooing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -697,7 +701,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DDooing/Preview Content\"";
-				DEVELOPMENT_TEAM = U6CCD5BT22;
+				DEVELOPMENT_TEAM = 3GB5WJ43G4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooing/Info.plist;
@@ -711,7 +715,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KkaKka.DDooing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
