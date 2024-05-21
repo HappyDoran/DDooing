@@ -76,9 +76,9 @@ struct HomeView: View {
         let PartnerRef = db.collection("Received-Messages")
             .document(partnerUID).collection(currentUid)
         
-        let recentCurrentUserRef = db.collection("Received-Messages")
-            .document(currentUid).collection("recent-messages")
-            .document(partnerUID)
+//        let recentCurrentUserRef = db.collection("Received-Messages")
+//            .document(currentUid).collection("recent-messages")
+//            .document(partnerUID)
         
         let recentPartnerRef = db.collection("Received-Messages")
             .document(partnerUID).collection("recent-messages")
@@ -91,12 +91,13 @@ struct HomeView: View {
             "toId": partnerUID!,
             "messageText": messageText,
             "timeStamp": Timestamp(date: Date()),
-            "isStarred": isStarred
+            "isStarred": isStarred,
+            "messageId": messageId
         ]
         
-        currenrUserRef.setData(messageData)
+//        currenrUserRef.setData(messageData)
         PartnerRef.document(messageId).setData(messageData)
-        recentCurrentUserRef.setData(messageData)
+//        recentCurrentUserRef.setData(messageData)
         recentPartnerRef.setData(messageData)
     }
 }
