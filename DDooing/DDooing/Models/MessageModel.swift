@@ -9,12 +9,15 @@ import SwiftData
 import SwiftUI
 
 @Model
-class Message {
+class MessageModel {
     var message: String
     var isStarred: Bool
+    var createdDate: Date
     
-    init(message: String, isStarred: Bool) {
+    init(message: String, isStarred: Bool, createdDate: Date) {
         self.message = message
         self.isStarred = isStarred
+        self.createdDate = createdDate
     }
 }
+

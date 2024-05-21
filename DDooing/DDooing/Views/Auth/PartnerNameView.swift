@@ -44,20 +44,19 @@ struct PartnerNameView: View {
                 .padding(.bottom,100)
             
                 Text("추후 별명을 수정할 수 없습니다.? 나중에 하기?")
-                
-                NavigationLink(
-                    destination: ContentView(),
-                    isActive: $isNicknamed,
-                    label: {
-                        EmptyView()
-                    })
             }
             .padding(.horizontal, 16)
             .padding(.top, 165)
             Spacer()
+            
+            NavigationLink(
+                destination: MainView().navigationBarBackButtonHidden(true),
+                isActive: $isNicknamed,
+                label: {
+                    EmptyView()
+                })
         }
         .padding(.horizontal,16)
-
         .navigationBarBackButtonHidden(true)
     }
     
