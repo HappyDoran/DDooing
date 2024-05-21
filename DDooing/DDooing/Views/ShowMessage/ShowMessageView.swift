@@ -11,6 +11,7 @@ import SwiftUI
 
 struct RecivedMessage: Identifiable {
     let id = UUID()
+    let messageId: String
     var name: String
     let text: String
     var time: Date
@@ -109,7 +110,7 @@ struct ShowMessageView: View {
                 }
             }
             .navigationTitle("오늘의 메시지")
-            .onAppear {
+            .onAppear() {
                 addObserveMessages()
             }
         }
@@ -118,7 +119,7 @@ struct ShowMessageView: View {
     // 메세지 개수에 따른 이미지 변경 함수
     func imageName(for messageCount: Int) -> String {
         switch messageCount {
-        case 1...10:
+        case 0...10:
             return "Mailbox"
         case 11...20:
             return "Mailbox2"
@@ -149,21 +150,20 @@ struct ShowMessageView: View {
         return formatter.string(from: date)
     }
     
-//    private func addObserveMessages() {
-//        observeMessages() { messages in
-//            self.messages.append(contentsOf: messages)
-//        }
-//    }
     private func addObserveMessages() {
         observeMessages { messageData in
             if let text = messageData["messageText"] as? String,
                 let timestamp = messageData["timeStamp"] as? Timestamp,
-                let isStarred = messageData["isStarred"] as? Bool {
-                self.fetchPartnerNickname { nickname in
-                    let message = RecivedMessage(name: nickname, text: text, time: timestamp.dateValue(), isStarred: isStarred)
-                    self.recivedMessages.append(message)
+                let isStarred = messageData["isStarred"] as? Bool,
+                let messageId = messageData["messageId"] as? String {
+                    self.fetchPartnerNickname { nickname in
+                        // 중복 체크: 이미 추가된 메시지인지 확인
+                        if !self.recivedMessages.contains(where: { $0.messageId == messageId }) {
+                            let message = RecivedMessage(messageId: messageId, name: nickname, text: text, time: timestamp.dateValue(), isStarred: isStarred)
+                            self.recivedMessages.append(message)
+                        }
+                    }
                 }
-            }
         }
     }
     
@@ -176,7 +176,7 @@ struct ShowMessageView: View {
         let query = db.collection("Received-Messages")
             .document(currentUid)
             .collection(partnerUID)
-            .order(by: "timeStamp", descending: false)
+            .order(by: "timeStamp", descending: true)
         
         query.addSnapshotListener { snapshot, _ in
             guard let changes = snapshot?.documentChanges.filter({ $0.type == .added
