@@ -8,53 +8,56 @@
 import Firebase
 import Foundation
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
-    // 데이터 가져오기 전 임시로 만든 변수들입니다.
     let name = "하연이"
-    var tem_messages = ["뭐해?" , "오늘 특히 더 보고싶다" , "상아 보고싶어서 뚜잉 뚜잉 중~", "오늘 뭐먹지?", "메롱", "ㅋㅋ"]
-    @State private var randomMessages : String
-    @State private var showingAlert = false
+    @Environment(\.modelContext) private var modelContext
+    @Query private var messages: [MessageModel]
+    @State private var randomMessages : String = ""
     @State private var showContextMenu = false
     let partnerUID: String!
     
     init(partnerUID: String?) {
         self.partnerUID = partnerUID
-        _randomMessages = State(initialValue: tem_messages.randomElement()!)
+        if messages.randomElement() != nil {
+            _randomMessages = State(initialValue: randomMessages)
+        } else {
+            _randomMessages = State(initialValue: "")
+        }
     }
     
     var body: some View {
-        VStack {
-            Button(action: {
-                randomMessages = tem_messages.randomElement()!
-                saveRandomMessage()
-                showingAlert = true
-            }, label: {
-                Image("Heart button")
-                    .resizable()
-                    .frame(width: 230,height: 200)
-            })
-            .onLongPressGesture {
-                showContextMenu = true
-            }
-            .contextMenu(menuItems: {
-                Button("ㅎㅎ") {}
-                Button("메롱") {}
-                Button("테스트지롱") {}
-                
-            })
-            .alert("랜덤메시지가 전송되었습니다.", isPresented: $showingAlert) {
-                Button("확인") {
+        NavigationStack{
+            VStack {
+                Button(action: {
+                    if let randomMessage = messages.randomElement() {
+                        randomMessages = randomMessage.message
+                    }
+                    saveRandomMessage()
+                    print("메시지 입력")
+                }, label: {
+                    Image("Heart button")
+                        .resizable()
+                        .frame(width: 230,height: 200)
+                })
+                .onLongPressGesture {
+                    showContextMenu = true
                 }
+                .contextMenu(menuItems: {
+                    Button("ㅎㅎ") {}
+                    Button("메롱") {}
+                    Button("테스트지롱") {}
+                })
+                .padding(.bottom, 30)
+                Text("\(postPositionText(name)) 생각하며 눌러보세요.")
+                    .font(.headline)
+                
+                Text("[test] \(randomMessages)") // 나중에 없앨거에요. 확인용!
             }
-            .padding(.bottom, 30)
-            Text("\(postPositionText(name)) 생각하며 눌러보세요.")
-                .font(.headline)
-
-            Text("[test] \(randomMessages)") // 나중에 없앨거에요. 확인용!
+            .padding()
+            .navigationTitle("DDooing")
         }
-        .padding()
-        .navigationBarBackButtonHidden(true)
     }
     
     func saveRandomMessage() {
@@ -98,9 +101,6 @@ struct HomeView: View {
     }
 }
 
-func selectingRandomly() {
-}
-
 // 을,를 구분
 func postPositionText(_ name: String) -> String {
     // 글자의 마지막 부분을 가져옴
@@ -121,4 +121,5 @@ func postPositionText(_ name: String) -> String {
 // Preview
 #Preview {
     HomeView(partnerUID: nil)
+        .modelContainer(for: MessageModel.self,  inMemory: true)
 }
