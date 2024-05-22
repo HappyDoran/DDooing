@@ -60,7 +60,7 @@ struct ShowMessageView: View {
                             HStack {
                                 if message.isStarred {
                                     // 새로운 별+하트 이미지로 변경 예정
-                                    Image("StarredHeart")
+                                    Image("Heart with stars")
                                         .resizable()
                                         .frame(width: 35, height: 30)
                                 } else {

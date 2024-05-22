@@ -87,7 +87,9 @@ struct HomeView: View {
                     .contextMenu(menuItems: {
                         ForEach(messages) { mess in
                             if mess.isStarred {
-                                Button (action: {}, label: {
+                                Button (action: {
+                                    sendMessage(messageText: mess.message, isStarred: true)
+                                }, label: {
                                     Text(mess.message)
                                 })
                             }}
@@ -98,9 +100,8 @@ struct HomeView: View {
                                 if !isLongPressed {
                                     print("짧게누름")
                                     if let randomMessage = messages.randomElement() {
-                                        randomMessages = randomMessage.message
+                                        sendMessage(messageText: randomMessage.message, isStarred: false)
                                     }
-                                    saveRandomMessage()
                                     print("메시지 입력")
                                 }
                                 isLongPressed = false
@@ -121,11 +122,6 @@ struct HomeView: View {
             .padding()
 //            .navigationTitle("DDooing")
         }
-    }
-    
-    func saveRandomMessage() {
-        guard let partnerUID = partnerUID else { return }
-        sendMessage(messageText: randomMessages, isStarred: false)
     }
     
     func sendMessage(messageText: String, isStarred: Bool) {
