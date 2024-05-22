@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10CAF94D2BFCA42700318EB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10CAF94C2BFCA42700318EB0 /* GoogleService-Info.plist */; };
 		4F1A593D2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
 		4F1A593E2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
 		4F1A593F2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
@@ -61,8 +60,10 @@
 		4FF515942BF33F810056531C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515932BF33F810056531C /* HomeView.swift */; };
 		4FF515962BF33FB40056531C /* TextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515952BF33FB40056531C /* TextEditView.swift */; };
 		4FF515982BF33FD70056531C /* ShowMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515972BF33FD70056531C /* ShowMessageView.swift */; };
+		790BA23A2BFDD04800A1E364 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 790BA2392BFDD04800A1E364 /* GoogleService-Info.plist */; };
+		790BA23B2BFDD04800A1E364 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 790BA2392BFDD04800A1E364 /* GoogleService-Info.plist */; };
+		790BA23C2BFDD04800A1E364 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 790BA2392BFDD04800A1E364 /* GoogleService-Info.plist */; };
 		9D79E9372BF5FAD700A05D95 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79E9362BF5FAD700A05D95 /* MessageModel.swift */; };
-		9F2C6FE62BFD76A000B5C7A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F2C6FE52BFD76A000B5C7A7 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +84,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10CAF94C2BFCA42700318EB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4F1A59352BF8892000C3EF2C /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		4F1A59362BF8892000C3EF2C /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -116,8 +116,8 @@
 		4FF515932BF33F810056531C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4FF515952BF33FB40056531C /* TextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditView.swift; sourceTree = "<group>"; };
 		4FF515972BF33FD70056531C /* ShowMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMessageView.swift; sourceTree = "<group>"; };
+		790BA2392BFDD04800A1E364 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D79E9362BF5FAD700A05D95 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
-		9F2C6FE52BFD76A000B5C7A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,13 +254,13 @@
 		4FAD25A32BF3339A00EBD37A = {
 			isa = PBXGroup;
 			children = (
-				10CAF94C2BFCA42700318EB0 /* GoogleService-Info.plist */,
+				790BA2392BFDD04800A1E364 /* GoogleService-Info.plist */,
 				4FAD25AE2BF3339A00EBD37A /* DDooing */,
 				4FAD25BF2BF3339B00EBD37A /* DDooingTests */,
 				4FAD25C92BF3339B00EBD37A /* DDooingUITests */,
 				4FAD25AD2BF3339A00EBD37A /* Products */,
 				4FD812CB2BF87AB900F16ED0 /* Frameworks */,
-				9D02CB842BFE11FF0050D9DA /* Recovered References */,
+				790BA2342BFDCFD100A1E364 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -320,10 +320,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9D02CB842BFE11FF0050D9DA /* Recovered References */ = {
+		790BA2342BFDCFD100A1E364 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				9F2C6FE52BFD76A000B5C7A7 /* GoogleService-Info.plist */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -443,10 +442,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				790BA23A2BFDD04800A1E364 /* GoogleService-Info.plist in Resources */,
 				4FAD25B72BF3339B00EBD37A /* Preview Assets.xcassets in Resources */,
-				10CAF94D2BFCA42700318EB0 /* GoogleService-Info.plist in Resources */,
 				4F1A59492BF8892000C3EF2C /* Pretendard-Bold.otf in Resources */,
-				9F2C6FE62BFD76A000B5C7A7 /* GoogleService-Info.plist in Resources */,
 				4F1A59432BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59552BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
 				4F1A594C2BF8892000C3EF2C /* Pretendard-Thin.otf in Resources */,
@@ -470,6 +468,7 @@
 				4F1A594D2BF8892000C3EF2C /* Pretendard-Thin.otf in Resources */,
 				4F1A59442BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59562BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
+				790BA23B2BFDD04800A1E364 /* GoogleService-Info.plist in Resources */,
 				4F1A59502BF8892000C3EF2C /* Pretendard-Black.otf in Resources */,
 				4F1A593E2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */,
 			);
@@ -486,6 +485,7 @@
 				4F1A594E2BF8892000C3EF2C /* Pretendard-Thin.otf in Resources */,
 				4F1A59452BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59572BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
+				790BA23C2BFDD04800A1E364 /* GoogleService-Info.plist in Resources */,
 				4F1A59512BF8892000C3EF2C /* Pretendard-Black.otf in Resources */,
 				4F1A593F2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */,
 			);
@@ -679,7 +679,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DDooing/Preview Content\"";
-				DEVELOPMENT_TEAM = UW9295Z57Q;
+				DEVELOPMENT_TEAM = MXGCKXDXUM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooing/Info.plist;
@@ -693,7 +693,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SSan.DDooing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Feather.DDooing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -712,7 +712,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DDooing/Preview Content\"";
-				DEVELOPMENT_TEAM = UW9295Z57Q;
+				DEVELOPMENT_TEAM = MXGCKXDXUM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooing/Info.plist;
@@ -726,7 +726,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SSan.DDooing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Feather.DDooing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
