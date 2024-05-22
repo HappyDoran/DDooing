@@ -19,7 +19,7 @@ struct TextEditView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var messages: [MessageModel]
     @State private var newMessage = ""
-    @State private var showAlert = false
+    @State private var showAlert10 = false
     @State private var showAlert2 = false
     
     var body: some View {
@@ -132,22 +132,23 @@ struct TextEditView: View {
                             
                         }
                         
-                    }   
+                    } 
+                    .alert(isPresented: $showAlert10) {
+                        Alert(
+                            title: Text("DDooing"),
+                            message: Text("즐겨찾기는 최대 3개까지만 가능하답니다~!"),
+                            dismissButton: .default(Text("확인"))
+                        )
+                    }
                     
                 }
                 
                 .listStyle(.plain)
-                .alert(isPresented: $showAlert) {
-                    Alert(
-                        title: Text("DDooing"),
-                        message: Text("즐겨찾기는 최대 3개까지 가능합니다."),
-                        dismissButton: .default(Text("확인"))
-                    )
-                }
+                
                 .alert(isPresented: $showAlert2) {
                     Alert(
                         title: Text("DDooing"),
-                        message: Text("이미 존재함"),
+                        message: Text("이미 추가되었어요~!"),
                         dismissButton: .default(Text("확인"))
                     )
                 }
@@ -187,13 +188,18 @@ struct TextEditView: View {
     }
     
     func toggleStar(mess: MessageModel) {
+            showAlert10 = false
             let starredMessagesCount = messages.filter { $0.isStarred }.count
             if mess.isStarred || starredMessagesCount < 3 {
                 mess.isStarred.toggle()
                 saveContext()
+                print("showAlert: \(showAlert10)")
+                print(starredMessagesCount)
             } else {
                 print("즐겨찾기는 최대 3개까지 가능합니다.")
-                showAlert = true
+                showAlert10 = true
+                print("showAlert: \(showAlert10)")
+                print(starredMessagesCount)
             }
         }
     func removeEmptyMessages() {

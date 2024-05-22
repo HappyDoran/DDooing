@@ -31,35 +31,7 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack{
-            VStack {
-//                Button(action: {
-//                    if let randomMessage = messages.randomElement() {
-//                        randomMessages = randomMessage.message
-//                    }
-//                    saveRandomMessage()
-//                    print("메시지 입력")
-//                }, label: {
-//                    Image("Heart button")
-//                        .resizable()
-//                        .frame(width: 230,height: 200)
-//                })
-//                .onLongPressGesture {
-//                    showContextMenu = true
-//                }
-//                .contextMenu(menuItems: {
-//                    ForEach(messages) { mess in
-//                        if mess.isStarred {
-//                            Button (action: {}, label: {
-//                                Text(mess.message)
-//                            })
-//                        }}
-//                })
-//                .padding(.bottom, 30)
-//                Text("\(postPositionText(name)) 생각하며 눌러보세요.")
-//                    .font(.headline)
-//
-                
-                
+            VStack {     
                 Image("Heart button")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
