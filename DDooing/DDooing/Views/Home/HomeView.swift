@@ -17,6 +17,8 @@ struct HomeView: View {
     @State private var randomMessages : String = ""
     @State private var showContextMenu = false
     let partnerUID: String!
+    @GestureState private var isPressed = false
+    @State private var isLongPressed = false
     
     init(partnerUID: String?) {
         self.partnerUID = partnerUID
@@ -30,31 +32,83 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             VStack {
-                Button(action: {
-                    if let randomMessage = messages.randomElement() {
-                        randomMessages = randomMessage.message
-                    }
-                    saveRandomMessage()
-                    print("메시지 입력")
-                }, label: {
-                    Image("Heart button")
-                        .resizable()
-                        .frame(width: 230,height: 200)
-                })
-                .onLongPressGesture {
-                    showContextMenu = true
-                }
-                .contextMenu(menuItems: {
-                    ForEach(messages) { mess in
-                        if mess.isStarred {
-                            Button (action: {}, label: {
-                                Text(mess.message)
-                            })
-                        }}
-                })
-                .padding(.bottom, 30)
+//                Button(action: {
+//                    if let randomMessage = messages.randomElement() {
+//                        randomMessages = randomMessage.message
+//                    }
+//                    saveRandomMessage()
+//                    print("메시지 입력")
+//                }, label: {
+//                    Image("Heart button")
+//                        .resizable()
+//                        .frame(width: 230,height: 200)
+//                })
+//                .onLongPressGesture {
+//                    showContextMenu = true
+//                }
+//                .contextMenu(menuItems: {
+//                    ForEach(messages) { mess in
+//                        if mess.isStarred {
+//                            Button (action: {}, label: {
+//                                Text(mess.message)
+//                            })
+//                        }}
+//                })
+//                .padding(.bottom, 30)
+//                Text("\(postPositionText(name)) 생각하며 눌러보세요.")
+//                    .font(.headline)
+//
+                
+                
+                Image("Heart button")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.trailing,10)
+                    .scaleEffect(isPressed ? 0.8 : 0.7) // 작아지는 효과
+                    .animation(.easeInOut(duration: 0.3), value: isPressed) // 애니메이션 추가
+                    .gesture(
+                        LongPressGesture(minimumDuration: 1.0)
+                            .updating($isPressed) { currentState, gestureState, transaction in
+                                gestureState = currentState
+                            }
+                            .onEnded { _ in
+                                isLongPressed = true
+                                print("길게누름")
+                            }
+                        
+                    )
+                    .contextMenu(menuItems: {
+                        ForEach(messages) { mess in
+                            if mess.isStarred {
+                                Button (action: {}, label: {
+                                    Text(mess.message)
+                                })
+                            }}
+                    })
+                    .simultaneousGesture(
+                        DragGesture(minimumDistance: 0)
+                            .onEnded { _ in
+                                if !isLongPressed {
+                                    print("짧게누름")
+                                    if let randomMessage = messages.randomElement() {
+                                        randomMessages = randomMessage.message
+                                    }
+                                    saveRandomMessage()
+                                    print("메시지 입력")
+                                }
+                                isLongPressed = false
+                            }
+                    )
                 Text("\(postPositionText(name)) 생각하며 눌러보세요.")
                     .font(.headline)
+                    .padding(.bottom,130)
+
+
+                
+                
+                
+                
+                
 
             }
             .padding()
@@ -126,3 +180,4 @@ func postPositionText(_ name: String) -> String {
     HomeView(partnerUID: nil)
         .modelContainer(for: MessageModel.self,  inMemory: true)
 }
+
