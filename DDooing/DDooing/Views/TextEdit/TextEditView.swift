@@ -145,13 +145,17 @@ struct TextEditView: View {
                 .alert(isPresented: $showAlert2) {
                     Alert(
                         title: Text("DDooing"),
-                        message: Text("이미 추가됌"),
+                        message: Text("이미 존재함"),
                         dismissButton: .default(Text("확인"))
                     )
                 }
                 .navigationTitle("메세지 문구")
+                .onDisappear {
+                                removeEmptyMessages()
+                            }
         }
     }
+    
     
 //    func sortMessages() {
 //        messages.sort { $0.isStarred && !$1.isStarred }
@@ -189,6 +193,12 @@ struct TextEditView: View {
                 print("즐겨찾기는 최대 3개까지 가능합니다.")
                 showAlert = true
             }
+        }
+    func removeEmptyMessages() {
+            for message in messages where message.message.isEmpty {
+                modelContext.delete(message)
+            }
+            saveContext()
         }
 
 
