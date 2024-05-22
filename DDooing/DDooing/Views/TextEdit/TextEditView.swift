@@ -35,7 +35,9 @@ struct TextEditView: View {
                         Spacer()
                         Image("post1")
                             .resizable()
-                            .frame(width: 100, height: 100)
+                            .frame(width: 130, height: 120)
+                            .scaledToFill()
+                            
                         
                         Spacer()
                     }.listRowSeparator(.hidden)

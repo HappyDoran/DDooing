@@ -37,8 +37,9 @@ struct ShowMessageView: View {
                 // 새로운 우체통 이미지로 변경 예정
                 Image(imageName(for: recivedMessages.count))
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 140, height: 140)
+                    .frame(width: 140, height: 120)
+                    .scaledToFill()
+                    .padding(.bottom)
                 
                 
                 Spacer()
