@@ -37,7 +37,9 @@ struct ShowMessageView: View {
                 // 새로운 우체통 이미지로 변경 예정
                 Image(imageName(for: recivedMessages.count))
                     .resizable()
-                    .frame(width: 140, height: 110)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 140, height: 140)
+                
                 
                 Spacer()
                 
@@ -131,14 +133,14 @@ struct ShowMessageView: View {
     // 메세지 개수에 따른 이미지 변경 함수
     func imageName(for messageCount: Int) -> String {
         switch messageCount {
-        case 0:
-            return "MailboxEmpty"
-        case 1...20:
-            return "Mailbox"
+        case 0...10:
+            return "mailbox1"
+        case 11...20:
+            return "mailbox2"
         case 21...40:
-            return "Mailbox2"
+            return "mailbox3"
         default:
-            return "Mailbox3"
+            return "mailbox4"
         }
     }
     
@@ -168,7 +170,7 @@ struct ShowMessageView: View {
                 let timestamp = messageData["timeStamp"] as? Timestamp,
                 let isStarred = messageData["isStarred"] as? Bool,
                 let messageId = messageData["messageId"] as? String {
-                    self.fetchPartnerNickname { nickname in
+                    self.fetchMyConnectedNickname { nickname in
                         // 중복 체크: 이미 추가된 메시지인지 확인
                         if !self.recivedMessages.contains(where: { $0.messageId == messageId }) {
                             let message = RecivedMessage(messageId: messageId, name: nickname, text: text, time: timestamp.dateValue(), isStarred: isStarred)
@@ -202,9 +204,14 @@ struct ShowMessageView: View {
         }
     }
     
-    private func fetchPartnerNickname(completion: @escaping (String) -> Void) {
+    private func fetchMyConnectedNickname(completion: @escaping (String) -> Void) {
         let db = Firestore.firestore()
-        db.collection("Users").document(partnerUID).getDocument { document, error in
+        guard let currentUid = Auth.auth().currentUser?.uid else {
+            completion("Unknown")
+            return
+        }
+        
+        db.collection("Users").document(currentUid).getDocument { document, error in
             if let document = document, document.exists {
                 let nickname = document.data()?["ConnectedNickname"] as? String ?? "Unknown"
                 completion(nickname)
