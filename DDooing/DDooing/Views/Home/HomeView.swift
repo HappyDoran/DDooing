@@ -58,7 +58,14 @@ struct HomeView: View {
 //                Text("\(postPositionText(name)) 생각하며 눌러보세요.")
 //                    .font(.headline)
 //
+                HStack {
+                    Text("DDooing")
+                        .font(.largeTitle.bold())
+                    Spacer()
+                }
+                .padding(.vertical)
                 
+                Spacer()
                 
                 Image("Heart button")
                     .resizable()
@@ -107,12 +114,12 @@ struct HomeView: View {
                 
                 
                 
-                
+                Spacer()
                 
 
             }
             .padding()
-            .navigationTitle("DDooing")
+//            .navigationTitle("DDooing")
         }
     }
     

@@ -25,11 +25,20 @@ struct TextEditView: View {
     var body: some View {
         
         NavigationStack {
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Text("메세지 문구")
+                        .font(.largeTitle.bold())
+                        .padding()
+                        .padding(.top, 10)
+                    
+                    Spacer()
+                }
                 List {
-//                    Text("메세지 문구")
-//                        .font(.largeTitle)
-//                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-//                        .listRowSeparator(.hidden)
+                    
+                     
                     // 편지 사진
                     HStack{
                         Spacer()
@@ -37,7 +46,7 @@ struct TextEditView: View {
                             .resizable()
                             .frame(width: 130, height: 120)
                             .scaledToFill()
-                            
+                        
                         
                         Spacer()
                     }.listRowSeparator(.hidden)
@@ -47,43 +56,43 @@ struct TextEditView: View {
                             Spacer()
                             Image(systemName: "plus")
                                 .listRowSeparator(.hidden)
-                            }
+                        }
                         .background()
                     })) {
                         ForEach(messages.sorted(by: { $0.createdDate > $1.createdDate })) { mess in
                             if mess.isStarred {
                                 HStack {
-                                
-                                
-                                TextField("문구를 입력해주세요", text: Binding(
-                                    get: { mess.message },
-                                    set: { mess.message = $0 }
-                                )).onChange(of: mess.message,  initial: true) {
-                                    saveContext()
+                                    
+                                    
+                                    TextField("문구를 입력해주세요", text: Binding(
+                                        get: { mess.message },
+                                        set: { mess.message = $0 }
+                                    )).onChange(of: mess.message,  initial: true) {
+                                        saveContext()
+                                    }
+                                    Spacer()
+                                    
+                                    
+                                    if mess.isStarred {
+                                        Image(systemName: "star.fill")
+                                            .foregroundColor(.orange)
+                                    }
+                                }.swipeActions {
+                                    
+                                    Button(role: .destructive) {
+                                        deleteItem(item: mess)
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                    
+                                    
+                                    Button {
+                                        mess.isStarred.toggle()
+                                    } label: {
+                                        Label("Star", systemImage: "star.fill")
+                                    }
+                                    .tint(.orange)
                                 }
-                                Spacer()
-                                
-                                
-                                if mess.isStarred {
-                                    Image(systemName: "star.fill")
-                                        .foregroundColor(.orange)
-                                }
-                            }.swipeActions {
-                                
-                                Button(role: .destructive) {
-                                    deleteItem(item: mess)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                                
-                                
-                                Button {
-                                    mess.isStarred.toggle()
-                                } label: {
-                                    Label("Star", systemImage: "star.fill")
-                                }
-                                .tint(.orange)
-                            }
                             }
                             
                             
@@ -94,47 +103,48 @@ struct TextEditView: View {
                         ForEach(messages.sorted(by: { $0.createdDate > $1.createdDate })) { mess in
                             if mess.isStarred == false {
                                 HStack {
-                                
-                                
-                                TextField("문구를 입력해주세요", text: Binding(
-                                    get: { mess.message },
-                                    set: { mess.message = $0 }
-                                )).onChange(of: mess.message,  initial: true) {
-                                    saveContext()
+                                    
+                                    
+                                    TextField("문구를 입력해주세요", text: Binding(
+                                        get: { mess.message },
+                                        set: { mess.message = $0 }
+                                    )).onChange(of: mess.message,  initial: true) {
+                                        saveContext()
+                                    }
+                                    Spacer()
+                                    
+                                    
+                                    if mess.isStarred {
+                                        Image(systemName: "star.fill")
+                                            .foregroundColor(.orange)
+                                    }
+                                }.swipeActions {
+                                    
+                                    Button(role: .destructive) {
+                                        deleteItem(item: mess)
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                    
+                                    
+                                    Button {
+                                        toggleStar(mess: mess)
+                                    } label: {
+                                        Label("Star", systemImage: "star.fill")
+                                    }
+                                    
+                                    .tint(.orange)
                                 }
-                                Spacer()
-                                
-                                
-                                if mess.isStarred {
-                                    Image(systemName: "star.fill")
-                                        .foregroundColor(.orange)
-                                }
-                            }.swipeActions {
-                                
-                                Button(role: .destructive) {
-                                    deleteItem(item: mess)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                                
-                                
-                                Button {
-                                    toggleStar(mess: mess)
-                                } label: {
-                                    Label("Star", systemImage: "star.fill")
-                                }
-                               
-                                .tint(.orange)
-                            }
                             }
                             
                             
                             
                         }
                         
-                    }   
+                    }
                     
                 }
+            }
                 
                 .listStyle(.plain)
                 .alert(isPresented: $showAlert) {
@@ -151,7 +161,7 @@ struct TextEditView: View {
                         dismissButton: .default(Text("확인"))
                     )
                 }
-                .navigationTitle("메세지 문구")
+//                .navigationTitle("메세지 문구")
                 .onDisappear {
                                 removeEmptyMessages()
                             }
