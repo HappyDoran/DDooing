@@ -133,35 +133,26 @@ struct HomeView: View {
         
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         
-        let currenrUserRef = db.collection("Received-Messages")
-            .document(currentUid).collection(partnerUID).document()
+        let currentUserRef = db.collection("Received-Messages")
+            .document(partnerUID).collection(currentUid).document()
         
-        let PartnerRef = db.collection("Received-Messages")
-            .document(partnerUID).collection(currentUid)
-        
-//        let recentCurrentUserRef = db.collection("Received-Messages")
-//            .document(currentUid).collection("recent-messages")
-//            .document(partnerUID)
-        
-        let recentPartnerRef = db.collection("Received-Messages")
+        let recentCurrentUserRef = db.collection("Received-Messages")
             .document(partnerUID).collection("recent-messages")
             .document(currentUid)
         
-        let messageId = currenrUserRef.documentID
+        let messageId = currentUserRef.documentID
         
         let messageData: [String: Any] = [
-            "fromId": currentUid,
-            "toId": partnerUID!,
+            "fromId": partnerUID!,
+            "toId": currentUid,
             "messageText": messageText,
             "timeStamp": Timestamp(date: Date()),
             "isStarred": isStarred,
             "messageId": messageId
         ]
         
-//        currenrUserRef.setData(messageData)
-        PartnerRef.document(messageId).setData(messageData)
-//        recentCurrentUserRef.setData(messageData)
-        recentPartnerRef.setData(messageData)
+        currentUserRef.setData(messageData)
+        recentCurrentUserRef.setData(messageData)
     }
 }
 

@@ -105,27 +105,6 @@ struct ShowMessageView: View {
                     }
                 }
         }
-//            .toolbar {
-//                ToolbarItem {
-//                    Menu {
-//                        // 새로운 메세지가 왔을 때 어떻게 보이는지 테스트용 버튼
-//                        Button {
-//                            toggleNewMessages()
-//                        } label: {
-//                            Text("NewMessage test")
-//                        }
-//                        // 즐겨찾기 한 메세지가 왔을 때 어떻게 보이는지 테스트용 버튼
-//                        Button {
-//                            toggleStarredMessages()
-//                        } label: {
-//                            Text("StarredMessage test")
-//                        }
-//                    } label: {
-//                        Label("test", systemImage: "ellipsis.circle")
-//                    }
-//                }
-//            }
-//            .navigationTitle("오늘의 메시지")
             .onAppear {
                 addObserveMessages()
                 
@@ -152,20 +131,6 @@ struct ShowMessageView: View {
             return "mailbox4"
         }
     }
-    
-//    // 새로운 메세지가 왔을 때 어떻게 보이는지 테스트용 함수
-//    func toggleNewMessages() {
-//        for index in recivedMessages.indices {
-//            recivedMessages[index].isNew.toggle()
-//        }
-//    }
-//
-//    // 즐겨찾기 한 메세지가 왔을 때 어떻게 보이는지 테스트용 함수
-//    func toggleStarredMessages() {
-//        for index in recivedMessages.indices {
-//            recivedMessages[index].isStarred.toggle()
-//        }
-//    }
     
     func formattedTime(from date: Date) -> String {
         let formatter = DateFormatter()
