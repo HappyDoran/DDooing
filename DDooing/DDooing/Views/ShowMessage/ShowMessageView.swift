@@ -156,7 +156,7 @@ struct ShowMessageView: View {
                 let timestamp = messageData["timeStamp"] as? Timestamp,
                 let isStarred = messageData["isStarred"] as? Bool,
                 let messageId = messageData["messageId"] as? String {
-                    self.fetchPartnerNickname { nickname in
+                    self.fetchMyConnectedNickname { nickname in
                         // 중복 체크: 이미 추가된 메시지인지 확인
                         if !self.recivedMessages.contains(where: { $0.messageId == messageId }) {
                             let message = RecivedMessage(messageId: messageId, name: nickname, text: text, time: timestamp.dateValue(), isStarred: isStarred)
@@ -190,9 +190,14 @@ struct ShowMessageView: View {
         }
     }
     
-    private func fetchPartnerNickname(completion: @escaping (String) -> Void) {
+    private func fetchMyConnectedNickname(completion: @escaping (String) -> Void) {
         let db = Firestore.firestore()
-        db.collection("Users").document(partnerUID).getDocument { document, error in
+        guard let currentUid = Auth.auth().currentUser?.uid else {
+            completion("Unknown")
+            return
+        }
+        
+        db.collection("Users").document(currentUid).getDocument { document, error in
             if let document = document, document.exists {
                 let nickname = document.data()?["ConnectedNickname"] as? String ?? "Unknown"
                 completion(nickname)
