@@ -32,64 +32,79 @@ struct ShowMessageView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                Image(imageName(for: recivedMessages.count))
-                    .resizable()
-                    .frame(width: 140, height: 130)
-                    .scaledToFill()
-                    .padding(.bottom)
+            VStack {
                 
                 Spacer()
                 
-                ForEach(recivedMessages.reversed()) { message in
-                    HStack {
-                        HStack {
-                            if message.isStarred {
-                                // 새로운 별+하트 이미지로 변경 예정
-                                Image("StarredHeart")
-                                    .resizable()
-                                    .frame(width: 35, height: 30)
-                            } else {
-                                Image("Heart button")
-                                    .resizable()
-                                    .frame(width: 35, height: 30)
-                            }
-                            
-                            
-                            LazyVStack(alignment: .leading) {
-                                Text(message.name)
-                                    .bold()
-                                
-                                Text(message.text)
-                                    .frame(width: 200, height: 10, alignment: .leading)
-                            }
-                            .padding(.leading, 5)
-                            
-                        }
-                        .padding(.leading)
-
-                        Spacer()
-                        
-                        LazyVStack(alignment: .trailing) {
-                            if message.isNew {
-                                HStack {
-                                    Spacer()
-                                    Image(systemName: "moonphase.new.moon")
-                                        .resizable()
-                                        .frame(width: 10, height: 10)
-                                        .foregroundColor(.red)
-                                }
-                            } else {
-                                Spacer()
-                            }
-                            Text(formattedTime(from: message.time))
-                                .foregroundStyle(.secondary)
-                                .font(.footnote)
-                        }
-                    }
-                    .padding(.top, 20)
+                HStack {
+                    Text("오늘의 메세지")
+                        .font(.largeTitle.bold())
+                    Spacer()
                 }
-            }
+                .padding()
+                .padding(.top, 10)
+                
+                Spacer()
+                
+                ScrollView {
+                    Image(imageName(for: recivedMessages.count))
+                        .resizable()
+                        .frame(width: 140, height: 130)
+                        .scaledToFill()
+                        .padding(.bottom)
+                    
+                    Spacer()
+                    
+                    ForEach(recivedMessages.reversed()) { message in
+                        HStack {
+                            HStack {
+                                if message.isStarred {
+                                    // 새로운 별+하트 이미지로 변경 예정
+                                    Image("StarredHeart")
+                                        .resizable()
+                                        .frame(width: 35, height: 30)
+                                } else {
+                                    Image("Heart button")
+                                        .resizable()
+                                        .frame(width: 35, height: 30)
+                                }
+                                
+                                
+                                LazyVStack(alignment: .leading) {
+                                    Text(message.name)
+                                        .bold()
+                                    
+                                    Text(message.text)
+                                        .frame(width: 200, height: 10, alignment: .leading)
+                                }
+                                .padding(.leading, 5)
+                                
+                            }
+                            .padding(.leading)
+                            
+                            Spacer()
+                            
+                            LazyVStack(alignment: .trailing) {
+                                if message.isNew {
+                                    HStack {
+                                        Spacer()
+                                        Image(systemName: "moonphase.new.moon")
+                                            .resizable()
+                                            .frame(width: 10, height: 10)
+                                            .foregroundColor(.red)
+                                    }
+                                } else {
+                                    Spacer()
+                                }
+                                Text(formattedTime(from: message.time))
+                                    .foregroundStyle(.secondary)
+                                    .font(.footnote)
+                            }
+                        }
+                        .padding(.top, 20)
+                    }
+                }
+        }
 //            .toolbar {
 //                ToolbarItem {
 //                    Menu {
@@ -110,7 +125,7 @@ struct ShowMessageView: View {
 //                    }
 //                }
 //            }
-            .navigationTitle("오늘의 메시지")
+//            .navigationTitle("오늘의 메시지")
             .onAppear {
                 addObserveMessages()
                 
