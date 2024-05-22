@@ -28,6 +28,8 @@ struct ShowMessageView: View {
     
     @State private var recivedMessages = [RecivedMessage]()
     
+    @State private var timer: Timer?
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -110,9 +112,18 @@ struct ShowMessageView: View {
 //                }
 //            }
             .navigationTitle("오늘의 메시지")
-            .onAppear() {
+            .onAppear {
                 addObserveMessages()
-                checkAndDeleteIfMidnight(userAUID: Auth.auth().currentUser?.uid ?? "")
+                //테스트용
+//                if let user = Auth.auth().currentUser {
+//                    self.checkAndDeleteOldMessagesTest(userAUID: user.uid)
+//                }
+                if let user = Auth.auth().currentUser {
+                    self.checkAndDeleteOldMessages(userAUID: user.uid)
+                }
+            }
+            .onDisappear {
+                timer?.invalidate()
             }
         }
     }
@@ -203,38 +214,75 @@ struct ShowMessageView: View {
         }
     }
     
-    // 24시간이 지나면 받은 메세지가 삭제되는 메서드
-    private func checkAndDeleteIfMidnight(userAUID: String) {
-        let db = Firestore.firestore()
-        let docRef = db.collection("Received-Messages").document(userAUID).collection(userAUID)
-
-        dump(docRef.document())
-//        docRef.getDocument { (document, error) in
-//            if let document = document, document.exists {
-//                if let timestamp = document.get("timeStamp") as? Timestamp {
-//                    let date = timestamp.dateValue()
-//                    let calendar = Calendar.current
-//                    let hour = calendar.component(.hour, from: date)
-//                    let minute = calendar.component(.minute, from: date)
-//                    
-//                    if hour == 0 && minute == 0 {
-//                        docRef.delete { err in
-//                            if let err = err {
-//                                print("Error deleting document: \(err)")
-//                            } else {
-//                                print("Document successfully deleted")
+    //테스트용 함수
+//    private func checkAndDeleteOldMessagesTest(userAUID: String) {
+//        let db = Firestore.firestore()
+//        let docRef = db.collection("Received-Messages").document(userAUID).collection(userAUID)
+//        
+//        docRef.getDocuments { snapshot, error in
+//            if let error = error {
+//                print("Error getting documents: \(error)")
+//            } else {
+//                let now = Date()
+//                let calendar = Calendar.current
+//                
+//                // 특정 시간 (오전 11시 42분)을 생성
+//                var components = calendar.dateComponents([.year, .month, .day], from: now)
+//                components.hour = 12
+//                components.minute = 30
+//                let specificTime = calendar.date(from: components)!
+//
+//                for document in snapshot!.documents {
+//                    if let timestamp = document.get("timeStamp") as? Timestamp {
+//                        let messageDate = timestamp.dateValue()
+//                        if messageDate < specificTime {
+//                            // 특정 시간 이전의 메시지 삭제
+//                            document.reference.delete { error in
+//                                if let error = error {
+//                                    print("Error deleting document: \(error)")
+//                                } else {
+//                                    print("Document successfully deleted")
+//                                }
 //                            }
 //                        }
 //                    }
-//                } else {
-//                    print("Timestamp field does not exist")
 //                }
-//            } else {
-//                print("Document does not exist")
 //            }
 //        }
+//    }
+    
+    private func checkAndDeleteOldMessages(userAUID: String) {
+        let db = Firestore.firestore()
+        let docRef = db.collection("Received-Messages").document(userAUID).collection(userAUID)
+        
+        docRef.getDocuments { snapshot, error in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                let now = Date()
+                let calendar = Calendar.current
+                
+                for document in snapshot!.documents {
+                    if let timestamp = document.get("timeStamp") as? Timestamp {
+                        let messageDate = timestamp.dateValue()
+                        if calendar.isDateInYesterday(messageDate) || messageDate < calendar.startOfDay(for: now) {
+                            // 메시지가 어제거나 이전이면 삭제
+                            document.reference.delete { error in
+                                if let error = error {
+                                    print("Error deleting document: \(error)")
+                                } else {
+                                    print("Document successfully deleted")
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
+
+
 
 
 //#Preview {
