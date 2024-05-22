@@ -260,6 +260,7 @@
 				4FAD25C92BF3339B00EBD37A /* DDooingUITests */,
 				4FAD25AD2BF3339A00EBD37A /* Products */,
 				4FD812CB2BF87AB900F16ED0 /* Frameworks */,
+				9D02CB842BFE11FF0050D9DA /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -317,6 +318,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D02CB842BFE11FF0050D9DA /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				9F2C6FE52BFD76A000B5C7A7 /* GoogleService-Info.plist */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -670,7 +679,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DDooing/Preview Content\"";
-				DEVELOPMENT_TEAM = UV9ZJ88D54;
+				DEVELOPMENT_TEAM = UW9295Z57Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooing/Info.plist;
@@ -684,7 +693,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Parkhayeon.DDooing;
+				PRODUCT_BUNDLE_IDENTIFIER = SSan.DDooing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -703,7 +712,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DDooing/Preview Content\"";
-				DEVELOPMENT_TEAM = UV9ZJ88D54;
+				DEVELOPMENT_TEAM = UW9295Z57Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooing/Info.plist;
@@ -717,7 +726,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Parkhayeon.DDooing;
+				PRODUCT_BUNDLE_IDENTIFIER = SSan.DDooing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
