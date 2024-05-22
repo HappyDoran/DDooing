@@ -33,14 +33,11 @@ struct ShowMessageView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                // 메세지 개수에 따른 이미지 변경
-                // 새로운 우체통 이미지로 변경 예정
                 Image(imageName(for: recivedMessages.count))
                     .resizable()
-                    .frame(width: 140, height: 120)
+                    .frame(width: 140, height: 130)
                     .scaledToFill()
                     .padding(.bottom)
-                
                 
                 Spacer()
                 
@@ -92,7 +89,6 @@ struct ShowMessageView: View {
                     }
                     .padding(.top, 20)
                 }
-//                .padding(.trailing)
             }
 //            .toolbar {
 //                ToolbarItem {
@@ -117,10 +113,7 @@ struct ShowMessageView: View {
             .navigationTitle("오늘의 메시지")
             .onAppear {
                 addObserveMessages()
-                //테스트용
-//                if let user = Auth.auth().currentUser {
-//                    self.checkAndDeleteOldMessagesTest(userAUID: user.uid)
-//                }
+                
                 if let user = Auth.auth().currentUser {
                     self.checkAndDeleteOldMessages(userAUID: user.uid)
                 }
@@ -180,6 +173,30 @@ struct ShowMessageView: View {
                     }
                 }
         }
+        
+        // db에서 메세지가 삭제되면 뷰에서도 삭제되게 하기
+        observeMessages { messageData, documentID, changeType in
+            if let text = messageData["messageText"] as? String,
+                let timestamp = messageData["timeStamp"] as? Timestamp,
+                let isStarred = messageData["isStarred"] as? Bool,
+                let messageId = messageData["messageId"] as? String {
+                    self.fetchMyConnectedNickname { nickname in
+                        switch changeType {
+                        case .added:
+                            if !self.recivedMessages.contains(where: { $0.messageId == messageId }) {
+                                let message = RecivedMessage(messageId: messageId, name: nickname, text: text, time: timestamp.dateValue(), isStarred: isStarred)
+                                self.recivedMessages.append(message)
+                            }
+                        case .removed:
+                            if let index = self.recivedMessages.firstIndex(where: { $0.messageId == messageId }) {
+                                self.recivedMessages.remove(at: index)
+                            }
+                        default:
+                            break
+                        }
+                    }
+                }
+        }
     }
     
     
@@ -222,43 +239,29 @@ struct ShowMessageView: View {
         }
     }
     
-    //테스트용 함수
-//    private func checkAndDeleteOldMessagesTest(userAUID: String) {
-//        let db = Firestore.firestore()
-//        let docRef = db.collection("Received-Messages").document(userAUID).collection(userAUID)
-//        
-//        docRef.getDocuments { snapshot, error in
-//            if let error = error {
-//                print("Error getting documents: \(error)")
-//            } else {
-//                let now = Date()
-//                let calendar = Calendar.current
-//                
-//                // 특정 시간 (오전 11시 42분)을 생성
-//                var components = calendar.dateComponents([.year, .month, .day], from: now)
-//                components.hour = 12
-//                components.minute = 30
-//                let specificTime = calendar.date(from: components)!
-//
-//                for document in snapshot!.documents {
-//                    if let timestamp = document.get("timeStamp") as? Timestamp {
-//                        let messageDate = timestamp.dateValue()
-//                        if messageDate < specificTime {
-//                            // 특정 시간 이전의 메시지 삭제
-//                            document.reference.delete { error in
-//                                if let error = error {
-//                                    print("Error deleting document: \(error)")
-//                                } else {
-//                                    print("Document successfully deleted")
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
+    // 메세지 삭제 관찰 메서드
+    func observeMessages(completion: @escaping ([String: Any], String, DocumentChangeType) -> Void) {
+        let db = Firestore.firestore()
+        
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        
+        let query = db.collection("Received-Messages")
+            .document(currentUid)
+            .collection(partnerUID)
+            .order(by: "timeStamp", descending: true)
+        
+        query.addSnapshotListener { snapshot, _ in
+            guard let changes = snapshot?.documentChanges else { return }
+            
+            for change in changes {
+                let data = change.document.data()
+                let documentID = change.document.documentID
+                completion(data, documentID, change.type)
+            }
+        }
+    }
     
+    // 어제의 메세지가 삭제되도록 하는 메서드
     private func checkAndDeleteOldMessages(userAUID: String) {
         let db = Firestore.firestore()
         let docRef = db.collection("Received-Messages").document(userAUID).collection(userAUID)
