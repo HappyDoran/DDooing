@@ -33,9 +33,9 @@ struct TextEditView: View {
                     // 편지 사진
                     HStack{
                         Spacer()
-                        Image("Letter")
+                        Image("post1")
                             .resizable()
-                            .frame(width: 85, height: 100)
+                            .frame(width: 100, height: 100)
                         
                         Spacer()
                     }.listRowSeparator(.hidden)
@@ -149,6 +149,7 @@ struct TextEditView: View {
                         dismissButton: .default(Text("확인"))
                     )
                 }
+                .navigationTitle("메세지 문구")
         }
     }
     
