@@ -45,15 +45,17 @@ struct HomeView: View {
                     showContextMenu = true
                 }
                 .contextMenu(menuItems: {
-                    Button("ㅎㅎ") {}
-                    Button("메롱") {}
-                    Button("테스트지롱") {}
+                    ForEach(messages) { mess in
+                        if mess.isStarred {
+                            Button (action: {}, label: {
+                                Text(mess.message)
+                            })
+                        }}
                 })
                 .padding(.bottom, 30)
                 Text("\(postPositionText(name)) 생각하며 눌러보세요.")
                     .font(.headline)
-                
-                Text("[test] \(randomMessages)") // 나중에 없앨거에요. 확인용!
+
             }
             .padding()
             .navigationTitle("DDooing")

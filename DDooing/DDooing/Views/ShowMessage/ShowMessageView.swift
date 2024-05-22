@@ -35,7 +35,9 @@ struct ShowMessageView: View {
                 // 새로운 우체통 이미지로 변경 예정
                 Image(imageName(for: recivedMessages.count))
                     .resizable()
-                    .frame(width: 140, height: 110)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 140, height: 140)
+                
                 
                 Spacer()
                 
@@ -120,13 +122,13 @@ struct ShowMessageView: View {
     func imageName(for messageCount: Int) -> String {
         switch messageCount {
         case 0...10:
-            return "Mailbox"
+            return "mailbox1"
         case 11...20:
-            return "Mailbox2"
-        case 21...30:
-            return "Mailbox3"
+            return "mailbox2"
+        case 21...40:
+            return "mailbox3"
         default:
-            return "MailboxEmpty"
+            return "mailbox4"
         }
     }
     
