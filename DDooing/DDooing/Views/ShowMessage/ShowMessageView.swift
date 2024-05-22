@@ -292,6 +292,6 @@ struct ShowMessageView: View {
 
 
 
-//#Preview {
-//    ShowMessageView(partnerUID: nil)
-//}
+#Preview {
+    ShowMessageView(partnerUID: nil)
+}
