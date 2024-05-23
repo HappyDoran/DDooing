@@ -41,6 +41,10 @@
 		4F3F813E2BFDDDE2008C920C /* WidgetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3F813D2BFDDDE2008C920C /* WidgetColor.swift */; };
 		4F3F813F2BFDDEDC008C920C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F3F813B2BFDDCEC008C920C /* Assets.xcassets */; };
 		4F3F81402BFDE116008C920C /* WidgetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3F813D2BFDDDE2008C920C /* WidgetColor.swift */; };
+		4F3F81412BFE0F7B008C920C /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79E9362BF5FAD700A05D95 /* MessageModel.swift */; };
+		4F3F81422BFE10AE008C920C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515932BF33F810056531C /* HomeView.swift */; };
+		4F3F81542BFE63CA008C920C /* AppModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3F81532BFE63CA008C920C /* AppModelContainer.swift */; };
+		4F3F81552BFE63CA008C920C /* AppModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3F81532BFE63CA008C920C /* AppModelContainer.swift */; };
 		4FAD25B02BF3339A00EBD37A /* DDooingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25AF2BF3339A00EBD37A /* DDooingApp.swift */; };
 		4FAD25B22BF3339A00EBD37A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25B12BF3339A00EBD37A /* MainView.swift */; };
 		4FAD25B42BF3339B00EBD37A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD25B32BF3339B00EBD37A /* Assets.xcassets */; };
@@ -62,8 +66,6 @@
 		4FBE64D82BFDD572008363A0 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBE64D72BFDD572008363A0 /* FirebaseDatabaseSwift */; };
 		4FBE64DA2BFDD572008363A0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBE64D92BFDD572008363A0 /* FirebaseFirestore */; };
 		4FBE64DC2BFDD572008363A0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBE64DB2BFDD572008363A0 /* FirebaseFirestoreSwift */; };
-		4FBE64E02BFDD6D1008363A0 /* WidgetMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE64DF2BFDD6D1008363A0 /* WidgetMessageModel.swift */; };
-		4FBE64E12BFDD6D1008363A0 /* WidgetMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE64DF2BFDD6D1008363A0 /* WidgetMessageModel.swift */; };
 		4FBE64E32BFDD841008363A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FBE64E22BFDD841008363A0 /* GoogleService-Info.plist */; };
 		4FBE64E42BFDD841008363A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FBE64E22BFDD841008363A0 /* GoogleService-Info.plist */; };
 		4FD812CD2BF87AB900F16ED0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD812CC2BF87AB900F16ED0 /* FirebaseAnalytics */; };
@@ -138,6 +140,7 @@
 		4F1A595C2BF8896A00C3EF2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4F3F813B2BFDDCEC008C920C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F3F813D2BFDDDE2008C920C /* WidgetColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetColor.swift; sourceTree = "<group>"; };
+		4F3F81532BFE63CA008C920C /* AppModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelContainer.swift; sourceTree = "<group>"; };
 		4FAD25AC2BF3339A00EBD37A /* DDooing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDooing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAD25AF2BF3339A00EBD37A /* DDooingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingApp.swift; sourceTree = "<group>"; };
 		4FAD25B12BF3339A00EBD37A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -157,7 +160,6 @@
 		4FBE64BF2BFDC940008363A0 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		4FBE64C32BFDC941008363A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FBE64CB2BFDCB80008363A0 /* DDooingWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDooingWidgetExtension.entitlements; sourceTree = "<group>"; };
-		4FBE64DF2BFDD6D1008363A0 /* WidgetMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetMessageModel.swift; sourceTree = "<group>"; };
 		4FBE64E22BFDD841008363A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FD812CA2BF87A8200F16ED0 /* DDooing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDooing.entitlements; sourceTree = "<group>"; };
 		4FD812D82BF87BA800F16ED0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -260,7 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				9D79E9362BF5FAD700A05D95 /* MessageModel.swift */,
-				4FBE64DF2BFDD6D1008363A0 /* WidgetMessageModel.swift */,
+				4F3F81532BFE63CA008C920C /* AppModelContainer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,6 +463,8 @@
 				4FAD25BE2BF3339B00EBD37A /* PBXTargetDependency */,
 			);
 			name = DDooingTests;
+			packageProductDependencies = (
+			);
 			productName = DDooingTests;
 			productReference = 4FAD25BC2BF3339B00EBD37A /* DDooingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -642,7 +646,7 @@
 				4FAD25B22BF3339A00EBD37A /* MainView.swift in Sources */,
 				4FF515902BF33F430056531C /* RandomCodeView.swift in Sources */,
 				4FAD25B02BF3339A00EBD37A /* DDooingApp.swift in Sources */,
-				4FBE64E02BFDD6D1008363A0 /* WidgetMessageModel.swift in Sources */,
+				4F3F81542BFE63CA008C920C /* AppModelContainer.swift in Sources */,
 				4F1A59592BF8894600C3EF2C /* FontManager.swift in Sources */,
 				4FF515982BF33FD70056531C /* ShowMessageView.swift in Sources */,
 			);
@@ -671,12 +675,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FBE64E12BFDD6D1008363A0 /* WidgetMessageModel.swift in Sources */,
 				4FBE64BA2BFDC940008363A0 /* DDooingWidgetBundle.swift in Sources */,
+				4F3F81412BFE0F7B008C920C /* MessageModel.swift in Sources */,
 				4FBE64C02BFDC940008363A0 /* AppIntent.swift in Sources */,
 				4FBE64BE2BFDC940008363A0 /* DDooingWidget.swift in Sources */,
+				4F3F81422BFE10AE008C920C /* HomeView.swift in Sources */,
 				4FBE64BC2BFDC940008363A0 /* DDooingWidgetLiveActivity.swift in Sources */,
 				4F3F81402BFDE116008C920C /* WidgetColor.swift in Sources */,
+				4F3F81552BFE63CA008C920C /* AppModelContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -102,6 +102,7 @@ struct HomeView: View {
 //        recentCurrentUserRef.setData(messageData)
         recentPartnerRef.setData(messageData)
     }
+    
 }
 
 // 을,를 구분
@@ -120,6 +121,7 @@ func postPositionText(_ name: String) -> String {
     let str = last > 0 ? "을" : "를"
     return name + str
 }
+
 
 // Preview
 #Preview {
