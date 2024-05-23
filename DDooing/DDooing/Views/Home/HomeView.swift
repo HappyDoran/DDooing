@@ -11,7 +11,7 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
-    let name = "하연이"
+    @State var name: String = ""
     @Environment(\.modelContext) private var modelContext
     @Query private var messages: [MessageModel]
     @State private var randomMessages : String = ""
@@ -32,41 +32,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             VStack {
-//                Button(action: {
-//                    if let randomMessage = messages.randomElement() {
-//                        randomMessages = randomMessage.message
-//                    }
-//                    saveRandomMessage()
-//                    print("메시지 입력")
-//                }, label: {
-//                    Image("Heart button")
-//                        .resizable()
-//                        .frame(width: 230,height: 200)
-//                })
-//                .onLongPressGesture {
-//                    showContextMenu = true
-//                }
-//                .contextMenu(menuItems: {
-//                    ForEach(messages) { mess in
-//                        if mess.isStarred {
-//                            Button (action: {}, label: {
-//                                Text(mess.message)
-//                            })
-//                        }}
-//                })
-//                .padding(.bottom, 30)
-//                Text("\(postPositionText(name)) 생각하며 눌러보세요.")
-//                    .font(.headline)
-//
-                HStack {
-                    Text("DDooing")
-                        .font(.largeTitle.bold())
-                    Spacer()
-                }
-                .padding(.vertical)
                 
-                Spacer()
-
                 Image("Heart button")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -87,9 +53,7 @@ struct HomeView: View {
                     .contextMenu(menuItems: {
                         ForEach(messages) { mess in
                             if mess.isStarred {
-                                Button (action: {
-                                    sendMessage(messageText: mess.message, isStarred: true)
-                                }, label: {
+                                Button (action: {}, label: {
                                     Text(mess.message)
                                 })
                             }}
@@ -100,8 +64,9 @@ struct HomeView: View {
                                 if !isLongPressed {
                                     print("짧게누름")
                                     if let randomMessage = messages.randomElement() {
-                                        sendMessage(messageText: randomMessage.message, isStarred: false)
+                                        randomMessages = randomMessage.message
                                     }
+                                    saveRandomMessage()
                                     print("메시지 입력")
                                 }
                                 isLongPressed = false
@@ -115,13 +80,24 @@ struct HomeView: View {
                 
                 
                 
-                Spacer()
+                
                 
 
             }
             .padding()
-//            .navigationTitle("DDooing")
+            .navigationTitle("DDooing")
+            .onAppear {
+                fetchMyConnectedNickname { fetchedName in
+                    name = fetchedName
+                    
+                }
+            }
         }
+    }
+    
+    func saveRandomMessage() {
+        guard let partnerUID = partnerUID else { return }
+        sendMessage(messageText: randomMessages, isStarred: false)
     }
     
     func sendMessage(messageText: String, isStarred: Bool) {
@@ -129,27 +105,54 @@ struct HomeView: View {
         
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         
-        let currentUserRef = db.collection("Received-Messages")
-            .document(partnerUID).collection(currentUid).document()
+        let currenrUserRef = db.collection("Received-Messages")
+            .document(currentUid).collection(partnerUID).document()
         
-        let recentCurrentUserRef = db.collection("Received-Messages")
+        let PartnerRef = db.collection("Received-Messages")
+            .document(partnerUID).collection(currentUid)
+        
+//        let recentCurrentUserRef = db.collection("Received-Messages")
+//            .document(currentUid).collection("recent-messages")
+//            .document(partnerUID)
+        
+        let recentPartnerRef = db.collection("Received-Messages")
             .document(partnerUID).collection("recent-messages")
             .document(currentUid)
         
-        let messageId = currentUserRef.documentID
+        let messageId = currenrUserRef.documentID
         
         let messageData: [String: Any] = [
-            "fromId": partnerUID!,
-            "toId": currentUid,
+            "fromId": currentUid,
+            "toId": partnerUID!,
             "messageText": messageText,
             "timeStamp": Timestamp(date: Date()),
             "isStarred": isStarred,
             "messageId": messageId
         ]
         
-        currentUserRef.setData(messageData)
-        recentCurrentUserRef.setData(messageData)
+//        currenrUserRef.setData(messageData)
+        PartnerRef.document(messageId).setData(messageData)
+//        recentCurrentUserRef.setData(messageData)
+        recentPartnerRef.setData(messageData)
     }
+    
+    private func fetchMyConnectedNickname(completion: @escaping (String) -> Void) {
+        let db = Firestore.firestore()
+        guard let currentUid = Auth.auth().currentUser?.uid else {
+            completion("Unknown")
+            return
+        }
+        
+        db.collection("Users").document(currentUid).getDocument { document, error in
+            if let document = document, document.exists {
+                name = document.data()?["ConnectedNickname"] as? String ?? "Unknown"
+                completion(name)
+            } else {
+                completion("Unknown")
+            }
+        }
+    }
+    
 }
 
 // 을,를 구분
@@ -174,4 +177,5 @@ func postPositionText(_ name: String) -> String {
     HomeView(partnerUID: nil)
         .modelContainer(for: MessageModel.self,  inMemory: true)
 }
+
 
