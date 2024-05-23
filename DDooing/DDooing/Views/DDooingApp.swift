@@ -18,7 +18,7 @@ struct DDooingApp: App {
         WindowGroup {
             ContentView().environmentObject(viewModel)
         }
-        .modelContainer(for: [MessageModel.self])
+        .modelContainer(sharedModelContainer)
     }
 }
 

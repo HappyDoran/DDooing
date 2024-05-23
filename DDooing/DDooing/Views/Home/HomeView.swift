@@ -172,6 +172,7 @@ func postPositionText(_ name: String) -> String {
     return name + str
 }
 
+
 // Preview
 #Preview {
     HomeView(partnerUID: nil)
