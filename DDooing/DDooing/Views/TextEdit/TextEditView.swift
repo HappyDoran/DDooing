@@ -36,6 +36,7 @@ struct TextEditView: View {
                     
                     Spacer()
                 }
+                
                 List {
                     
                      
@@ -58,89 +59,99 @@ struct TextEditView: View {
                                 .listRowSeparator(.hidden)
                         }
                         .background()
-                    })) {
-                        ForEach(messages.sorted(by: { $0.createdDate > $1.createdDate })) { mess in
-                            if mess.isStarred {
-                                HStack {
-                                    
-                                    
-                                    TextField("문구를 입력해주세요", text: Binding(
-                                        get: { mess.message },
-                                        set: { mess.message = $0 }
-                                    )).onChange(of: mess.message,  initial: true) {
-                                        saveContext()
+                    })) 
+                    
+                    
+                    {
+                        if messages.isEmpty {
+                            Text("새로운 메세지 문구를 추가해 주세요 (◍⁃͈ᴗ•͈)")
+                                .font(.pretendardRegular16)
+                                .frame(width: 400,height: 350)
+                                .listRowSeparator(.hidden)
+                        } else {
+                            ForEach(messages.sorted(by: { $0.createdDate > $1.createdDate })) { mess in
+                                if mess.isStarred {
+                                    HStack {
+                                        
+                                        
+                                        TextField("문구를 입력해주세요", text: Binding(
+                                            get: { mess.message },
+                                            set: { mess.message = $0 }
+                                        )).onChange(of: mess.message,  initial: true) {
+                                            saveContext()
+                                        }
+                                        Spacer()
+                                        
+                                        
+                                        if mess.isStarred {
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.orange)
+                                        }
+                                    }.swipeActions {
+                                        
+                                        Button(role: .destructive) {
+                                            deleteItem(item: mess)
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                        }
+                                        
+                                        
+                                        Button {
+                                            mess.isStarred.toggle()
+                                        } label: {
+                                            Label("Star", systemImage: "star.fill")
+                                        }
+                                        .tint(.orange)
                                     }
-                                    Spacer()
-                                    
-                                    
-                                    if mess.isStarred {
-                                        Image(systemName: "star.fill")
-                                            .foregroundColor(.orange)
-                                    }
-                                }.swipeActions {
-                                    
-                                    Button(role: .destructive) {
-                                        deleteItem(item: mess)
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                    
-                                    
-                                    Button {
-                                        mess.isStarred.toggle()
-                                    } label: {
-                                        Label("Star", systemImage: "star.fill")
-                                    }
-                                    .tint(.orange)
                                 }
+                                
+                                
+                                
                             }
                             
                             
-                            
-                        }
-                        
-                        
-                        ForEach(messages.sorted(by: { $0.createdDate > $1.createdDate })) { mess in
-                            if mess.isStarred == false {
-                                HStack {
-                                    
-                                    
-                                    TextField("문구를 입력해주세요", text: Binding(
-                                        get: { mess.message },
-                                        set: { mess.message = $0 }
-                                    )).onChange(of: mess.message,  initial: true) {
-                                        saveContext()
+                            ForEach(messages.sorted(by: { $0.createdDate > $1.createdDate })) { mess in
+                                if mess.isStarred == false {
+                                    HStack {
+                                        
+                                        
+                                        TextField("문구를 입력해주세요", text: Binding(
+                                            get: { mess.message },
+                                            set: { mess.message = $0 }
+                                        )).onChange(of: mess.message,  initial: true) {
+                                            saveContext()
+                                        }
+                                        Spacer()
+                                        
+                                        
+                                        if mess.isStarred {
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.orange)
+                                        }
+                                    }.swipeActions {
+                                        
+                                        Button(role: .destructive) {
+                                            deleteItem(item: mess)
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                        }
+                                        
+                                        
+                                        Button {
+                                            toggleStar(mess: mess)
+                                        } label: {
+                                            Label("Star", systemImage: "star.fill")
+                                        }
+                                        
+                                        .tint(.orange)
                                     }
-                                    Spacer()
-                                    
-                                    
-                                    if mess.isStarred {
-                                        Image(systemName: "star.fill")
-                                            .foregroundColor(.orange)
-                                    }
-                                }.swipeActions {
-                                    
-                                    Button(role: .destructive) {
-                                        deleteItem(item: mess)
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                    
-                                    
-                                    Button {
-                                        toggleStar(mess: mess)
-                                    } label: {
-                                        Label("Star", systemImage: "star.fill")
-                                    }
-                                    
-                                    .tint(.orange)
                                 }
+                                
+                                
+                                
                             }
-                            
-                            
-                            
                         }
-                    } 
+                    }
                     .alert(isPresented: $showAlert10) {
                         Alert(
                             title: Text("DDooing"),

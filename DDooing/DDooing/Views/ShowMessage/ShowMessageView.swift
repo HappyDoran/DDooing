@@ -28,8 +28,6 @@ struct ShowMessageView: View {
     
     @State private var recivedMessages = [RecivedMessage]()
     
-    @State private var timer: Timer?
-    
     var body: some View {
         NavigationStack {
             VStack {
@@ -46,63 +44,76 @@ struct ShowMessageView: View {
                 
                 Spacer()
                 
+                
                 ScrollView {
                     Image(imageName(for: recivedMessages.count))
                         .resizable()
                         .frame(width: 140, height: 130)
                         .scaledToFill()
+                        
+                    Text("오늘 받은 메세지만 확인할 수 있습니다.")
+                        .font(.pretendardThin14)
+                        .foregroundStyle(.secondary)
                         .padding(.bottom)
                     
                     Spacer()
                     
-                    ForEach(recivedMessages.reversed()) { message in
-                        HStack {
+                    if recivedMessages.isEmpty {
+                        Text("아직 받은 메세지가 없어요 ( ⚈̥̥̥̥̥́⌢⚈̥̥̥̥̥̀)")
+                            .font(.pretendardRegular16)
+                            .frame(width: 400,height: 400)
+                            
+                        
+                    } else {
+                        ForEach(recivedMessages.sorted(by: { $0.time > $1.time })) { message in
                             HStack {
-                                if message.isStarred {
-                                    // 새로운 별+하트 이미지로 변경 예정
-                                    Image("Heart with stars")
-                                        .resizable()
-                                        .frame(width: 35, height: 30)
-                                } else {
-                                    Image("Heart button")
-                                        .resizable()
-                                        .frame(width: 35, height: 30)
-                                }
-                                
-                                
-                                LazyVStack(alignment: .leading) {
-                                    Text(message.name)
-                                        .bold()
-                                    
-                                    Text(message.text)
-                                        .frame(width: 200, height: 10, alignment: .leading)
-                                }
-                                .padding(.leading, 5)
-                                
-                            }
-                            .padding(.leading)
-                            
-                            Spacer()
-                            
-                            LazyVStack(alignment: .trailing) {
-                                if message.isNew {
-                                    HStack {
-                                        Spacer()
-                                        Image(systemName: "moonphase.new.moon")
+                                HStack {
+                                    if message.isStarred {
+                                        Image("Heart with stars")
                                             .resizable()
-                                            .frame(width: 10, height: 10)
-                                            .foregroundColor(.red)
+                                            .frame(width: 35, height: 30)
+                                    } else {
+                                        Image("Heart button")
+                                            .resizable()
+                                            .frame(width: 35, height: 30)
                                     }
-                                } else {
-                                    Spacer()
+                                    
+                                    
+                                    LazyVStack(alignment: .leading) {
+                                        Text(message.name)
+                                            .font(.pretendardSemiBold16)
+                                            .bold()
+                                        
+                                        Text(message.text)
+                                            .font(.pretendardRegular16)
+                                            .frame(width: 200, height: 10, alignment: .leading)
+                                    }
+                                    .padding(.leading, 5)
+                                    
                                 }
+                                .padding(.leading)
+                                
+                                Spacer()
+                                
+                                LazyVStack(alignment: .trailing) {
+                                    if message.isNew {
+                                        HStack {
+                                            Spacer()
+                                            Image(systemName: "moonphase.new.moon")
+                                                .resizable()
+                                                .frame(width: 10, height: 10)
+                                                .foregroundColor(.red)
+                                        }
+                                    } else {
+                                        Spacer()
+                                    }
                                 Text(formattedTime(from: message.time))
                                     .foregroundStyle(.secondary)
                                     .font(.footnote)
                                     .padding(.trailing, 20)
                             }
+                            .padding(.top, 20)
                         }
-                        .padding(.top, 20)
                     }
                 }
         }
@@ -113,9 +124,6 @@ struct ShowMessageView: View {
                     self.checkAndDeleteOldMessages(userAUID: user.uid)
                 }
             }
-            .onDisappear {
-                timer?.invalidate()
-            }
         }
     }
     
@@ -124,9 +132,9 @@ struct ShowMessageView: View {
         switch messageCount {
         case 0...10:
             return "mailbox1"
-        case 11...20:
+        case 11...30:
             return "mailbox2"
-        case 21...40:
+        case 31...60:
             return "mailbox3"
         default:
             return "mailbox4"
