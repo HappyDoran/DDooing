@@ -71,7 +71,7 @@ struct HomeView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .padding(.trailing,10)
-                    .scaleEffect(isPressed ? 0.8 : 0.7) // 작아지는 효과
+                    .scaleEffect(isPressed ? 1.0 : 0.8) // 작아지는 효과
                     .animation(.easeInOut(duration: 0.3), value: isPressed) // 애니메이션 추가
                     .gesture(
                         LongPressGesture(minimumDuration: 1.0)
@@ -109,7 +109,7 @@ struct HomeView: View {
                     )
                 Text("\(postPositionText(name)) 생각하며 눌러보세요.")
                     .font(.headline)
-                    .padding(.bottom,130)
+                    .padding(.bottom,60)
 
 
                 
