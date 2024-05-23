@@ -107,10 +107,10 @@ struct ShowMessageView: View {
                                     } else {
                                         Spacer()
                                     }
-                                    Text(formattedTime(from: message.time))
-                                        .foregroundStyle(.secondary)
-                                        .font(.footnote)
-                                }
+                                Text(formattedTime(from: message.time))
+                                    .foregroundStyle(.secondary)
+                                    .font(.footnote)
+                                    .padding(.trailing, 20)
                             }
                             .padding(.top, 20)
                         }
