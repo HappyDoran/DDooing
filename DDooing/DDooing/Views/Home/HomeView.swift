@@ -11,12 +11,14 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
-    let name = "하연이"
+    @State var name: String = ""
     @Environment(\.modelContext) private var modelContext
     @Query private var messages: [MessageModel]
     @State private var randomMessages : String = ""
     @State private var showContextMenu = false
     let partnerUID: String!
+    @GestureState private var isPressed = false
+    @State private var isLongPressed = false
     
     init(partnerUID: String?) {
         self.partnerUID = partnerUID
@@ -30,35 +32,66 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             VStack {
-                Button(action: {
-                    if let randomMessage = messages.randomElement() {
-                        randomMessages = randomMessage.message
-                    }
-                    saveRandomMessage()
-                    print("메시지 입력")
-                }, label: {
-                    Image("Heart button")
-                        .resizable()
-                        .frame(width: 230,height: 200)
-                })
-                .onLongPressGesture {
-                    showContextMenu = true
-                }
-                .contextMenu(menuItems: {
-                    ForEach(messages) { mess in
-                        if mess.isStarred {
-                            Button (action: {}, label: {
-                                Text(mess.message)
-                            })
-                        }}
-                })
-                .padding(.bottom, 30)
+                
+                Image("Heart button")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.trailing,10)
+                    .scaleEffect(isPressed ? 1.0 : 0.8) // 작아지는 효과
+                    .animation(.easeInOut(duration: 0.3), value: isPressed) // 애니메이션 추가
+                    .gesture(
+                        LongPressGesture(minimumDuration: 1.0)
+                            .updating($isPressed) { currentState, gestureState, transaction in
+                                gestureState = currentState
+                            }
+                            .onEnded { _ in
+                                isLongPressed = true
+                                print("길게누름")
+                            }
+                        
+                    )
+                    .contextMenu(menuItems: {
+                        ForEach(messages) { mess in
+                            if mess.isStarred {
+                                Button (action: {}, label: {
+                                    Text(mess.message)
+                                })
+                            }}
+                    })
+                    .simultaneousGesture(
+                        DragGesture(minimumDistance: 0)
+                            .onEnded { _ in
+                                if !isLongPressed {
+                                    print("짧게누름")
+                                    if let randomMessage = messages.randomElement() {
+                                        randomMessages = randomMessage.message
+                                    }
+                                    saveRandomMessage()
+                                    print("메시지 입력")
+                                }
+                                isLongPressed = false
+                            }
+                    )
                 Text("\(postPositionText(name)) 생각하며 눌러보세요.")
                     .font(.headline)
+                    .padding(.bottom,60)
+
+
+                
+                
+                
+                
+                
 
             }
             .padding()
             .navigationTitle("DDooing")
+            .onAppear {
+                fetchMyConnectedNickname { fetchedName in
+                    name = fetchedName
+                    
+                }
+            }
         }
     }
     
@@ -103,6 +136,23 @@ struct HomeView: View {
         recentPartnerRef.setData(messageData)
     }
     
+    private func fetchMyConnectedNickname(completion: @escaping (String) -> Void) {
+        let db = Firestore.firestore()
+        guard let currentUid = Auth.auth().currentUser?.uid else {
+            completion("Unknown")
+            return
+        }
+        
+        db.collection("Users").document(currentUid).getDocument { document, error in
+            if let document = document, document.exists {
+                name = document.data()?["ConnectedNickname"] as? String ?? "Unknown"
+                completion(name)
+            } else {
+                completion("Unknown")
+            }
+        }
+    }
+    
 }
 
 // 을,를 구분
@@ -128,3 +178,5 @@ func postPositionText(_ name: String) -> String {
     HomeView(partnerUID: nil)
         .modelContainer(for: MessageModel.self,  inMemory: true)
 }
+
+
