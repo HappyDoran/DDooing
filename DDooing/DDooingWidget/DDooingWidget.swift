@@ -69,6 +69,9 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct DDooingWidget: Widget {
+    init() {
+        FirebaseApp.configure()
+    }
     
     let kind: String = "DDooingWidget"
     

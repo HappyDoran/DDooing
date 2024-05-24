@@ -31,9 +31,7 @@ struct ShowMessageView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                
                 Spacer()
-                
                 HStack {
                     Text("오늘의 메세지")
                         .font(.largeTitle.bold())
@@ -41,16 +39,14 @@ struct ShowMessageView: View {
                 }
                 .padding()
                 .padding(.top, 10)
-                
                 Spacer()
-                
                 
                 ScrollView {
                     Image(imageName(for: recivedMessages.count))
                         .resizable()
                         .frame(width: 140, height: 130)
                         .scaledToFill()
-                        
+                    
                     Text("오늘 받은 메세지만 확인할 수 있습니다.")
                         .font(.pretendardThin14)
                         .foregroundStyle(.secondary)
@@ -62,7 +58,7 @@ struct ShowMessageView: View {
                         Text("아직 받은 메세지가 없어요 ( ⚈̥̥̥̥̥́⌢⚈̥̥̥̥̥̀)")
                             .font(.pretendardRegular16)
                             .frame(width: 400,height: 400)
-                            
+                        
                         
                     } else {
                         ForEach(recivedMessages.sorted(by: { $0.time > $1.time })) { message in
@@ -107,26 +103,26 @@ struct ShowMessageView: View {
                                     } else {
                                         Spacer()
                                     }
-                                Text(formattedTime(from: message.time))
-                                    .foregroundStyle(.secondary)
-                                    .font(.footnote)
-                                    .padding(.trailing, 20)
+                                    Text(formattedTime(from: message.time))
+                                        .foregroundStyle(.secondary)
+                                        .font(.footnote)
+                                        .padding(.trailing, 20)
+                                }
+                                .padding(.top, 20)
                             }
-                            .padding(.top, 20)
                         }
                     }
                 }
-        }
-            .onAppear {
-                addObserveMessages()
-                
-                if let user = Auth.auth().currentUser {
-                    self.checkAndDeleteOldMessages(userAUID: user.uid)
+                .onAppear {
+                    addObserveMessages()
+                    
+                    if let user = Auth.auth().currentUser {
+                        self.checkAndDeleteOldMessages(userAUID: user.uid)
+                    }
                 }
             }
         }
     }
-    
     // 메세지 개수에 따른 이미지 변경 함수
     func imageName(for messageCount: Int) -> String {
         switch messageCount {
@@ -150,44 +146,43 @@ struct ShowMessageView: View {
     private func addObserveMessages() {
         observeMessages { messageData in
             if let text = messageData["messageText"] as? String,
-                let timestamp = messageData["timeStamp"] as? Timestamp,
-                let isStarred = messageData["isStarred"] as? Bool,
-                let messageId = messageData["messageId"] as? String {
-                    self.fetchMyConnectedNickname { nickname in
-                        // 중복 체크: 이미 추가된 메시지인지 확인
-                        if !self.recivedMessages.contains(where: { $0.messageId == messageId }) {
-                            let message = RecivedMessage(messageId: messageId, name: nickname, text: text, time: timestamp.dateValue(), isStarred: isStarred)
-                            self.recivedMessages.append(message)
-                        }
+               let timestamp = messageData["timeStamp"] as? Timestamp,
+               let isStarred = messageData["isStarred"] as? Bool,
+               let messageId = messageData["messageId"] as? String {
+                self.fetchMyConnectedNickname { nickname in
+                    // 중복 체크: 이미 추가된 메시지인지 확인
+                    if !self.recivedMessages.contains(where: { $0.messageId == messageId }) {
+                        let message = RecivedMessage(messageId: messageId, name: nickname, text: text, time: timestamp.dateValue(), isStarred: isStarred)
+                        self.recivedMessages.append(message)
                     }
                 }
+            }
         }
         
         // db에서 메세지가 삭제되면 뷰에서도 삭제되게 하기
         observeMessages { messageData, documentID, changeType in
             if let text = messageData["messageText"] as? String,
-                let timestamp = messageData["timeStamp"] as? Timestamp,
-                let isStarred = messageData["isStarred"] as? Bool,
-                let messageId = messageData["messageId"] as? String {
-                    self.fetchMyConnectedNickname { nickname in
-                        switch changeType {
-                        case .added:
-                            if !self.recivedMessages.contains(where: { $0.messageId == messageId }) {
-                                let message = RecivedMessage(messageId: messageId, name: nickname, text: text, time: timestamp.dateValue(), isStarred: isStarred)
-                                self.recivedMessages.append(message)
-                            }
-                        case .removed:
-                            if let index = self.recivedMessages.firstIndex(where: { $0.messageId == messageId }) {
-                                self.recivedMessages.remove(at: index)
-                            }
-                        default:
-                            break
+               let timestamp = messageData["timeStamp"] as? Timestamp,
+               let isStarred = messageData["isStarred"] as? Bool,
+               let messageId = messageData["messageId"] as? String {
+                self.fetchMyConnectedNickname { nickname in
+                    switch changeType {
+                    case .added:
+                        if !self.recivedMessages.contains(where: { $0.messageId == messageId }) {
+                            let message = RecivedMessage(messageId: messageId, name: nickname, text: text, time: timestamp.dateValue(), isStarred: isStarred)
+                            self.recivedMessages.append(message)
                         }
+                    case .removed:
+                        if let index = self.recivedMessages.firstIndex(where: { $0.messageId == messageId }) {
+                            self.recivedMessages.remove(at: index)
+                        }
+                    default:
+                        break
                     }
                 }
+            }
         }
     }
-    
     
     func observeMessages(completion: @escaping ([String: Any]) -> Void) {
         let db = Firestore.firestore()
@@ -281,6 +276,7 @@ struct ShowMessageView: View {
         }
     }
 }
+
 
 
 
