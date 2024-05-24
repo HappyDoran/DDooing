@@ -12,6 +12,7 @@ import SwiftData
 
 struct HomeView: View {
     @State var name: String = ""
+    @State var partnerName: String = ""
     @Environment(\.modelContext) private var modelContext
     @Query private var messages: [MessageModel]
     @State private var randomMessages : String = ""
@@ -19,6 +20,9 @@ struct HomeView: View {
     let partnerUID: String!
     @GestureState private var isPressed = false
     @State private var isLongPressed = false
+    @Query<NotificationDataModel> private var notificationDataList: [NotificationDataModel]
+    @State var pushMessage = ""
+    @State var deviceToken = ""
     
     init(partnerUID: String?) {
         self.partnerUID = partnerUID
@@ -32,6 +36,15 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             VStack {
+                HStack {
+                    Text("DDooing")
+                        .font(.largeTitle.bold())
+                    Spacer()
+                }
+                .padding(.vertical)
+                
+                Spacer()
+                
                 Image("Heart button")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -86,7 +99,6 @@ struct HomeView: View {
 
             }
             .padding()
-            .navigationTitle("DDooing")
             .onAppear {
                 fetchMyConnectedNickname { fetchedName in
                     name = fetchedName
