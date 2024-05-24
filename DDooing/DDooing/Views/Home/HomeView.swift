@@ -89,14 +89,7 @@ struct HomeView: View {
                 Text("\(postPositionText(name)) 생각하며 눌러보세요.")
                     .font(.headline)
                     .padding(.bottom,60)
-
-
-                
-                
-                
-                
-                
-
+                Spacer()
             }
             .padding()
             .onAppear {
