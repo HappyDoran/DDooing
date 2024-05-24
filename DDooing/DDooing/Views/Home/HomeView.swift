@@ -32,7 +32,6 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             VStack {
-                
                 Image("Heart button")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
