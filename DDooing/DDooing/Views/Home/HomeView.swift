@@ -52,7 +52,9 @@ struct HomeView: View {
                     .contextMenu(menuItems: {
                         ForEach(messages) { mess in
                             if mess.isStarred {
-                                Button (action: {}, label: {
+                                Button (action: {
+                                    sendMessage(messageText: mess.message, isStarred: true)
+                                }, label: {
                                     Text(mess.message)
                                 })
                             }}
