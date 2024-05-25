@@ -45,7 +45,7 @@ struct RandomCodeView: View {
                 }
                 else{
                     TextField("Code", text: $code)
-                        .keyboardType(.namePhonePad).autocapitalization(.none)
+                        .keyboardType(.asciiCapable)
                         .font(.pretendardBold32)
                         .padding(.leading, 32)
                         .padding(.trailing, 32)

@@ -45,6 +45,27 @@
 		4F3F81422BFE10AE008C920C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515932BF33F810056531C /* HomeView.swift */; };
 		4F3F81542BFE63CA008C920C /* AppModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3F81532BFE63CA008C920C /* AppModelContainer.swift */; };
 		4F3F81552BFE63CA008C920C /* AppModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3F81532BFE63CA008C920C /* AppModelContainer.swift */; };
+		4F6D48982C00BDF9008B2A7F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF293F22BFA2779004BDDB3 /* ContentView.swift */; };
+		4F6D489A2C00BEE4008B2A7F /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF293F42BFA27AF004BDDB3 /* AppViewModel.swift */; };
+		4F6D489B2C00BEEB008B2A7F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5158B2BF33EAB0056531C /* LoginView.swift */; };
+		4F6D489C2C00BEF9008B2A7F /* RandomCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5158F2BF33F430056531C /* RandomCodeView.swift */; };
+		4F6D489D2C00BEFC008B2A7F /* PartnerNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515912BF33F680056531C /* PartnerNameView.swift */; };
+		4F6D489E2C00BF09008B2A7F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25B12BF3339A00EBD37A /* MainView.swift */; };
+		4F6D489F2C00BF1A008B2A7F /* TextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515952BF33FB40056531C /* TextEditView.swift */; };
+		4F6D48A02C00BF1D008B2A7F /* ShowMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF515972BF33FD70056531C /* ShowMessageView.swift */; };
+		4F6D48A12C00BF50008B2A7F /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A59582BF8894600C3EF2C /* FontManager.swift */; };
+		4F6D48A22C00BF54008B2A7F /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A593A2BF8892000C3EF2C /* Pretendard-Black.otf */; };
+		4F6D48A32C00BF57008B2A7F /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59382BF8892000C3EF2C /* Pretendard-Bold.otf */; };
+		4F6D48A42C00BF58008B2A7F /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
+		4F6D48A52C00BF5A008B2A7F /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59352BF8892000C3EF2C /* Pretendard-ExtraLight.otf */; };
+		4F6D48A62C00BF5D008B2A7F /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59372BF8892000C3EF2C /* Pretendard-Light.otf */; };
+		4F6D48A72C00BF60008B2A7F /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A593B2BF8892000C3EF2C /* Pretendard-Medium.otf */; };
+		4F6D48A82C00BF62008B2A7F /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59362BF8892000C3EF2C /* Pretendard-Regular.otf */; };
+		4F6D48A92C00BF65008B2A7F /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A593C2BF8892000C3EF2C /* Pretendard-SemiBold.otf */; };
+		4F6D48AA2C00BF67008B2A7F /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59392BF8892000C3EF2C /* Pretendard-Thin.otf */; };
+		4F6D48AB2C00BF88008B2A7F /* UserStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF293E82BF8EF33004BDDB3 /* UserStatusViewModel.swift */; };
+		4F6D48AC2C00BF8A008B2A7F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD812D82BF87BA800F16ED0 /* LoginViewModel.swift */; };
+		4F6D48AD2C00BF8D008B2A7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD25B32BF3339B00EBD37A /* Assets.xcassets */; };
 		4F8D878D2BFF864F006BEF4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F8D878C2BFF84DF006BEF4A /* GoogleService-Info.plist */; };
 		4F8D878E2BFF8650006BEF4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F8D878C2BFF84DF006BEF4A /* GoogleService-Info.plist */; };
 		4FAD25B02BF3339A00EBD37A /* DDooingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25AF2BF3339A00EBD37A /* DDooingApp.swift */; };
@@ -616,7 +637,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F6D48A52C00BF5A008B2A7F /* Pretendard-ExtraLight.otf in Resources */,
 				4F3F813F2BFDDEDC008C920C /* Assets.xcassets in Resources */,
+				4F6D48A32C00BF57008B2A7F /* Pretendard-Bold.otf in Resources */,
+				4F6D48A72C00BF60008B2A7F /* Pretendard-Medium.otf in Resources */,
+				4F6D48A82C00BF62008B2A7F /* Pretendard-Regular.otf in Resources */,
+				4F6D48A42C00BF58008B2A7F /* Pretendard-ExtraBold.otf in Resources */,
+				4F6D48A62C00BF5D008B2A7F /* Pretendard-Light.otf in Resources */,
+				4F6D48A92C00BF65008B2A7F /* Pretendard-SemiBold.otf in Resources */,
+				4F6D48A22C00BF54008B2A7F /* Pretendard-Black.otf in Resources */,
+				4F6D48AA2C00BF67008B2A7F /* Pretendard-Thin.otf in Resources */,
+				4F6D48AD2C00BF8D008B2A7F /* Assets.xcassets in Resources */,
 				4F8D878E2BFF8650006BEF4A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,14 +702,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F6D489A2C00BEE4008B2A7F /* AppViewModel.swift in Sources */,
+				4F6D48A12C00BF50008B2A7F /* FontManager.swift in Sources */,
+				4F6D48A02C00BF1D008B2A7F /* ShowMessageView.swift in Sources */,
+				4F6D489E2C00BF09008B2A7F /* MainView.swift in Sources */,
 				4FBE64BA2BFDC940008363A0 /* DDooingWidgetBundle.swift in Sources */,
+				4F6D489C2C00BEF9008B2A7F /* RandomCodeView.swift in Sources */,
 				4F3F81412BFE0F7B008C920C /* MessageModel.swift in Sources */,
 				4FBE64C02BFDC940008363A0 /* AppIntent.swift in Sources */,
 				4FBE64BE2BFDC940008363A0 /* DDooingWidget.swift in Sources */,
 				4F3F81422BFE10AE008C920C /* HomeView.swift in Sources */,
+				4F6D48982C00BDF9008B2A7F /* ContentView.swift in Sources */,
 				4FBE64BC2BFDC940008363A0 /* DDooingWidgetLiveActivity.swift in Sources */,
+				4F6D489B2C00BEEB008B2A7F /* LoginView.swift in Sources */,
 				4F3F81402BFDE116008C920C /* WidgetColor.swift in Sources */,
 				4F3F81552BFE63CA008C920C /* AppModelContainer.swift in Sources */,
+				4F6D48AB2C00BF88008B2A7F /* UserStatusViewModel.swift in Sources */,
+				4F6D489D2C00BEFC008B2A7F /* PartnerNameView.swift in Sources */,
+				4F6D48AC2C00BF8A008B2A7F /* LoginViewModel.swift in Sources */,
+				4F6D489F2C00BF1A008B2A7F /* TextEditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
