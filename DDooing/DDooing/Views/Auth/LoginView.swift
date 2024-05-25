@@ -45,17 +45,17 @@ struct LoginView: View {
                 }
                 .signInWithAppleButtonStyle(.black)
                 .frame(width: 345, height: 54)
-                
-                NavigationLink(
-                    destination: RandomCodeView(),
-                    isActive: $loginData.isAuthenticated, //여기서 사용자 로그인이 잘 됐으면 화면 전환
-                    label: {
-                        EmptyView()
-                    })
             }
             .padding(.horizontal, 16)
             .padding(.top,165)
             Spacer()
+            
+            NavigationLink(
+                destination: RandomCodeView(),
+                isActive: $loginData.isAuthenticated, //여기서 사용자 로그인이 잘 됐으면 화면 전환
+                label: {
+                    EmptyView()
+                })
         }
     }
 }

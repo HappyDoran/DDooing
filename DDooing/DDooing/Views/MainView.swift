@@ -50,6 +50,13 @@ struct MainView: View {
                                     let filteredDocuments = querySnapshot?.documents.filter { $0.documentID != currentUserUID }
                                     if let partnerDocument = filteredDocuments?.first {
                                         self.partnerUID = partnerDocument.documentID
+                                        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")!
+                                        
+                                        defaults.set(partnerUID,forKey: "partnerUID")
+                                        defaults.set(currentUserUID,forKey: "currentUserUID")
+                                        
+                                        print(defaults.string(forKey: "partnerUID"))
+                                        print(defaults.string(forKey: "currentUserUID"))
                                     }
                                     print("파트너 uid : \(String(describing: partnerUID))")
                                 } 
