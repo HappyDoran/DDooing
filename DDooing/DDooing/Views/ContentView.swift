@@ -30,16 +30,16 @@ struct ContentView: View {
 }
 
 class MessagingService {
-       static var partnerUID: String = ""
+    static var partnerUID: String = ""
     static var currentUserUID: String = ""
-       static var randomMessages: String = ""
+    static var randomMessages: String = ""
+    static var partnerDeviceToken: String = ""
+    static var partnerName: String = ""
     
-    static func sendMessage(partnerUID : String, currentUserUID: String, messageText: String, isStarred: Bool) {
+    static func sendMessage() {
         let db = Firestore.firestore()
         print("db init")
         
-//        let currentUid = "fXnIoNjeH9VbF8cFkMGRkjgv4GQ2" //여기가 문제
-//        guard let currentUid = Auth.auth().currentUser?.uid else { return }
         print(currentUserUID)
         
         
@@ -58,15 +58,104 @@ class MessagingService {
         let messageData: [String: Any] = [
             "fromId": currentUserUID,
             "toId": partnerUID,
-            "messageText": messageText,
+            "messageText": randomMessages,
             "timeStamp": Timestamp(date: Date()),
-            "isStarred": isStarred,
+            "isStarred": false,
             "messageId": messageId
         ]
         
         // 메시지 데이터를 Firestore에 저장
         partnerRef.document(messageId).setData(messageData)
         recentPartnerRef.setData(messageData)
+    }
+    
+    static func fetchAccessTokenAndSendPushNotification(){
+        // 서버로부터 OAuth 2.0 액세스 토큰 가져오기
+        //여기부분은 깃에 올릴 때 삭제하고 올리시기 바랍니다.
+        guard let url = URL(string: "") else {
+            print("Invalid URL for token")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        
+        let session = URLSession(configuration: .default)
+        session.dataTask(with: request) { data, response, err in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            }
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
+            // 서버로부터 받은 응답을 문자열로 변환하여 출력
+            if let accessToken = String(data: data, encoding: .utf8) {
+                print("Access Token String: \(accessToken)")
+                sendPushNotification(with: accessToken)
+            } else {
+                print("Invalid token response")
+            }
+        }.resume()
+    }
+    
+    static func sendPushNotification(with accessToken: String)  {
+        guard !accessToken.isEmpty else {
+            print("Access token is empty")
+            return
+        }
+        
+        // HTTP v1 API의 엔드포인트 URL
+        guard let url = URL(string: "https://fcm.googleapis.com/v1/projects/ddooing-8881b/messages:send") else {
+            print("Invalid URL for FCM")
+            return
+        }
+        print("partnerdevicetoken >>> \(partnerDeviceToken)")
+        print("pushMessage >>> \(randomMessages)")
+        print("parname >>> \(partnerName)")
+        let json: [String: Any] = [
+            "message": [
+                "token": partnerDeviceToken,
+                "notification": [
+                    "body": randomMessages,
+                    "title": partnerName
+                ]
+            ]
+        ]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted])
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let session = URLSession(configuration: .default)
+        session.dataTask(with: request) { data, response, err in
+                if let err = err {
+                    print("Error sending push notification: \(err.localizedDescription)")
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    print("Invalid response")
+                    return
+                }
+                
+                print("Push notification response status code: \(httpResponse.statusCode)")
+            
+            if let data = data, let responseBody = String(data: data, encoding: .utf8) {
+                        print("Response Body: \(responseBody)")
+                    }
+                
+                if httpResponse.statusCode == 200 {
+                    print("Push notification sent successfully")
+                } else {
+                    print("Failed to send push notification")
+                }
+        }.resume()
     }
 }
 
@@ -84,10 +173,19 @@ struct SendMessageIntent: AppIntent {
     @Parameter(title : "CurrentUserUID")
     var currentUserUID : String
     
-    init(randomMessage: String, partnerUID: String, currentUserUID: String) {
+    @Parameter(title : "PartnerDeviceToken")
+    var partnerDeviceToken : String
+    
+    @Parameter(title : "PartnerName")
+    var partnerName : String
+    
+    
+    init(randomMessage: String, partnerUID: String, currentUserUID: String, partnerDeviceToken: String, partnerName: String) {
         self.randomMessage = randomMessage
         self.partnerUID = partnerUID
         self.currentUserUID = currentUserUID
+        self.partnerDeviceToken = partnerDeviceToken
+        self.partnerName = partnerName
     }
     
     init() {
@@ -102,10 +200,15 @@ struct SendMessageIntent: AppIntent {
         MessagingService.partnerUID = partnerUID
         MessagingService.currentUserUID = currentUserUID
         // 메시지 보내기
-        MessagingService.sendMessage(partnerUID : MessagingService.partnerUID, currentUserUID: MessagingService.currentUserUID, messageText: MessagingService.randomMessages, isStarred: false)
+        MessagingService.sendMessage()
         
-//        print(MessagingService.randomMessages)
-//        print(MessagingService.partnerUID)
+        //푸시알림 설정
+        MessagingService.partnerDeviceToken = partnerDeviceToken
+        MessagingService.partnerName = partnerName
+        
+        //푸시알림 보내기
+        MessagingService.fetchAccessTokenAndSendPushNotification()
+        
         
         return .result()
     }
