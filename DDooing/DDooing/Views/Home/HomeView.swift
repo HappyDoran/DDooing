@@ -23,6 +23,7 @@ struct HomeView: View {
     @Query<NotificationDataModel> private var notificationDataList: [NotificationDataModel]
     @State var partnerDeviceToken = ""
     @State private var isButtonToggle: [Bool] = [false, false]
+    @Environment(\.colorScheme) var colorScheme //현재 색상 모드 가져오기
     
     init(partnerUID: String?) {
         self.partnerUID = partnerUID
@@ -37,11 +38,14 @@ struct HomeView: View {
         NavigationStack{
             VStack {
                 HStack {
-                    Text("DDooing")
-                        .font(.largeTitle.bold())
+                    Image(colorScheme == .dark ? "Title-dark" : "Title-white") // 색상 모드에 따라 이미지 변경
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 160)
                     Spacer()
                 }
                 .padding(.vertical)
+                
                 
                 Spacer()
                 
@@ -115,7 +119,7 @@ struct HomeView: View {
     }
     
     func fetchPartnerDeviceToken(completion: @escaping (String) -> Void) {
-        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")!
+        let defaults = UserDefaults(suiteName: "group.com.KkaKka.DDooing")!
         let db = Firestore.firestore()
         
         db.collection("Users").document(partnerUID).getDocument { document, error in
@@ -133,7 +137,7 @@ struct HomeView: View {
     }
     
     func fetchPartnerConnectedNickname(completion: @escaping (String) -> Void) {
-        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")!
+        let defaults = UserDefaults(suiteName: "group.com.KkaKka.DDooing")!
         let db = Firestore.firestore()
         db.collection("Users").document(partnerUID).getDocument { document, error in
             if let document = document, document.exists {

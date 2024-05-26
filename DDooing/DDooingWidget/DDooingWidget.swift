@@ -62,7 +62,7 @@ struct Provider : TimelineProvider {
     
     @MainActor
     private func getPartnerUID() -> String {
-        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")
+        let defaults = UserDefaults(suiteName: "group.com.KkaKka.DDooing")
         guard let partnerUID = defaults?.string(forKey: "partnerUID") else {
             return ""
         }
@@ -73,7 +73,7 @@ struct Provider : TimelineProvider {
     
     @MainActor
     private func getCurrentUserUID() -> String {
-        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")
+        let defaults = UserDefaults(suiteName: "group.com.KkaKka.DDooing")
         guard let currentUserUID = defaults?.string(forKey: "currentUserUID") else {
             return ""
         }
@@ -84,18 +84,19 @@ struct Provider : TimelineProvider {
     
     @MainActor
     private func getPartnerDeviceToken() -> String {
-        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")
+        let defaults = UserDefaults(suiteName: "group.com.KkaKka.DDooing")
         guard let partnerDeviceToken = defaults?.string(forKey: "partnerDeviceToken") else {
             return ""
         }
         
         return partnerDeviceToken
         
+        
     }
     
     @MainActor
     private func getPartnerConnectedNickname() -> String {
-        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")
+        let defaults = UserDefaults(suiteName: "group.com.KkaKka.DDooing")
         guard let partnerName = defaults?.string(forKey: "partnerName") else {
             return ""
         }
