@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10DDE2562C00F07C0084E1BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10DDE2552C00F07C0084E1BF /* GoogleService-Info.plist */; };
+		10DDE2572C00F07C0084E1BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10DDE2552C00F07C0084E1BF /* GoogleService-Info.plist */; };
+		10DDE2582C00F07C0084E1BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10DDE2552C00F07C0084E1BF /* GoogleService-Info.plist */; };
 		10DDE25B2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */; };
 		10DDE25C2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */; };
 		10DDE25D2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */; };

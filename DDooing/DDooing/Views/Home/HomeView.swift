@@ -22,6 +22,7 @@ struct HomeView: View {
     @State private var isLongPressed = false
     @Query<NotificationDataModel> private var notificationDataList: [NotificationDataModel]
     @State var partnerDeviceToken = ""
+    @State private var isButtonToggle: [Bool] = [false, false]
     
     init(partnerUID: String?) {
         self.partnerUID = partnerUID
@@ -51,7 +52,7 @@ struct HomeView: View {
                     .scaleEffect(isPressed ? 1.0 : 0.8) // 작아지는 효과
                     .animation(.easeInOut(duration: 0.3), value: isPressed) // 애니메이션 추가
                     .gesture(
-                        LongPressGesture(minimumDuration: 1.0)
+                        LongPressGesture(minimumDuration: 0.5)
                             .updating($isPressed) { currentState, gestureState, transaction in
                                 gestureState = currentState
                             }
@@ -59,7 +60,6 @@ struct HomeView: View {
                                 isLongPressed = true
                                 print("길게누름")
                             }
-                        
                     )
                     .contextMenu(menuItems: {
                         ForEach(messages) { mess in
@@ -68,26 +68,36 @@ struct HomeView: View {
                                     pushMessage = mess.message
                                     sendMessage(messageText: pushMessage, isStarred: true)
                                     fetchAccessTokenAndSendPushNotification()
+                                    isButtonToggle[1].toggle()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        isButtonToggle[1].toggle()
+                                    }
                                 }, label: {
                                     Text(mess.message)
                                 })
                             }}
                     })
                     .simultaneousGesture(
-                        DragGesture(minimumDistance: 0)
-                            .onEnded { _ in
-                                if !isLongPressed {
-                                    print("짧게누름")
-                                    if let randomMessage = messages.randomElement() {
-                                        pushMessage = randomMessage.message
+                        TapGesture()
+                                .onEnded { _ in
+                                    if !isLongPressed {
+                                        print("짧게누름")
+                                        if let randomMessage = messages.randomElement() {
+                                            pushMessage = randomMessage.message
+                                        }
+                                        print("메시지 입력")
+                                        sendMessage(messageText: pushMessage, isStarred: false)
+                                        fetchAccessTokenAndSendPushNotification()
+                                        isButtonToggle[0].toggle()
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                            isButtonToggle[0].toggle()
+                                        }
                                     }
-                                    print("메시지 입력")
-                                    sendMessage(messageText: pushMessage, isStarred: false)
-                                    fetchAccessTokenAndSendPushNotification()
+                                    isLongPressed = false
                                 }
-                                isLongPressed = false
-                            }
                     )
+                    .modifier(ParticleModifier(systemImage: "star.fill", font: Font.headline, status: isButtonToggle[1], activeTint: Color.yellow.opacity(0.8), inActiveTint: Color.gray))
+                    .modifier(ParticleModifier(systemImage: "suit.heart.fill", font: Font.headline, status: isButtonToggle[0], activeTint: Color.red.opacity(0.8), inActiveTint: Color.gray))
                 Text("\(postPositionText(name)) 생각하며 눌러보세요.")
                     .font(.headline)
                     .padding(.bottom,60)
@@ -165,11 +175,7 @@ struct HomeView: View {
         
         let currentUserRef = db.collection("Received-Messages")
             .document(partnerUID).collection(currentUid).document()
-        
-//        let recentCurrentUserRef = db.collection("Received-Messages")
-//            .document(partnerUID).collection("recent-messages")
-//            .document(currentUid)
-        
+
         let messageId = currentUserRef.documentID
         
         let messageData: [String: Any] = [
@@ -182,7 +188,6 @@ struct HomeView: View {
         ]
         
         currentUserRef.setData(messageData)
-//        recentCurrentUserRef.setData(messageData)
     }
     
     func fetchAccessTokenAndSendPushNotification() {
@@ -194,7 +199,6 @@ struct HomeView: View {
         }
         
         // 서버로부터 OAuth 2.0 액세스 토큰 가져오기
-        //여기부분은 깃에 올릴 때 삭제하고 올리시기 바랍니다.
         guard let url = URL(string: "") else {
             print("Invalid URL for token")
             return
@@ -298,6 +302,95 @@ func postPositionText(_ name: String) -> String {
     let str = last > 0 ? "을" : "를"
     return name + str
 }
+
+struct ParticleModel: Identifiable {
+    var id: UUID = .init()
+    var randomX: CGFloat = 0
+    var randomY: CGFloat = 0
+    var scale: CGFloat = 1
+    var opacity: CGFloat = 1
+    
+    // Reset's all properties
+    mutating func reset() {
+        randomX = 0
+        randomY = 0
+        scale = 0
+        opacity = 1
+    }
+}
+
+fileprivate struct ParticleModifier: ViewModifier {
+    var systemImage: String
+    var font: Font
+    var status: Bool
+    var activeTint: Color
+    var inActiveTint: Color
+    
+    @State private var particles: [ParticleModel] = []
+    
+    func body(content: Content) -> some View {
+        content
+            .overlay(alignment: .top) {
+                ZStack {
+                    Group {
+                        ForEach(particles) { particle in
+                            Image(systemName: systemImage)
+                                .foregroundColor(status ? activeTint : inActiveTint)
+                                .scaleEffect(particle.scale*3)
+                                .offset(x: particle.randomX, y: particle.randomY+70)
+                                .opacity(particle.opacity)
+                                .opacity(status ? 1 : 0)
+                                .animation(.none, value: status)
+                        }
+                    }
+                }
+                .onAppear {
+                    if particles.isEmpty {
+                        for _ in 1...15 {
+                            let particle = ParticleModel()
+                            particles.append(particle)
+                        }
+                    }
+                }
+                .onChange(of: status) { newValue in
+                    if !newValue {
+                        for i in particles.indices {
+                            particles[i].reset()
+                        }
+                    } else {
+                        for i in particles.indices {
+                            let total = CGFloat(particles.count)
+                            let progress = CGFloat(i) / total
+                            let maxX: CGFloat = progress > 0.5 ? 200 : -200
+                            let maxY: CGFloat = 160
+                            let randomX: CGFloat = (progress > 0.5 ? progress - 0.5 : progress) * maxX
+                            let randomY: CGFloat = (progress > 0.5 ? progress - 0.5 : progress) * maxY + 35
+                            let randomScale: CGFloat = .random(in: 0.35...1.0)
+                            
+                            withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7)) {
+                                let extraRandomX: CGFloat = progress > 0.5 ? .random(in: 0...10) : .random(in: -10...0)
+                                let extraRandomY: CGFloat = .random(in: 0...30)
+                                
+                                particles[i].randomX = randomX + extraRandomX
+                                particles[i].randomY = -randomY - extraRandomY
+                            }
+                            
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                particles[i].scale = randomScale
+                            }
+                            
+                            
+                            withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7).delay(0.25 + (Double(i) * 0.005))) {
+                                particles[i].scale = 0.001
+                            }
+                            
+                        }
+                    }
+                }
+            }
+    }
+}
+
 
 
 // Preview
