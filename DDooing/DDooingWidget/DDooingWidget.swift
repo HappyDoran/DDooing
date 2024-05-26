@@ -16,7 +16,7 @@ struct Provider : TimelineProvider {
     // 본격적으로 위젯에 표시될 placeholder
     // 데이터를 불러오기 전(getSnapshot)에 보여줄 placeholder
     @MainActor func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), message: getMessage(), partnerUID: getPartnerUID(), currentUserUID: getCurrentUserUID())
+        SimpleEntry(date: .now, message: getMessage(), partnerUID: getPartnerUID(), currentUserUID: getCurrentUserUID(), partnerDeviceToken: getPartnerDeviceToken(), partnerName: getPartnerConnectedNickname())
     }
     
     // 데이터를 가져와서 표출해주는 getSnapshot
@@ -24,7 +24,7 @@ struct Provider : TimelineProvider {
     // API를 통해서 데이터를 fetch하여 보여줄때 딜레이가 있는 경우 여기서 샘플 데이터를 하드코딩해서 보여주는 작업도 가능
     // context.isPreview가 true인 경우 위젯 갤러리에 위젯이 표출되는 상태
     @MainActor func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date(), message: getMessage(), partnerUID: getPartnerUID(), currentUserUID: getCurrentUserUID())
+        let entry = SimpleEntry(date: .now, message: getMessage(), partnerUID: getPartnerUID(), currentUserUID: getCurrentUserUID(), partnerDeviceToken: getPartnerDeviceToken(), partnerName: getPartnerConnectedNickname())
         
         completion(entry)
     }
@@ -33,7 +33,7 @@ struct Provider : TimelineProvider {
     // 홈화면에 있는 위젯을 언제 업데이트 시킬것인지 구현하는 부분
     @MainActor func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
-        let entry = SimpleEntry(date: .now, message: getMessage(), partnerUID: getPartnerUID(), currentUserUID: getCurrentUserUID())
+        let entry = SimpleEntry(date: .now, message: getMessage(), partnerUID: getPartnerUID(), currentUserUID: getCurrentUserUID(), partnerDeviceToken: getPartnerDeviceToken(), partnerName: getPartnerConnectedNickname())
         entries.append(entry)
         // .atEnd: 마지막 date가 끝난 후 타임라인 reloading
        // .after: 다음 data가 지난 후 타임라인 reloading
@@ -44,7 +44,7 @@ struct Provider : TimelineProvider {
         completion(timeline)
     }
     
-    @MainActor 
+    @MainActor
     private func getMessage() -> String {
         guard let modelContainer = try? ModelContainer(for: MessageModel.self) else{
             return ""
@@ -82,6 +82,28 @@ struct Provider : TimelineProvider {
         
     }
     
+    @MainActor
+    private func getPartnerDeviceToken() -> String {
+        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")
+        guard let partnerDeviceToken = defaults?.string(forKey: "partnerDeviceToken") else {
+            return ""
+        }
+        
+        return partnerDeviceToken
+        
+    }
+    
+    @MainActor
+    private func getPartnerConnectedNickname() -> String {
+        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")
+        guard let partnerName = defaults?.string(forKey: "partnerName") else {
+            return ""
+        }
+        
+        return partnerName
+        
+    }
+    
 }
 
 // TimelineEntry를 준수하는 구조체
@@ -91,6 +113,8 @@ struct SimpleEntry: TimelineEntry {
     let message: String
     let partnerUID: String
     let currentUserUID: String
+    let partnerDeviceToken: String
+    let partnerName: String
 }
 
 struct DDooingWidget: Widget {
@@ -124,7 +148,7 @@ struct DDooingWidgetEntryView : View {
         switch widgetFamily {
         case .systemSmall:
             VStack {
-                Button(intent: SendMessageIntent(randomMessage: entry.message, partnerUID: entry.partnerUID, currentUserUID: entry.currentUserUID)){
+                Button(intent: SendMessageIntent(randomMessage: entry.message, partnerUID: entry.partnerUID, currentUserUID: entry.currentUserUID, partnerDeviceToken: entry.partnerDeviceToken, partnerName: entry.partnerName)){
                     Image("WidgetButton")
                         .resizable()
                         .frame(width: 130,height: 118)
@@ -134,7 +158,7 @@ struct DDooingWidgetEntryView : View {
             .containerBackground((LinearGradient(gradient: Gradient(colors: [Color.widgetTopColor, Color.widgetBottomColor]), startPoint: .top, endPoint: .bottom)), for: .widget)
         case .systemLarge:
             VStack {
-                Button(intent: SendMessageIntent(randomMessage: entry.message, partnerUID: entry.partnerUID, currentUserUID: entry.currentUserUID)){
+                Button(intent: SendMessageIntent(randomMessage: entry.message, partnerUID: entry.partnerUID, currentUserUID: entry.currentUserUID, partnerDeviceToken: entry.partnerDeviceToken, partnerName: entry.partnerName)){
                     Image("WidgetButton")
                         .resizable()
                         .frame(width: 260,height: 236)
@@ -144,7 +168,7 @@ struct DDooingWidgetEntryView : View {
             .containerBackground((LinearGradient(gradient: Gradient(colors: [Color.widgetTopColor, Color.widgetBottomColor]), startPoint: .top, endPoint: .bottom)), for: .widget)
         default:
             VStack {
-                Button(intent: SendMessageIntent(randomMessage: entry.message, partnerUID: entry.partnerUID, currentUserUID: entry.currentUserUID)){
+                Button(intent: SendMessageIntent(randomMessage: entry.message, partnerUID: entry.partnerUID, currentUserUID: entry.currentUserUID, partnerDeviceToken: entry.partnerDeviceToken, partnerName: entry.partnerName)){
                     Image("WidgetButton")
                         .resizable()
                         .frame(width: 130,height: 118)

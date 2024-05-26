@@ -103,11 +103,18 @@ struct HomeView: View {
             }
         }
     }
+    
     func fetchPartnerDeviceToken(completion: @escaping (String) -> Void) {
+        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")!
         let db = Firestore.firestore()
+        
         db.collection("Users").document(partnerUID).getDocument { document, error in
             if let document = document, document.exists {
                 partnerDeviceToken = document.data()?["deviceToken"] as? String ?? "Unknown"
+                
+                defaults.set(partnerDeviceToken,forKey: "partnerDeviceToken")
+                print(defaults.string(forKey: "partnerDeviceToken"))
+                
                 completion(partnerDeviceToken)
             } else {
                 completion("Unknown")
@@ -116,18 +123,25 @@ struct HomeView: View {
     }
     
     func fetchPartnerConnectedNickname(completion: @escaping (String) -> Void) {
+        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")!
         let db = Firestore.firestore()
         db.collection("Users").document(partnerUID).getDocument { document, error in
             if let document = document, document.exists {
                 partnerName = document.data()?["ConnectedNickname"] as? String ?? "Unknown"
+                
+                defaults.set(partnerName,forKey: "partnerName")
+                print(defaults.string(forKey: "partnerName"))
+                
                 completion(partnerName)
             } else {
                 completion("Unknown")
             }
         }
     }
+    
     private func fetchMyConnectedNickname(completion: @escaping (String) -> Void) {
         let db = Firestore.firestore()
+        
         guard let currentUid = Auth.auth().currentUser?.uid else {
             completion("Unknown")
             return
@@ -136,6 +150,7 @@ struct HomeView: View {
         db.collection("Users").document(currentUid).getDocument { document, error in
             if let document = document, document.exists {
                 name = document.data()?["ConnectedNickname"] as? String ?? "Unknown"
+                
                 completion(name)
             } else {
                 completion("Unknown")
@@ -179,6 +194,7 @@ struct HomeView: View {
         }
         
         // 서버로부터 OAuth 2.0 액세스 토큰 가져오기
+        //여기부분은 깃에 올릴 때 삭제하고 올리시기 바랍니다.
         guard let url = URL(string: "") else {
             print("Invalid URL for token")
             return
