@@ -66,18 +66,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     // In order to receive notifications you need implement these methods.
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: any Error) {
-        
+        print(error.localizedDescription)
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//        Messaging.messaging().token { token, error in
-//          if let error = error {
-//            print("Error fetching FCM registration token: \(error)")
-//          } else if let token = token {
-//            print("FCM registration token: \(token)")
-////            self.fcmRegTokenMessage.text  = "Remote FCM registration token: \(token)"
-//          }
-//        }
+        Messaging.messaging().apnsToken = deviceToken
+        print("----- \(deviceToken)")
     }
 
     
@@ -93,6 +87,7 @@ extension AppDelegate: MessagingDelegate {
         
         if let user = Auth.auth().currentUser {
             setUsersFCMToken(token: fcmToken!, userAUID: user.uid)
+            UserDefaults.standard.set(fcmToken, forKey: "userDeviceToken")
         }
       
         // Store token in firestore for sending notifications from server in future
@@ -112,6 +107,7 @@ extension AppDelegate: MessagingDelegate {
             }
         }
     }
+    
 }
 
 // User notifications (InApp Notifications)

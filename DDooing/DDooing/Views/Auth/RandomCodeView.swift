@@ -13,6 +13,8 @@ struct RandomCodeView: View {
     @State private var isConnectionMode = true
     @State private var code = ""
     @State private var randomCode = ""
+    @AppStorage("userDeviceToken") private var userDeviceToken: String = ""
+
     
     var body: some View {
         NavigationStack{
@@ -88,6 +90,7 @@ struct RandomCodeView: View {
             sendRandomCodeToFirebase(for: user, with: randomCode)
             viewModel.observeUserConnectionStatus(userId: user.uid)
         }
+        print("Device Token in HomeView: \(userDeviceToken)")
     }
     .navigationBarBackButtonHidden(true)
 }
@@ -95,24 +98,25 @@ struct RandomCodeView: View {
         let lettersAndDigits = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         return String((0..<length).compactMap { _ in lettersAndDigits.randomElement() })
     }
-}
-
-
-func sendRandomCodeToFirebase(for user: User, with code: String) {
-    let db = Firestore.firestore()
-    let docRef = db.collection("Users").document(user.uid)
-    docRef.setData([
-        "uid": user.uid,
-        "code": code,
-        "isConnected" : false,
-    ], merge: true) { error in
-        if let error = error {
-            print("Error writing document: \(error)")
-        } else {
-            print("Document successfully written!")
+    
+    func sendRandomCodeToFirebase(for user: User, with code: String) {
+        let db = Firestore.firestore()
+        let docRef = db.collection("Users").document(user.uid)
+        docRef.setData([
+            "uid": user.uid,
+            "code": code,
+            "isConnected" : false,
+            "deviceToken" : userDeviceToken,
+        ], merge: true) { error in
+            if let error = error {
+                print("Error writing document: \(error)")
+            } else {
+                print("Document successfully written!")
+            }
         }
     }
 }
+
 
 func connectUsers(with code: String, userAUID: String) {
     let db = Firestore.firestore()
