@@ -59,7 +59,6 @@ struct HomeView: View {
                                 isLongPressed = true
                                 print("길게누름")
                             }
-                        
                     )
                     .contextMenu(menuItems: {
                         ForEach(messages) { mess in
@@ -87,6 +86,7 @@ struct HomeView: View {
                                 }
                                 isLongPressed = false
                             }
+                            .particleEffect(systemImage: "suit.heart.fill", font: .title2, status: status, activeTint: .pink, inActiveTint: .gray)
                     )
                 Text("\(postPositionText(name)) 생각하며 눌러보세요.")
                     .font(.headline)
@@ -150,11 +150,7 @@ struct HomeView: View {
         
         let currentUserRef = db.collection("Received-Messages")
             .document(partnerUID).collection(currentUid).document()
-        
-//        let recentCurrentUserRef = db.collection("Received-Messages")
-//            .document(partnerUID).collection("recent-messages")
-//            .document(currentUid)
-        
+
         let messageId = currentUserRef.documentID
         
         let messageData: [String: Any] = [
@@ -167,7 +163,6 @@ struct HomeView: View {
         ]
         
         currentUserRef.setData(messageData)
-//        recentCurrentUserRef.setData(messageData)
     }
     
     func fetchAccessTokenAndSendPushNotification() {

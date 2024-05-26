@@ -10,12 +10,13 @@
 		10DDE2562C00F07C0084E1BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10DDE2552C00F07C0084E1BF /* GoogleService-Info.plist */; };
 		10DDE2572C00F07C0084E1BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10DDE2552C00F07C0084E1BF /* GoogleService-Info.plist */; };
 		10DDE2582C00F07C0084E1BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10DDE2552C00F07C0084E1BF /* GoogleService-Info.plist */; };
-		10DDE2592C00F07C0084E1BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10DDE2552C00F07C0084E1BF /* GoogleService-Info.plist */; };
 		10DDE25B2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */; };
 		10DDE25C2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */; };
 		10DDE25D2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */; };
 		10DDE25E2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */; };
 		10DDE2602C00F9AA0084E1BF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 10DDE25F2C00F9AA0084E1BF /* FirebaseMessaging */; };
+		10F5DE002C035CFA006D8C80 /* ParticleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5DDFF2C035CFA006D8C80 /* ParticleEffect.swift */; };
+		10F5DE022C035D49006D8C80 /* ParticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5DE012C035D49006D8C80 /* ParticleModel.swift */; };
 		4F1A593D2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
 		4F1A593E2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
 		4F1A593F2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
@@ -75,8 +76,7 @@
 		4F6D48AB2C00BF88008B2A7F /* UserStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF293E82BF8EF33004BDDB3 /* UserStatusViewModel.swift */; };
 		4F6D48AC2C00BF8A008B2A7F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD812D82BF87BA800F16ED0 /* LoginViewModel.swift */; };
 		4F6D48AD2C00BF8D008B2A7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD25B32BF3339B00EBD37A /* Assets.xcassets */; };
-		4F8D878D2BFF864F006BEF4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F8D878C2BFF84DF006BEF4A /* GoogleService-Info.plist */; };
-		4F8D878E2BFF8650006BEF4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F8D878C2BFF84DF006BEF4A /* GoogleService-Info.plist */; };
+		4F8D878E2BFF8650006BEF4A /* (null) in Resources */ = {isa = PBXBuildFile; };
 		4FAD25B02BF3339A00EBD37A /* DDooingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25AF2BF3339A00EBD37A /* DDooingApp.swift */; };
 		4FAD25B22BF3339A00EBD37A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25B12BF3339A00EBD37A /* MainView.swift */; };
 		4FAD25B42BF3339B00EBD37A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD25B32BF3339B00EBD37A /* Assets.xcassets */; };
@@ -159,6 +159,8 @@
 		10DDE24D2C00EF2D0084E1BF /* DDooingRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDooingRelease.entitlements; sourceTree = "<group>"; };
 		10DDE2552C00F07C0084E1BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataModel.swift; sourceTree = "<group>"; };
+		10F5DDFF2C035CFA006D8C80 /* ParticleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleEffect.swift; sourceTree = "<group>"; };
+		10F5DE012C035D49006D8C80 /* ParticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleModel.swift; sourceTree = "<group>"; };
 		4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4F1A59352BF8892000C3EF2C /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		4F1A59362BF8892000C3EF2C /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				9D79E9362BF5FAD700A05D95 /* MessageModel.swift */,
 				4F3F81532BFE63CA008C920C /* AppModelContainer.swift */,
 				10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */,
+				10F5DE012C035D49006D8C80 /* ParticleModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				4FF515932BF33F810056531C /* HomeView.swift */,
+				10F5DDFF2C035CFA006D8C80 /* ParticleEffect.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -665,7 +669,7 @@
 				4F6D48A22C00BF54008B2A7F /* Pretendard-Black.otf in Resources */,
 				4F6D48AA2C00BF67008B2A7F /* Pretendard-Thin.otf in Resources */,
 				4F6D48AD2C00BF8D008B2A7F /* Assets.xcassets in Resources */,
-				4F8D878E2BFF8650006BEF4A /* GoogleService-Info.plist in Resources */
+				4F8D878E2BFF8650006BEF4A /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +687,7 @@
 				4FF515962BF33FB40056531C /* TextEditView.swift in Sources */,
 				4FF293F52BFA27AF004BDDB3 /* AppViewModel.swift in Sources */,
 				4FBE64D02BFDD4F5008363A0 /* DDooingWidget.swift in Sources */,
+				10F5DE022C035D49006D8C80 /* ParticleModel.swift in Sources */,
 				4FF515922BF33F680056531C /* PartnerNameView.swift in Sources */,
 				9D79E9372BF5FAD700A05D95 /* MessageModel.swift in Sources */,
 				4FF293F32BFA2779004BDDB3 /* ContentView.swift in Sources */,
@@ -691,6 +696,7 @@
 				4FF515902BF33F430056531C /* RandomCodeView.swift in Sources */,
 				4FAD25B02BF3339A00EBD37A /* DDooingApp.swift in Sources */,
 				4F3F81542BFE63CA008C920C /* AppModelContainer.swift in Sources */,
+				10F5DE002C035CFA006D8C80 /* ParticleEffect.swift in Sources */,
 				4F1A59592BF8894600C3EF2C /* FontManager.swift in Sources */,
 				10DDE25B2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */,
 				4FF515982BF33FD70056531C /* ShowMessageView.swift in Sources */,
