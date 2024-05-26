@@ -15,8 +15,6 @@
 		10DDE25D2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */; };
 		10DDE25E2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */; };
 		10DDE2602C00F9AA0084E1BF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 10DDE25F2C00F9AA0084E1BF /* FirebaseMessaging */; };
-		10F5DE002C035CFA006D8C80 /* ParticleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5DDFF2C035CFA006D8C80 /* ParticleEffect.swift */; };
-		10F5DE022C035D49006D8C80 /* ParticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F5DE012C035D49006D8C80 /* ParticleModel.swift */; };
 		4F1A593D2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
 		4F1A593E2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
 		4F1A593F2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */; };
@@ -159,8 +157,6 @@
 		10DDE24D2C00EF2D0084E1BF /* DDooingRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DDooingRelease.entitlements; sourceTree = "<group>"; };
 		10DDE2552C00F07C0084E1BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataModel.swift; sourceTree = "<group>"; };
-		10F5DDFF2C035CFA006D8C80 /* ParticleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleEffect.swift; sourceTree = "<group>"; };
-		10F5DE012C035D49006D8C80 /* ParticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleModel.swift; sourceTree = "<group>"; };
 		4F1A59342BF8892000C3EF2C /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		4F1A59352BF8892000C3EF2C /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		4F1A59362BF8892000C3EF2C /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -297,7 +293,6 @@
 				9D79E9362BF5FAD700A05D95 /* MessageModel.swift */,
 				4F3F81532BFE63CA008C920C /* AppModelContainer.swift */,
 				10DDE25A2C00F7F40084E1BF /* NotificationDataModel.swift */,
-				10F5DE012C035D49006D8C80 /* ParticleModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,7 +323,6 @@
 			isa = PBXGroup;
 			children = (
 				4FF515932BF33F810056531C /* HomeView.swift */,
-				10F5DDFF2C035CFA006D8C80 /* ParticleEffect.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -687,7 +681,6 @@
 				4FF515962BF33FB40056531C /* TextEditView.swift in Sources */,
 				4FF293F52BFA27AF004BDDB3 /* AppViewModel.swift in Sources */,
 				4FBE64D02BFDD4F5008363A0 /* DDooingWidget.swift in Sources */,
-				10F5DE022C035D49006D8C80 /* ParticleModel.swift in Sources */,
 				4FF515922BF33F680056531C /* PartnerNameView.swift in Sources */,
 				9D79E9372BF5FAD700A05D95 /* MessageModel.swift in Sources */,
 				4FF293F32BFA2779004BDDB3 /* ContentView.swift in Sources */,
@@ -696,7 +689,6 @@
 				4FF515902BF33F430056531C /* RandomCodeView.swift in Sources */,
 				4FAD25B02BF3339A00EBD37A /* DDooingApp.swift in Sources */,
 				4F3F81542BFE63CA008C920C /* AppModelContainer.swift in Sources */,
-				10F5DE002C035CFA006D8C80 /* ParticleEffect.swift in Sources */,
 				4F1A59592BF8894600C3EF2C /* FontManager.swift in Sources */,
 				10DDE25B2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */,
 				4FF515982BF33FD70056531C /* ShowMessageView.swift in Sources */,
