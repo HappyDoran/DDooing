@@ -1,6 +1,6 @@
 
 # :iphone: DDooing (뚜잉)
-<img width="338" alt="Group 18" src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/66589666/fba50550-b498-418f-a18b-3e0e2ecc797d">
+<img width="338" alt="AppIcon" src="https://github.com/DeveloperAcademy-POSTECH/2024-MC2-M18-KkaKka/assets/52277540/c7db188d-8015-4fe3-ab11-fa9cf99ff158">
 
 This app allows user to easily send his love message to lover.
 ㅡeven if his couple has a long distanceㅡ
