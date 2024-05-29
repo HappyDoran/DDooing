@@ -1,4 +1,3 @@
-# MC2-Team18-DDooing
 
 # :iphone: DDooing (뚜잉)
 <img width="338" alt="Group 18" src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/66589666/fba50550-b498-418f-a18b-3e0e2ecc797d">
@@ -17,9 +16,10 @@ Attach videos if you are available
 
 ## :pushpin: Features
 
-- 상대방과 연결하기
-- 랜덤 문구 혹은 특정 문구 보내기
-- 위젯 혹은 애플워치로 문구 보내고 받기
+- **상대방과 연결하기**: 랜덤 코드를 통해 상대방의 기기와 쉽게 연결이 가능합니다.
+- **메시지 보내기**: 미리 설정한 메세지 중에서 랜덤 혹은 정한 메시지를 상대방에게 전송할 수 있습니다.
+- **푸시 알림**: 상대방에게 메시지가 오게 되면 푸시알림을 통해 확인이 가능합니다.
+- **위젯을 통한 문구 받기**: 위젯을 통해 간단하게 상대방에게 랜덤 메시지를 보낼 수 있습니다.
 
 
 ## :sparkles: Skills & Tech Stack
@@ -30,9 +30,6 @@ Attach videos if you are available
 <img src="https://img.shields.io/badge/Xcode-147EFB?style=for-the-badge&logo=xcode&logoColor=white">
 <img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white">
 <div>
-
-위와 같이 배지를 사용하여 더 풍성한 Readme를 만들 수 있습니다.
-[참조](https://shields.io/)
 
 
 ## :people_hugging: Authors
