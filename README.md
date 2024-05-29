@@ -7,7 +7,7 @@ This app allows user to easily send his love message to lover.
 Only pressing a simple button.
 
 ## :fireworks: Screenshots
-<img width="1052" alt="스크린샷 2024-05-13 16 07 34" src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/66589666/5e047ff2-47db-4068-9244-ebd795b3f3fe">
+<img width="1052" alt="AppFlow" src="https://github.com/DeveloperAcademy-POSTECH/2024-MC2-M18-KkaKka/assets/52277540/0b476fac-df56-4b23-868f-06862d789c14">
 
 ## :framed_picture: Demo (optional)
 
