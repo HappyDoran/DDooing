@@ -2,9 +2,10 @@
 # :iphone: DDooing (뚜잉)
 <img width="338" alt="AppIcon" src="https://github.com/DeveloperAcademy-POSTECH/2024-MC2-M18-KkaKka/assets/52277540/c7db188d-8015-4fe3-ab11-fa9cf99ff158">
 
-This app allows user to easily send his love message to lover.
-ㅡeven if his couple has a long distanceㅡ
-Only pressing a simple button.
+**DDooing을 통해 연인에게 빠르고 확실하게 마음을 전달해보세요.**<br/>
+장거리로 인해 연인을 자주 만날 수 없으신가요?<br/> 
+전화를 할 수 있는 상황이 되지 않고, 연락을 이어갈 시간은 부족하지 않으신가요?<br/> 
+간단한 액션을 통해 연인에게 안부를 전달하세요!<br/> 
 
 ## :fireworks: Screenshots
 <img width="1052" alt="AppFlow" src="https://github.com/DeveloperAcademy-POSTECH/2024-MC2-M18-KkaKka/assets/52277540/0b476fac-df56-4b23-868f-06862d789c14">
