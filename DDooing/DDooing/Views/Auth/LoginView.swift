@@ -13,17 +13,23 @@ struct LoginView: View {
     @StateObject private var loginData = LoginViewModel()
     @State var isLoginMode = false
     @State var isAuthenticated = false
+    @Environment(\.colorScheme) var colorScheme //현재 색상 모드 가져오기
     
     var body: some View {
         NavigationStack{
             VStack(spacing:0){
-                Text("DDooing").font(.pretendardBold40)
-                    .padding(.bottom,120)
+//                Text("DDooing").font(.pretendardBold40)
+//                    .padding(.bottom,120)
+                Image(colorScheme == .dark ? "Title-dark" : "Title-white") // 색상 모드에 따라 이미지 변경
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 170)
+                    .padding(.bottom, 55)
                 
                 Image("Heart button")
                     .resizable()
                     .frame(width: 190,height: 170)
-                    .padding(.bottom,145)
+                    .padding(.bottom,150)
                 
                 SignInWithAppleButton { (request) in
                     loginData.nonce = randomNonceString()
@@ -43,19 +49,19 @@ struct LoginView: View {
                         print(error.localizedDescription)
                     }
                 }
-                .signInWithAppleButtonStyle(.black)
+                .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black) // 색상 모드에 따라 버튼 스타일 변경
                 .frame(width: 345, height: 54)
-                
-                NavigationLink(
-                    destination: RandomCodeView(),
-                    isActive: $loginData.isAuthenticated, //여기서 사용자 로그인이 잘 됐으면 화면 전환
-                    label: {
-                        EmptyView()
-                    })
             }
             .padding(.horizontal, 16)
-            .padding(.top,165)
+            .padding(.top,100)
             Spacer()
+            
+            NavigationLink(
+                destination: RandomCodeView(),
+                isActive: $loginData.isAuthenticated, //여기서 사용자 로그인이 잘 됐으면 화면 전환
+                label: {
+                    EmptyView()
+                })
         }
     }
 }

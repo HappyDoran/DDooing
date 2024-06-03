@@ -1,14 +1,14 @@
-# MC2-Team18-DDooing
 
 # :iphone: DDooing (뚜잉)
-<img width="338" alt="Group 18" src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/66589666/fba50550-b498-418f-a18b-3e0e2ecc797d">
+<img width="338" alt="AppIcon" src="https://github.com/DeveloperAcademy-POSTECH/2024-MC2-M18-KkaKka/assets/52277540/c7db188d-8015-4fe3-ab11-fa9cf99ff158">
 
-This app allows user to easily send his love message to lover.
-ㅡeven if his couple has a long distanceㅡ
-Only pressing a simple button.
+**DDooing을 통해 연인에게 빠르고 확실하게 마음을 전달해보세요.**<br/>
+장거리로 인해 연인을 자주 만날 수 없으신가요?<br/> 
+전화를 할 수 있는 상황이 되지 않고, 연락을 이어갈 시간은 부족하지 않으신가요?<br/> 
+간단한 액션을 통해 연인에게 안부를 전달하세요!<br/> 
 
 ## :fireworks: Screenshots
-<img width="1052" alt="스크린샷 2024-05-13 16 07 34" src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-DDooing/assets/66589666/5e047ff2-47db-4068-9244-ebd795b3f3fe">
+<img width="1052" alt="AppFlow" src="https://github.com/DeveloperAcademy-POSTECH/2024-MC2-M18-KkaKka/assets/52277540/0b476fac-df56-4b23-868f-06862d789c14">
 
 ## :framed_picture: Demo (optional)
 
@@ -17,9 +17,10 @@ Attach videos if you are available
 
 ## :pushpin: Features
 
-- 상대방과 연결하기
-- 랜덤 문구 혹은 특정 문구 보내기
-- 위젯 혹은 애플워치로 문구 보내고 받기
+- **상대방과 연결하기**: 랜덤 코드를 통해 상대방의 기기와 쉽게 연결이 가능합니다.
+- **메시지 보내기**: 미리 설정한 메세지 중에서 랜덤 혹은 정한 메시지를 상대방에게 전송할 수 있습니다.
+- **푸시 알림**: 상대방에게 메시지가 오게 되면 푸시알림을 통해 확인이 가능합니다.
+- **위젯을 통한 문구 받기**: 위젯을 통해 간단하게 상대방에게 랜덤 메시지를 보낼 수 있습니다.
 
 
 ## :sparkles: Skills & Tech Stack
@@ -30,9 +31,6 @@ Attach videos if you are available
 <img src="https://img.shields.io/badge/Xcode-147EFB?style=for-the-badge&logo=xcode&logoColor=white">
 <img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white">
 <div>
-
-위와 같이 배지를 사용하여 더 풍성한 Readme를 만들 수 있습니다.
-[참조](https://shields.io/)
 
 
 ## :people_hugging: Authors
