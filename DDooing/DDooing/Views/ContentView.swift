@@ -72,7 +72,7 @@ class MessagingService {
     static func fetchAccessTokenAndSendPushNotification(){
         // 서버로부터 OAuth 2.0 액세스 토큰 가져오기
         //여기부분은 깃에 올릴 때 삭제하고 올리시기 바랍니다.
-        guard let url = URL(string: "") else {
+        guard let url = URL(string: "http://localhost:3000/getAccessToken") else {
             print("Invalid URL for token")
             return
         }

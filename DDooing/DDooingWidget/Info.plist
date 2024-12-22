@@ -21,6 +21,14 @@
 	<dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
+        <key>NSExtensionAttributes</key>
+            <dict>
+                <key>widgetFamilies</key>
+                <array>
+                    <string>systemSmall</string>
+                    <string>systemLarge</string>
+                </array>
+            </dict>
 	</dict>
 </dict>
 </plist>

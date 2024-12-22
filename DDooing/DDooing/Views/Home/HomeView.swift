@@ -119,7 +119,7 @@ struct HomeView: View {
     }
     
     func fetchPartnerDeviceToken(completion: @escaping (String) -> Void) {
-        let defaults = UserDefaults(suiteName: "group.com.KkaKka.DDooing")!
+        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")!
         let db = Firestore.firestore()
         
         db.collection("Users").document(partnerUID).getDocument { document, error in
@@ -136,7 +136,7 @@ struct HomeView: View {
     }
     
     func fetchPartnerConnectedNickname(completion: @escaping (String) -> Void) {
-        let defaults = UserDefaults(suiteName: "group.com.KkaKka.DDooing")!
+        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")!
         let db = Firestore.firestore()
         db.collection("Users").document(partnerUID).getDocument { document, error in
             if let document = document, document.exists {
