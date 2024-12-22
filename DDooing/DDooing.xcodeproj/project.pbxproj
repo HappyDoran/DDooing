@@ -76,9 +76,6 @@
 		4FAD25B22BF3339A00EBD37A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25B12BF3339A00EBD37A /* MainView.swift */; };
 		4FAD25B42BF3339B00EBD37A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD25B32BF3339B00EBD37A /* Assets.xcassets */; };
 		4FAD25B72BF3339B00EBD37A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD25B62BF3339B00EBD37A /* Preview Assets.xcassets */; };
-		4FAD25C12BF3339B00EBD37A /* DDooingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25C02BF3339B00EBD37A /* DDooingTests.swift */; };
-		4FAD25CB2BF3339B00EBD37A /* DDooingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25CA2BF3339B00EBD37A /* DDooingUITests.swift */; };
-		4FAD25CD2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25CC2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift */; };
 		4FB3E1F52D186FA5000C08A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FB3E1F42D186FA5000C08A8 /* GoogleService-Info.plist */; };
 		4FB3E1F62D186FA5000C08A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FB3E1F42D186FA5000C08A8 /* GoogleService-Info.plist */; };
 		4FB3E1F72D186FA5000C08A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FB3E1F42D186FA5000C08A8 /* GoogleService-Info.plist */; };
@@ -177,10 +174,7 @@
 		4FAD25B32BF3339B00EBD37A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FAD25B62BF3339B00EBD37A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4FAD25BC2BF3339B00EBD37A /* DDooingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDooingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FAD25C02BF3339B00EBD37A /* DDooingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingTests.swift; sourceTree = "<group>"; };
 		4FAD25C62BF3339B00EBD37A /* DDooingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDooingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FAD25CA2BF3339B00EBD37A /* DDooingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingUITests.swift; sourceTree = "<group>"; };
-		4FAD25CC2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4FB3E1F42D186FA5000C08A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FBE64B32BFDC940008363A0 /* DDooingWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DDooingWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FBE64B42BFDC940008363A0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -360,8 +354,6 @@
 				4FB3E1F42D186FA5000C08A8 /* GoogleService-Info.plist */,
 				4FBE64CB2BFDCB80008363A0 /* DDooingWidgetExtension.entitlements */,
 				4FAD25AE2BF3339A00EBD37A /* DDooing */,
-				4FAD25BF2BF3339B00EBD37A /* DDooingTests */,
-				4FAD25C92BF3339B00EBD37A /* DDooingUITests */,
 				4FBE64B82BFDC940008363A0 /* DDooingWidget */,
 				4FAD25AD2BF3339A00EBD37A /* Products */,
 				4FD812CB2BF87AB900F16ED0 /* Frameworks */,
@@ -401,23 +393,6 @@
 				4FAD25B62BF3339B00EBD37A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		4FAD25BF2BF3339B00EBD37A /* DDooingTests */ = {
-			isa = PBXGroup;
-			children = (
-				4FAD25C02BF3339B00EBD37A /* DDooingTests.swift */,
-			);
-			path = DDooingTests;
-			sourceTree = "<group>";
-		};
-		4FAD25C92BF3339B00EBD37A /* DDooingUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4FAD25CA2BF3339B00EBD37A /* DDooingUITests.swift */,
-				4FAD25CC2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift */,
-			);
-			path = DDooingUITests;
 			sourceTree = "<group>";
 		};
 		4FBE64AE2BFDA19E008363A0 /* Recovered References */ = {
@@ -703,7 +678,6 @@
 			files = (
 				4F1A595A2BF8894600C3EF2C /* FontManager.swift in Sources */,
 				10DDE25C2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */,
-				4FAD25C12BF3339B00EBD37A /* DDooingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,10 +685,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FAD25CB2BF3339B00EBD37A /* DDooingUITests.swift in Sources */,
 				4F1A595B2BF8894600C3EF2C /* FontManager.swift in Sources */,
 				10DDE25D2C00F7F40084E1BF /* NotificationDataModel.swift in Sources */,
-				4FAD25CD2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
