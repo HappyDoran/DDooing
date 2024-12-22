@@ -37,7 +37,7 @@ struct MainView: View {
     private func fetchPartnerUID() {
         guard let currentUser = Auth.auth().currentUser else { return }
         let currentUserUID = currentUser.uid
-        let defaults = UserDefaults(suiteName: "group.com.KkaKka.DDooing")!
+        let defaults = UserDefaults(suiteName: "group.com.Seodongwon.DDooing")!
         defaults.set(currentUserUID,forKey: "currentUserUID")
         
         let db = Firestore.firestore()

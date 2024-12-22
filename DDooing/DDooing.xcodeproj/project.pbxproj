@@ -90,13 +90,13 @@
 		4FBE64BE2BFDC940008363A0 /* DDooingWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE64BD2BFDC940008363A0 /* DDooingWidget.swift */; };
 		4FBE64C02BFDC940008363A0 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE64BF2BFDC940008363A0 /* AppIntent.swift */; };
 		4FBE64C62BFDC941008363A0 /* DDooingWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4FBE64B32BFDC940008363A0 /* DDooingWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		4FBE64D02BFDD4F5008363A0 /* DDooingWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE64BD2BFDC940008363A0 /* DDooingWidget.swift */; };
 		4FBE64D22BFDD572008363A0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBE64D12BFDD572008363A0 /* FirebaseAnalytics */; };
 		4FBE64D42BFDD572008363A0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBE64D32BFDD572008363A0 /* FirebaseAuth */; };
 		4FBE64D62BFDD572008363A0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBE64D52BFDD572008363A0 /* FirebaseDatabase */; };
 		4FBE64D82BFDD572008363A0 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBE64D72BFDD572008363A0 /* FirebaseDatabaseSwift */; };
 		4FBE64DA2BFDD572008363A0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBE64D92BFDD572008363A0 /* FirebaseFirestore */; };
 		4FBE64DC2BFDD572008363A0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FBE64DB2BFDD572008363A0 /* FirebaseFirestoreSwift */; };
+		4FBEEC462D18792E00453140 /* DDooingWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE64BD2BFDC940008363A0 /* DDooingWidget.swift */; };
 		4FD812CD2BF87AB900F16ED0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD812CC2BF87AB900F16ED0 /* FirebaseAnalytics */; };
 		4FD812CF2BF87AB900F16ED0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD812CE2BF87AB900F16ED0 /* FirebaseAuth */; };
 		4FD812D12BF87AB900F16ED0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 4FD812D02BF87AB900F16ED0 /* FirebaseDatabase */; };
@@ -680,9 +680,9 @@
 				4F3F813E2BFDDDE2008C920C /* WidgetColor.swift in Sources */,
 				4FF515942BF33F810056531C /* HomeView.swift in Sources */,
 				4FD812D92BF87BA800F16ED0 /* LoginViewModel.swift in Sources */,
+				4FBEEC462D18792E00453140 /* DDooingWidget.swift in Sources */,
 				4FF515962BF33FB40056531C /* TextEditView.swift in Sources */,
 				4FF293F52BFA27AF004BDDB3 /* AppViewModel.swift in Sources */,
-				4FBE64D02BFDD4F5008363A0 /* DDooingWidget.swift in Sources */,
 				4FF515922BF33F680056531C /* PartnerNameView.swift in Sources */,
 				9D79E9372BF5FAD700A05D95 /* MessageModel.swift in Sources */,
 				4FF293F32BFA2779004BDDB3 /* ContentView.swift in Sources */,
@@ -895,7 +895,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DDooing/Preview Content\"";
-				DEVELOPMENT_TEAM = 3GB5WJ43G4;
+				DEVELOPMENT_TEAM = U6CCD5BT22;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooing/Info.plist;
@@ -909,7 +909,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KkaKka.DDooing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -928,7 +928,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DDooing/Preview Content\"";
-				DEVELOPMENT_TEAM = 3GB5WJ43G4;
+				DEVELOPMENT_TEAM = U6CCD5BT22;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooing/Info.plist;
@@ -942,7 +942,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KkaKka.DDooing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -957,11 +957,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3GB5WJ43G4;
+				DEVELOPMENT_TEAM = U6CCD5BT22;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KkaKka.DDooingTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -976,11 +976,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3GB5WJ43G4;
+				DEVELOPMENT_TEAM = U6CCD5BT22;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KkaKka.DDooingTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -994,10 +994,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3GB5WJ43G4;
+				DEVELOPMENT_TEAM = U6CCD5BT22;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KkaKka.DDooingUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooingUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1011,10 +1011,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3GB5WJ43G4;
+				DEVELOPMENT_TEAM = U6CCD5BT22;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KkaKka.DDooingUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooingUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1032,7 +1032,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3GB5WJ43G4;
+				DEVELOPMENT_TEAM = U6CCD5BT22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooingWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DDooingWidget;
@@ -1043,7 +1043,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KkaKka.DDooing.DDooingWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooing.DDooingWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1061,7 +1061,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3GB5WJ43G4;
+				DEVELOPMENT_TEAM = U6CCD5BT22;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDooingWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DDooingWidget;
@@ -1072,7 +1072,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.KkaKka.DDooing.DDooingWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Seodongwon.DDooing.DDooingWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
