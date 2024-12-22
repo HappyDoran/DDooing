@@ -79,6 +79,10 @@
 		4FAD25C12BF3339B00EBD37A /* DDooingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25C02BF3339B00EBD37A /* DDooingTests.swift */; };
 		4FAD25CB2BF3339B00EBD37A /* DDooingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25CA2BF3339B00EBD37A /* DDooingUITests.swift */; };
 		4FAD25CD2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD25CC2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift */; };
+		4FB3E1F52D186FA5000C08A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FB3E1F42D186FA5000C08A8 /* GoogleService-Info.plist */; };
+		4FB3E1F62D186FA5000C08A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FB3E1F42D186FA5000C08A8 /* GoogleService-Info.plist */; };
+		4FB3E1F72D186FA5000C08A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FB3E1F42D186FA5000C08A8 /* GoogleService-Info.plist */; };
+		4FB3E1F82D186FA5000C08A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FB3E1F42D186FA5000C08A8 /* GoogleService-Info.plist */; };
 		4FBE64B52BFDC940008363A0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBE64B42BFDC940008363A0 /* WidgetKit.framework */; };
 		4FBE64B72BFDC940008363A0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBE64B62BFDC940008363A0 /* SwiftUI.framework */; };
 		4FBE64BA2BFDC940008363A0 /* DDooingWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE64B92BFDC940008363A0 /* DDooingWidgetBundle.swift */; };
@@ -177,6 +181,7 @@
 		4FAD25C62BF3339B00EBD37A /* DDooingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DDooingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FAD25CA2BF3339B00EBD37A /* DDooingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingUITests.swift; sourceTree = "<group>"; };
 		4FAD25CC2BF3339B00EBD37A /* DDooingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDooingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4FB3E1F42D186FA5000C08A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FBE64B32BFDC940008363A0 /* DDooingWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DDooingWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FBE64B42BFDC940008363A0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		4FBE64B62BFDC940008363A0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -352,6 +357,7 @@
 		4FAD25A32BF3339A00EBD37A = {
 			isa = PBXGroup;
 			children = (
+				4FB3E1F42D186FA5000C08A8 /* GoogleService-Info.plist */,
 				4FBE64CB2BFDCB80008363A0 /* DDooingWidgetExtension.entitlements */,
 				4FAD25AE2BF3339A00EBD37A /* DDooing */,
 				4FAD25BF2BF3339B00EBD37A /* DDooingTests */,
@@ -593,6 +599,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FB3E1F52D186FA5000C08A8 /* GoogleService-Info.plist in Resources */,
 				4FAD25B72BF3339B00EBD37A /* Preview Assets.xcassets in Resources */,
 				4F1A59492BF8892000C3EF2C /* Pretendard-Bold.otf in Resources */,
 				4F3F813C2BFDDCEC008C920C /* Assets.xcassets in Resources */,
@@ -619,6 +626,7 @@
 				4F1A594D2BF8892000C3EF2C /* Pretendard-Thin.otf in Resources */,
 				4F1A59442BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59562BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
+				4FB3E1F82D186FA5000C08A8 /* GoogleService-Info.plist in Resources */,
 				4F1A59502BF8892000C3EF2C /* Pretendard-Black.otf in Resources */,
 				4F1A593E2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */,
 			);
@@ -635,6 +643,7 @@
 				4F1A594E2BF8892000C3EF2C /* Pretendard-Thin.otf in Resources */,
 				4F1A59452BF8892000C3EF2C /* Pretendard-Regular.otf in Resources */,
 				4F1A59572BF8892000C3EF2C /* Pretendard-SemiBold.otf in Resources */,
+				4FB3E1F62D186FA5000C08A8 /* GoogleService-Info.plist in Resources */,
 				4F1A59512BF8892000C3EF2C /* Pretendard-Black.otf in Resources */,
 				4F1A593F2BF8892000C3EF2C /* Pretendard-ExtraBold.otf in Resources */,
 			);
@@ -644,6 +653,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FB3E1F72D186FA5000C08A8 /* GoogleService-Info.plist in Resources */,
 				4F6D48A52C00BF5A008B2A7F /* Pretendard-ExtraLight.otf in Resources */,
 				4F3F813F2BFDDEDC008C920C /* Assets.xcassets in Resources */,
 				4F6D48A32C00BF57008B2A7F /* Pretendard-Bold.otf in Resources */,

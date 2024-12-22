@@ -146,6 +146,6 @@ xcuserdata
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # Firebase configuration file
-GoogleService-Info.plist
+*.plist
 
 # End of https://www.toptal.com/developers/gitignore/api/xcode,swift,swiftpackagemanager,macos,cocoapods
