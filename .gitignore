@@ -174,4 +174,3 @@ GoogleService-Info.plist
 serviceAccountKey.json
 
 # End of https://www.toptal.com/developers/gitignore/api/xcode,swift,swiftpackagemanager,macos,cocoapods
-.claude/settings.local.json
